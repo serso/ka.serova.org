@@ -496,6 +496,7 @@
 </div>
 <div style="clear: both;"></div>
 </div>
+<div class='copyright-bottom'><img src="/resources/images/heart-small.png" alt="heart"></div>
 </div>
 
 <script type="text/javascript">
