@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body class="grass">
 <div id="page">
 <div id="container">
 
@@ -51,24 +51,44 @@
 		<div class="image-title">Leaf</div>
 
 		<div class="image-desc">
-
-			<form action="index.php" method="get">
-				<input type="hidden" name="item_id" value="45">
-
-				<label lang="en" for="email" class="form-input-label">Email</label>
-				<input type="text" name="email" id="email" class="form-input">
-
-				<label lang="en" for="phone" class="form-input-label">Phone Number</label>
-				<input type="text" name="phone" id="phone" class="form-input">
-
-				<label lang="en" for="additional_info" class="form-input-label">Phone Number</label>
-				<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40" rows="15"></textarea>
-
-				<input type="submit" value="Order">
-
-			</form>
-
+			Description
 		</div>
+
+		<form action="index.php" method="get">
+			<table class="form-table">
+				<tr class="form-tr">
+					<td class="form-td">
+						<label lang="en" for="email" class="form-input-label">Email</label>
+					</td>
+					<td class="form-td">
+						<input type="hidden" name="item_id" value="45">
+						<input type="text" name="email" id="email" class="form-input">
+					</td>
+				</tr>
+				<tr class="form-tr">
+					<td class="form-td">
+						<label lang="en" for="phone" class="form-input-label">Phone Number</label>
+					</td>
+					<td class="form-td">
+						<input type="text" name="phone" id="phone" class="form-input">
+					</td>
+				</tr>
+				<tr class="form-tr">
+					<td class="form-td">
+						<label lang="en" for="additional_info" class="form-input-label">Additional
+																						information</label>
+					</td>
+					<td class="form-td">
+						<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40" rows="15"></textarea>
+					</td>
+				</tr>
+				<tr class="form-tr">
+					<td class="form-td" colspan="2">
+						<input type="submit" value="Order">
+					</td>
+				</tr>
+			</table>
+		</form>
 	</div>
 </li>
 
@@ -94,7 +114,28 @@
 		</div>
 
 		<div class="image-title">Title #2</div>
-		<div class="image-desc">Description</div>
+		<div class="image-desc">
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+		</div>
 	</div>
 </li>
 
@@ -110,7 +151,33 @@
 			<a href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_b.jpg">Download Original</a>
 		</div>
 		<div class="image-title">Title #3</div>
-		<div class="image-desc">Description</div>
+		<div class="image-desc">
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+
+
+			I have seen this question asked in many forums, however the solution presented worked on selected browsers
+			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
+			other browser versions as well!
+		</div>
 
 	</div>
 </li>
@@ -430,7 +497,6 @@
 <div style="clear: both;"></div>
 </div>
 </div>
-<div id="footer">&copy; 2009 Trent Foley</div>
 
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
