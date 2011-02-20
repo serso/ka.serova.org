@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>ka.serova hand made accessories</title>
@@ -17,6 +18,7 @@
 	</script>
 
 </head>
+
 <body>
 <div id="page">
 <div id="container">
