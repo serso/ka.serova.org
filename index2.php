@@ -383,6 +383,7 @@
 				<div style="clear: both;"></div>
 			</div>
 		</div>
+
 		<div id="footer">&copy; 2009 Trent Foley</div>
 
 		<script type="text/javascript">

@@ -42,7 +42,7 @@
 <div id="thumbs" class="navigation">
 <ul class="thumbs noscript">
 <li>
-	<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0">
+	<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0" id="4534">
 		<img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0"/>
 	</a>
 
@@ -53,47 +53,11 @@
 		<div class="image-desc">
 			Description
 		</div>
-
-		<form action="index.php" method="get">
-			<table class="form-table">
-				<tr class="form-tr">
-					<td class="form-td">
-						<label lang="en" for="email" class="form-input-label">Email</label>
-					</td>
-					<td class="form-td">
-						<input type="hidden" name="item_id" value="45">
-						<input type="text" name="email" id="email" class="form-input">
-					</td>
-				</tr>
-				<tr class="form-tr">
-					<td class="form-td">
-						<label lang="en" for="phone" class="form-input-label">Phone Number</label>
-					</td>
-					<td class="form-td">
-						<input type="text" name="phone" id="phone" class="form-input">
-					</td>
-				</tr>
-				<tr class="form-tr">
-					<td class="form-td">
-						<label lang="en" for="additional_info" class="form-input-label">Additional
-																						information</label>
-					</td>
-					<td class="form-td">
-						<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40" rows="15"></textarea>
-					</td>
-				</tr>
-				<tr class="form-tr">
-					<td class="form-td" colspan="2">
-						<input type="submit" value="Order">
-					</td>
-				</tr>
-			</table>
-		</form>
 	</div>
 </li>
 
 <li>
-	<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1">
+	<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1" id="213">
 		<img src="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9_s.jpg" alt="Title #1"/>
 	</a>
 
@@ -104,7 +68,7 @@
 
 <li>
 	<a class="thumb" name="bigleaf" href="http://farm3.static.flickr.com/2093/2538168854_f75e408156.jpg"
-	   title="Title #2">
+	   title="Title #2"  id="212">
 		<img src="http://farm3.static.flickr.com/2093/2538168854_f75e408156_s.jpg" alt="Title #2"/>
 	</a>
 
@@ -141,7 +105,7 @@
 
 <li>
 	<a class="thumb" name="lizard" href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b.jpg"
-	   title="Title #3">
+	   title="Title #3"  id="211">
 		<img src="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_s.jpg" alt="Title #3"/>
 
 	</a>
@@ -494,9 +458,46 @@
 </li>
 </ul>
 </div>
+<div id="extra">
+	<form action="index.php" method="get">
+		<table class="form-table">
+			<tr class="form-tr">
+				<td class="form-td">
+					<label lang="en" for="email" class="form-input-label">Email</label>
+				</td>
+				<td class="form-td">
+					<input type="hidden" name="item_id" id="item_id">
+					<input type="text" name="email" id="email" class="form-input">
+				</td>
+			</tr>
+			<tr class="form-tr">
+				<td class="form-td">
+					<label lang="en" for="phone" class="form-input-label">Phone Number</label>
+				</td>
+				<td class="form-td">
+					<input type="text" name="phone" id="phone" class="form-input">
+				</td>
+			</tr>
+			<tr class="form-tr">
+				<td class="form-td">
+					<label lang="en" for="additional_info" class="form-input-label">Additional
+																					information</label>
+				</td>
+				<td class="form-td">
+					<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40" rows="15"></textarea>
+				</td>
+			</tr>
+			<tr class="form-tr">
+				<td class="form-td" colspan="2">
+					<input type="submit" value="Order">
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="footer">&copy; 2011 se.solovyev</div>
 <div style="clear: both;"></div>
 </div>
-<div class='copyright-bottom'><img src="/resources/images/heart-small.png" alt="heart"></div>
 </div>
 
 <script type="text/javascript">
@@ -543,6 +544,8 @@
 				this.find('ul.thumbs').children()
 						.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
 						.eq(nextIndex).fadeTo('fast', 1.0);
+
+				$('input#item_id')[0].value = this.find('ul.thumbs').children().eq(nextIndex).find('a.thumb')[0].id;
 			},
 
 			onPageTransitionOut:	   function(callback) {
