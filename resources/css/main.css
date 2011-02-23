@@ -12,16 +12,16 @@ body {
 }
 
 body.grass {
-	background: url("/resources/images/grass.jpg") repeat fixed;
+	background: url("../images/sweets.gif") repeat fixed;
 }
 
 a {
-	color: green;
+	color: #C61039;
 	text-decoration: none;
 }
 
 a:focus, a:hover, a:active {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 p, li {
@@ -34,13 +34,31 @@ h2 {
 	letter-spacing: -1px;
 }
 
+ul#menu_list {
+    text-align: center;
+    display: block;
+    list-style-type: disc;
+}
+
+ul#menu_list a {
+	color: inherit;
+}
+
+ul#menu_list li {
+    list-style: none;
+    float: left;
+   	font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-size: 2em;
+    margin-left: 15px;
+    margin-right:15px;
+    letter-spacing:5px;
+}
+
 h1 {
 	font-family: "Arial Black", sans-serif;
-	margin: 0 0 10px 0;
 	letter-spacing: -1px;
-	padding: 0;
-	font-size: 3em;
-	color: green;
+	font-size: 8em;
+	color: #C61039;
 }
 
 h2 {
@@ -64,7 +82,7 @@ div#page {
 }
 
 div#container {
-	padding: 20px;
+    padding: 0 20px 20px;
 }
 
 div#ads {
