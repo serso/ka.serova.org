@@ -4,13 +4,13 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>ka.serova hand made accessories</title>
 
-	<link rel="stylesheet" href="/resources/css/main.css" type="text/css"/>
-	<link rel="stylesheet" href="/resources/css/galleriffic.css" type="text/css"/>
+	<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
+	<link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
 
-	<script type="text/javascript" src="/resources/js/jquery-1.5.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.galleriffic.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.opacityrollover.js"></script>
-	<script type="text/javascript" src="/resources/js/jquery.history.js"></script>
+	<script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.galleriffic.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.opacityrollover.js"></script>
+	<script type="text/javascript" src="resources/js/jquery.history.js"></script>
 
 	<!-- We only want the thumbnails to display when javascript is disabled -->
 	<script type="text/javascript">
