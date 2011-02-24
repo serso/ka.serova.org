@@ -1,0 +1,13 @@
+a {
+	color: #004a79;
+}
+
+h1 {
+	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #004a79;
+}
+
+body.category_background {
+	background: url("../images/birds.png") repeat fixed;
+}
