@@ -12,7 +12,7 @@ body {
 }
 
 body.grass {
-	background: url("/resources/images/grass.jpg") repeat fixed;
+	background: url("background.jpg") repeat fixed;
 }
 
 a {
