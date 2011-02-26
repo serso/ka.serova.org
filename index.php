@@ -1,10 +1,118 @@
 <html>
 
+<?php
+
+function getRequestParams($defaultValues = null,
+	$overwrite = false,
+	$superGlobalArrayNames = array('_GET', '_POST', '_COOKIE'))
+{
+
+	$result = array();
+
+	// fetch values from request
+	foreach ($superGlobalArrayNames as $superGlobalArrayName) {
+		foreach ($GLOBALS[$superGlobalArrayName] as $k => $v) {
+			$result[$k] = $v;
+		}
+	}
+
+	// apply defaults for missing parameters
+	if ($defaultValues) {
+		foreach ($defaultValues as $k => $v) {
+			if (!isset($result[$k])) {
+				$result[$k] = $v;
+			}
+		}
+	}
+
+	if ($overwrite) {
+		$_REQUEST = $result;
+	}
+
+	return $result;
+}
+
+class CategoryData
+{
+	// property declaration
+	public $category;
+
+	public $translation;
+
+	public $cssFileName;
+
+	public function __construct($category, $cssFileName, $translation)
+	{
+		$this->category = $category;
+		$this->cssFileName = $cssFileName;
+		$this->translation = $translation;
+	}
+
+
+
+	public function setCategory($category)
+	{
+		$this->category = $category;
+	}
+
+	public function getCategory()
+	{
+		return $this->category;
+	}
+
+	public function setCssFileName($cssFileName)
+	{
+		$this->cssFileName = $cssFileName;
+	}
+
+	public function getCssFileName()
+	{
+		return $this->cssFileName;
+	}
+
+	public function setTranslation($translation)
+	{
+		$this->translation = $translation;
+	}
+
+	public function getTranslation()
+	{
+		return $this->translation;
+	}
+
+
+}
+
+class Category
+{
+	const flowers = "flowers";
+	const candies = "candies";
+	const cat3 = "cat3";
+	const cat4 = "cat4";
+	const cat5 = "cat5";
+}
+
+$categories = array(
+	Category::flowers => new CategoryData(Category::flowers, "resources/css/flowers.css", "Flowers"),
+	Category::candies => new CategoryData(Category::candies, "resources/css/candy.css", "Candies"),
+	Category::cat3 => new CategoryData(Category::cat3, "resources/css/brown.css", "Category3"),
+	Category::cat4 => new CategoryData(Category::cat4, "resources/css/pictures.css", "Category4"),
+	Category::cat5 => new CategoryData(Category::cat5, "resources/css/flowers.css", "Category5"));
+
+$requestParams = getRequestParams(array("category" => Category::flowers));
+
+$selectedCategory = $categories[$requestParams["category"]];
+if ( !isset($selectedCategory) ) {
+	$selectedCategory =  $categories[Category::flowers];
+}
+?>
+
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title><?php echo("test");?></title>
+	<title>ka.serova hand made accessories</title>
 
 	<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo ( $selectedCategory->getCssFileName() ); ?>" type="text/css"/>
 	<link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
 
 	<script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
@@ -19,13 +127,23 @@
 
 </head>
 
-<body class="grass">
+<body class="category_background">
 <div id="page">
 <div id="container">
 
-<h1><a href="index.php">ka.serova home</a></h1>
+<h1 align="center" style="margin:0;height:130px;">
+	<a href="index.php">ka⚘serova</a>
+</h1>
 
-<h2>Hand made accessories</h2>
+<div id="h_menu" style="height:60px;">
+	<ul id="menu_list">
+		<?php
+		foreach($categories as $k => $v) {
+			echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
+		}
+		?>
+	</ul>
+</div>
 
 <!-- Start Advanced Gallery Html Containers -->
 <div id="gallery" class="content">
@@ -42,7 +160,8 @@
 <div id="thumbs" class="navigation">
 <ul class="thumbs noscript">
 <li>
-	<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0" id="4534">
+	<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"
+	   id="4534">
 		<img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0"/>
 	</a>
 
@@ -57,7 +176,8 @@
 </li>
 
 <li>
-	<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1" id="213">
+	<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1"
+	   id="213">
 		<img src="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9_s.jpg" alt="Title #1"/>
 	</a>
 
@@ -68,7 +188,7 @@
 
 <li>
 	<a class="thumb" name="bigleaf" href="http://farm3.static.flickr.com/2093/2538168854_f75e408156.jpg"
-	   title="Title #2"  id="212">
+	   title="Title #2" id="212">
 		<img src="http://farm3.static.flickr.com/2093/2538168854_f75e408156_s.jpg" alt="Title #2"/>
 	</a>
 
@@ -105,7 +225,7 @@
 
 <li>
 	<a class="thumb" name="lizard" href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b.jpg"
-	   title="Title #3"  id="211">
+	   title="Title #3" id="211">
 		<img src="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_s.jpg" alt="Title #3"/>
 
 	</a>
@@ -481,10 +601,11 @@
 			<tr class="form-tr">
 				<td class="form-td">
 					<label lang="en" for="additional_info" class="form-input-label">Additional
-																					information</label>
+						information</label>
 				</td>
 				<td class="form-td">
-					<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40" rows="15"></textarea>
+					<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40"
+							  rows="15"></textarea>
 				</td>
 			</tr>
 			<tr class="form-tr">
