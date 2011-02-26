@@ -1,118 +1,29 @@
-<html>
-
 <?php
 
-function getRequestParams($defaultValues = null,
-	$overwrite = false,
-	$superGlobalArrayNames = array('_GET', '_POST', '_COOKIE'))
-{
-
-	$result = array();
-
-	// fetch values from request
-	foreach ($superGlobalArrayNames as $superGlobalArrayName) {
-		foreach ($GLOBALS[$superGlobalArrayName] as $k => $v) {
-			$result[$k] = $v;
-		}
-	}
-
-	// apply defaults for missing parameters
-	if ($defaultValues) {
-		foreach ($defaultValues as $k => $v) {
-			if (!isset($result[$k])) {
-				$result[$k] = $v;
-			}
-		}
-	}
-
-	if ($overwrite) {
-		$_REQUEST = $result;
-	}
-
-	return $result;
-}
-
-class CategoryData
-{
-	// property declaration
-	public $category;
-
-	public $translation;
-
-	public $cssFileName;
-
-	public function __construct($category, $cssFileName, $translation)
-	{
-		$this->category = $category;
-		$this->cssFileName = $cssFileName;
-		$this->translation = $translation;
-	}
-
-
-
-	public function setCategory($category)
-	{
-		$this->category = $category;
-	}
-
-	public function getCategory()
-	{
-		return $this->category;
-	}
-
-	public function setCssFileName($cssFileName)
-	{
-		$this->cssFileName = $cssFileName;
-	}
-
-	public function getCssFileName()
-	{
-		return $this->cssFileName;
-	}
-
-	public function setTranslation($translation)
-	{
-		$this->translation = $translation;
-	}
-
-	public function getTranslation()
-	{
-		return $this->translation;
-	}
-
-
-}
-
-class Category
-{
-	const flowers = "flowers";
-	const candies = "candies";
-	const cat3 = "cat3";
-	const cat4 = "cat4";
-	const cat5 = "cat5";
-}
+include ("include/header.php");
 
 $categories = array(
 	Category::flowers => new CategoryData(Category::flowers, "resources/css/flowers.css", "Flowers"),
-	Category::candies => new CategoryData(Category::candies, "resources/css/candy.css", "Candies"),
-	Category::cat3 => new CategoryData(Category::cat3, "resources/css/brown.css", "Category3"),
-	Category::cat4 => new CategoryData(Category::cat4, "resources/css/pictures.css", "Category4"),
-	Category::cat5 => new CategoryData(Category::cat5, "resources/css/flowers.css", "Category5"));
+	Category::yummy => new CategoryData(Category::yummy, "resources/css/candy.css", "Yummy"),
+	Category::metal_and_beads => new CategoryData(Category::metal_and_beads, "resources/css/brown.css", "Metal & Beads"),
+	Category::pics => new CategoryData(Category::pics, "resources/css/pictures.css", "Pics"),
+	Category::other => new CategoryData(Category::other, "resources/css/flowers.css", "Other"));
 
 $requestParams = getRequestParams(array("category" => Category::flowers));
 
 $selectedCategory = $categories[$requestParams["category"]];
-if ( !isset($selectedCategory) ) {
-	$selectedCategory =  $categories[Category::flowers];
+if (!isset($selectedCategory)) {
+	$selectedCategory = $categories[Category::flowers];
 }
 ?>
 
+<html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>ka.serova hand made accessories</title>
 
 	<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
-	<link rel="stylesheet" href="<?php echo ( $selectedCategory->getCssFileName() ); ?>" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo ($selectedCategory->getCssFileName()); ?>" type="text/css"/>
 	<link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
 
 	<script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
@@ -137,11 +48,11 @@ if ( !isset($selectedCategory) ) {
 
 <div id="h_menu" style="height:60px;">
 	<ul id="menu_list">
-		<?php
-		foreach($categories as $k => $v) {
-			echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
-		}
-		?>
+<?php
+		foreach ($categories as $k => $v) {
+	echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
+}
+	?>
 	</ul>
 </div>
 
@@ -601,7 +512,7 @@ if ( !isset($selectedCategory) ) {
 			<tr class="form-tr">
 				<td class="form-td">
 					<label lang="en" for="additional_info" class="form-input-label">Additional
-						information</label>
+																					information</label>
 				</td>
 				<td class="form-td">
 					<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40"
