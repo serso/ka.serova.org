@@ -560,7 +560,7 @@ if (!isset($selectedCategory)) {
 			controlsContainerSel:		'#controls',
 			captionContainerSel:		'#caption',
 			loadingContainerSel:		'#loading',
-			renderSSControls:			true,
+			renderSSControls:			false,
 			renderNavControls:			true,
 			prevLinkText:				'&lsaquo; Previous',
 			nextLinkText:				'Next &rsaquo;',
