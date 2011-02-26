@@ -1,0 +1,13 @@
+a {
+	color: #316727;
+}
+
+h1 {
+	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #316727;
+}
+
+body.category_background {
+	background: url("../images/flowers.jpg") repeat fixed;
+}

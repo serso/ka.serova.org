@@ -11,12 +11,7 @@ body {
 	font-size: 75%;
 }
 
-body.grass {
-	background: url("../images/sweets.gif") repeat fixed;
-}
-
 a {
-	color: #C61039;
 	text-decoration: none;
 }
 
@@ -55,10 +50,7 @@ ul#menu_list li {
 }
 
 h1 {
-	font-family: "Arial Black", sans-serif;
-	letter-spacing: -1px;
 	font-size: 8em;
-	color: #C61039;
 }
 
 h2 {

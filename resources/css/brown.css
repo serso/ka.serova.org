@@ -1,0 +1,13 @@
+a {
+	color: #4b1a0b;
+}
+
+h1 {
+	letter-spacing: 25px;
+	font-family: "Arial Black", sans-serif;
+	color: #4b1a0b;
+}
+
+body.category_background {
+	background: url("../images/cucumbers4.jpg") repeat fixed;
+}

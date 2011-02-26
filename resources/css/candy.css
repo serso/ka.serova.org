@@ -1,0 +1,13 @@
+a {
+	color: #C61039;
+}
+
+h1 {
+	letter-spacing: 25px;
+	font-family: "Arial Black", sans-serif;
+	color: #C61039;
+}
+
+body.category_background {
+	background: url("../images/sweets.gif") repeat fixed;
+}
