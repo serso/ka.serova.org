@@ -12,13 +12,13 @@ if ($requestParams['action'] == 'add') {
 
 		// Session::getInstance()->messageCollector->addMessage($requestParamName . "-> " . $requestParam);
 
-		if ( startsWith($requestParamName, "item_") ) {
+		if (startsWith($requestParamName, "item_")) {
 
 			$cropped = substr($requestParamName, 5);
 
 			$index = strstr($cropped, "_", true);
 
-			if (is_numeric($index) ) {
+			if (is_numeric($index)) {
 
 				$propertyName = substr($cropped, strlen($index) + 1);
 
@@ -26,7 +26,7 @@ if ($requestParams['action'] == 'add') {
 
 				$element = $itemsForAdd[$index];
 
-				if ( !isset($element)) {
+				if (!isset($element)) {
 					$element = new Item();
 					$itemsForAdd[$index] = $element;
 				}
@@ -34,12 +34,12 @@ if ($requestParams['action'] == 'add') {
 				$element->set($propertyName, $requestParam);
 
 			} else {
-				Session::getInstance()->messageCollector->addMessage("Cannot be parsed - not numeric: ". $requestParamName . "-> " . $requestParam);
+				Session::getInstance()->messageCollector->addMessage("Cannot be parsed - not numeric: " . $requestParamName . "-> " . $requestParam);
 			}
 		}
 	}
 
-	foreach ( $itemsForAdd as $k => $v ) {
+	foreach ($itemsForAdd as $k => $v) {
 		Session::getInstance()->messageCollector->addMessage($v->toString());
 	}
 }
@@ -56,6 +56,28 @@ if ($requestParams['action'] == 'add') {
 	<link rel="stylesheet" href="../resources/css/galleriffic.css" type="text/css"/>
 
 	<script type="text/javascript" src="../resources/js/jquery-1.5.js"></script>
+	<script type="text/javascript" src="../resources/js/jquery.validate.js"></script>
+
+	<style type="text/css">
+		
+		label {
+			width: 10em;
+			float: left;
+		}
+
+		label.error {
+			float: none;
+			color: red;
+			padding-left: .5em;
+			vertical-align: top;
+		}
+
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#addItemsForm").validate();
+		});
+	</script>
 
 </head>
 
@@ -69,7 +91,7 @@ if ($requestParams['action'] == 'add') {
 		<form id="addItemsForm" action="management.php?action=add" method="post" enctype="multipart/form-data">
 			<input type="button" value="Add item" onclick="addItemForm()">
 
-			<input type="submit" value="Save">
+			<input type="submit" class="submit" value="Save" onclick="validateAndSubmitForm()">
 
 			<div id="startPoint"></div>
 
@@ -90,7 +112,9 @@ if ($requestParams['action'] == 'add') {
 	}
 
 	function removeElement(elementId) {
-		$('div#' + elementId).remove();
+		if (confirm("Do you really want to delete item?")) {
+			$('div#' + elementId).remove();
+		}
 	}
 
 	function createItemForm() {
@@ -101,17 +125,17 @@ if ($requestParams['action'] == 'add') {
 				'<h2 style="background-color:#a7d4fb;">Item # ' + i + '</h2>' +
 				'<table cellpadding="0" cellspacing="5" border="0" width="100%" bgcolor="#f0f8ff">' +
 				'<tr>' +
-				'<td>Title:</td><td><input type="text" name="item_' + i + '_title" id="item_' + i + '_title"></td>' +
-				'<td>Picture:</td><td><input type="file" name="item_' + i + '_picture" id="item_' + i + '_picture" accept="image/jpg,image/gif"></td>' +
+				'<td>Title:</td><td><input type="text" name="item_' + i + '_title" id="item_' + i + '_title" class="required" minlength="2"></td>' +
+				'<td>Picture:</td><td><input type="file" name="item_' + i + '_picture" id="item_' + i + '_picture" accept="png|jpeg|jpg|gif" class="required"></td>' +
 				'</tr>' +
 				'<tr>' +
-				'<td>Category:</td><td>' + createSelect('category', true, createCategoriesOptions) + ' </td>' +
-				'<td>Thumbnail:</td><td><input type="file" name="item_' + i + '_thumbnail" id="item_' + i + '_thumbnail" accept="image/jpg,image/gif"></td>' +
+				'<td>Category:</td><td>' + createSelect('category', true, true, createCategoriesOptions) + ' </td>' +
+				'<td>Thumbnail:</td><td><input type="file" name="item_' + i + '_thumbnail" id="item_' + i + '_thumbnail" accept="png|jpeg|jpg|gif" class="required"></td>' +
 				'</tr>' +
 				'<tr>' +
 				'<td>Description:</td><td colspan="3"><textarea rows="10" cols="20" name="item_' + i + '_description" id="item_' + i + '_description"></textarea></td>' +
 				'<tr>' +
-				'<td>Price:</td><td><input type="text" name="item_' + i + '_priceAmount" id="item_' + i + '_priceAmount">' + createSelect('priceCurrency', false, createCurrenciesOptions) + '</td><td colspan="2">&nbsp;</td>' +
+				'<td>Price:</td><td><input type="text" name="item_' + i + '_priceAmount" id="item_' + i + '_priceAmount" class="required digits">' + createSelect('priceCurrency', false, true, createCurrenciesOptions) + '</td><td colspan="2">&nbsp;</td>' +
 				'</tr>' +
 				'</tr>' +
 				'<tr>' +
@@ -121,11 +145,15 @@ if ($requestParams['action'] == 'add') {
 				'</div>';
 	}
 
-	function createSelect(name, multiple, optionsCreator) {
+	function createSelect(name, multiple, required, optionsCreator) {
 		var result = '<select name="item_' + i + '_' + name + '" id="item_' + i + '_' + name + '" ';
 
 		if (multiple) {
 			result = result + 'multiple="multiple" ';
+		}
+
+		if (required) {
+			result = result + 'class="required" ';
 		}
 
 		result = result + '>' +
