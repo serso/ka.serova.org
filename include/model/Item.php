@@ -14,6 +14,10 @@ class Item {
 
 	public $pictures;
 
+	public function __construct() {
+		$this->price = new MoneyValue();
+	}
+
 
 	public function setCreatorId($creatorId) {
 		$this->creatorId = $creatorId;
@@ -61,6 +65,43 @@ class Item {
 
 	public function getTitle() {
 		return $this->title;
+	}
+
+	public function toString() {
+		return "<strong>Item</strong></br>Item id = '" . $this->itemId . "'</br>" .
+				"Title= '" . $this->title . "'</br>" .
+				"Description = '" . $this->description . "'</br>" .
+				$this->price->toString() . "</br>" .
+				"Creator Id = '" . $this->creatorId . "'</br>";
+	}
+
+	public function set($name, $value) {
+		$result = false;
+
+		switch ($name) {
+			case "title":
+				$this->setTitle($value);
+				$result = true;
+				break;
+			case "description":
+				$this->setDescription($value);
+				$result = true;
+				break;
+			case "creatorId":
+				$this->setCreatorId($value);
+				$result = true;
+				break;
+			case "priceAmount":
+				$this->price->setAmount($value);
+				$result = true;
+				break;
+			case "priceCurrency":
+				$this->price->setCurrency($value);
+				$result = true;
+				break;
+		}
+
+		return $result;
 	}
 }
 

@@ -527,7 +527,7 @@ if (!isset($selectedCategory)) {
 		</table>
 	</form>
 </div>
-<div id="footer">&copy; 2011 se.solovyev</div>
+<?php include "include/footer.html" ?>
 <div style="clear: both;"></div>
 </div>
 </div>

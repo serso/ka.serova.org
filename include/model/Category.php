@@ -7,6 +7,11 @@ class Category
 	const yummy = "yummy";
 	const pics = "pics";
 	const other = "other";
+
+	public static function values () {
+		return array(Category::flowers, Category::metal_and_beads, Category::yummy, Category::pics, Category::other);
+	}
+
 }
 
 ?>

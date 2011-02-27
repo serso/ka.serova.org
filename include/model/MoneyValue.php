@@ -21,6 +21,11 @@ class MoneyValue {
 	public function getCurrency() {
 		return $this->currency;
 	}
+
+	public function toString () {
+		return "<strong>Money Value</strong></br>Amount = '" . $this->amount . "'</br>" .
+				"Currency = '" . $this->currency;
+	}
 }
 
 ?>
