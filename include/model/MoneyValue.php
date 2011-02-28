@@ -24,7 +24,7 @@ class MoneyValue {
 
 	public function toString () {
 		return "<strong>Money Value</strong></br>Amount = '" . $this->amount . "'</br>" .
-				"Currency = '" . $this->currency;
+				"Currency = '" . $this->currency . "'";
 	}
 }
 

@@ -4,46 +4,65 @@ include ("../include/header.php");
 
 $requestParams = getRequestParams();
 
-if ($requestParams['action'] == 'add') {
+$creatorId = Constants::$SYSTEM_USER_ID;
 
-	$itemsForAdd = array();
+switch ($requestParams['action']) {
 
-	foreach ($requestParams as $requestParamName => $requestParam) {
+	case 'add':
 
-		// Session::getInstance()->messageCollector->addMessage($requestParamName . "-> " . $requestParam);
+		$itemsForAdd = array();
 
-		if (startsWith($requestParamName, "item_")) {
+		foreach ($requestParams as $requestParamName => $requestParam) {
 
-			$cropped = substr($requestParamName, 5);
+			// Session::getInstance()->messageCollector->addMessage($requestParamName . "-> " . $requestParam);
 
-			$index = strstr($cropped, "_", true);
+			if (startsWith($requestParamName, "item_")) {
 
-			if (is_numeric($index)) {
+				$cropped = substr($requestParamName, 5);
 
-				$propertyName = substr($cropped, strlen($index) + 1);
+				$index = strstr($cropped, "_", true);
 
-				// Session::getInstance()->messageCollector->addMessage("Parsing '" . $propertyName . "' property");
+				if (is_numeric($index)) {
 
-				$element = $itemsForAdd[$index];
+					$propertyName = substr($cropped, strlen($index) + 1);
 
-				if (!isset($element)) {
-					$element = new Item();
-					$itemsForAdd[$index] = $element;
+					// Session::getInstance()->messageCollector->addMessage("Parsing '" . $propertyName . "' property");
+
+					$element = $itemsForAdd[$index];
+
+					if (!isset($element)) {
+						$element = new Item();
+						$itemsForAdd[$index] = $element;
+					}
+
+					$element->set($propertyName, $requestParam);
+
+				} else {
+					Session::getInstance()->messageCollector->addMessage("Cannot be parsed - not numeric: " . $requestParamName . "-> " . $requestParam);
 				}
-
-				$element->set($propertyName, $requestParam);
-
-			} else {
-				Session::getInstance()->messageCollector->addMessage("Cannot be parsed - not numeric: " . $requestParamName . "-> " . $requestParam);
 			}
 		}
-	}
 
-	foreach ($itemsForAdd as $k => $v) {
-		Session::getInstance()->messageCollector->addMessage($v->toString());
-	}
+		try {
+			$insertItemCommand = new InsertItemCommand($dbh);
+			foreach ($itemsForAdd as $k => $v) {
+				$v->setCreatorId($creatorId);
+				$insertItemCommand->insert($v, $dbh);
+				Session::getInstance()->messageCollector->addMessage($v->toString());
+			}
+		} catch (PDOExecption $e) {
+			echo "Error!: " . $e->getMessage() . "</br>";
+		}
+		break;
+
+	case 'show':
+
+		$itemProducer = new ItemProducer($dbh);
+		$items = $itemProducer->execute();
+
+		break;
+
 }
-
 ?>
 
 <html>
@@ -59,7 +78,7 @@ if ($requestParams['action'] == 'add') {
 	<script type="text/javascript" src="../resources/js/jquery.validate.js"></script>
 
 	<style type="text/css">
-		
+
 		label {
 			width: 10em;
 			float: left;
@@ -87,6 +106,15 @@ if ($requestParams['action'] == 'add') {
 	<div id="container">
 
 		<?php include "../include/message_box.html" ?>
+
+		<a href="management.php?action=show">Show all</a> | 
+		<a href="management.php?action=add">Clear</a><br>
+
+<?php
+		foreach ($items as $k => $item) {
+		echo $item->toString();
+	}
+		?>
 
 		<form id="addItemsForm" action="management.php?action=add" method="post" enctype="multipart/form-data">
 			<input type="button" value="Add item" onclick="addItemForm()">
@@ -126,16 +154,16 @@ if ($requestParams['action'] == 'add') {
 				'<table cellpadding="0" cellspacing="5" border="0" width="100%" bgcolor="#f0f8ff">' +
 				'<tr>' +
 				'<td>Title:</td><td><input type="text" name="item_' + i + '_title" id="item_' + i + '_title" class="required" minlength="2"></td>' +
-				'<td>Picture:</td><td><input type="file" name="item_' + i + '_picture" id="item_' + i + '_picture" accept="png|jpeg|jpg|gif" class="required"></td>' +
+				'<td>Picture:</td><td><input type="file" name="item_' + i + '_picture" id="item_' + i + '_picture" accept="png|jpeg|jpg|gif"></td>' +
 				'</tr>' +
 				'<tr>' +
 				'<td>Category:</td><td>' + createSelect('category', true, true, createCategoriesOptions) + ' </td>' +
-				'<td>Thumbnail:</td><td><input type="file" name="item_' + i + '_thumbnail" id="item_' + i + '_thumbnail" accept="png|jpeg|jpg|gif" class="required"></td>' +
+				'<td>Thumbnail:</td><td><input type="file" name="item_' + i + '_thumbnail" id="item_' + i + '_thumbnail" accept="png|jpeg|jpg|gif"></td>' +
 				'</tr>' +
 				'<tr>' +
 				'<td>Description:</td><td colspan="3"><textarea rows="10" cols="20" name="item_' + i + '_description" id="item_' + i + '_description"></textarea></td>' +
 				'<tr>' +
-				'<td>Price:</td><td><input type="text" name="item_' + i + '_priceAmount" id="item_' + i + '_priceAmount" class="required digits">' + createSelect('priceCurrency', false, true, createCurrenciesOptions) + '</td><td colspan="2">&nbsp;</td>' +
+				'<td>Price:</td><td><input type="text" name="item_' + i + '_price_amount" id="item_' + i + '_price_amount" class="required digits">' + createSelect('price_currency', false, true, createCurrenciesOptions) + '</td><td colspan="2">&nbsp;</td>' +
 				'</tr>' +
 				'</tr>' +
 				'<tr>' +

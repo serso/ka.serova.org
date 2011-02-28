@@ -18,7 +18,6 @@ class Item {
 		$this->price = new MoneyValue();
 	}
 
-
 	public function setCreatorId($creatorId) {
 		$this->creatorId = $creatorId;
 	}
@@ -79,6 +78,10 @@ class Item {
 		$result = false;
 
 		switch ($name) {
+			case "item_id":
+				$this->setItemId($value);
+				$result = true;
+				break;
 			case "title":
 				$this->setTitle($value);
 				$result = true;
@@ -87,18 +90,68 @@ class Item {
 				$this->setDescription($value);
 				$result = true;
 				break;
-			case "creatorId":
+			case "creator_id":
 				$this->setCreatorId($value);
 				$result = true;
 				break;
-			case "priceAmount":
+			case "price_amount":
 				$this->price->setAmount($value);
 				$result = true;
 				break;
-			case "priceCurrency":
+			case "price_currency":
 				$this->price->setCurrency($value);
 				$result = true;
 				break;
+		}
+
+		return $result;
+	}
+}
+
+class InsertItemCommand extends InsertSqlCommand {
+
+	private $sql = "insert into items (title, description, price_amount, price_currency, creator_id) values (:title, :description, :price_amount, :price_currency, :creator_id)";
+
+	public function __construct($dbh) {
+		parent::__construct($this->sql, $dbh);
+	}
+
+	protected function getSqlValues() {
+		return array(
+			new SqlValue(':title', $this->object->getTitle(), PDO::PARAM_STR),
+			new SqlValue(':description', $this->object->getDescription(), PDO::PARAM_STR),
+			new SqlValue(':price_amount', $this->object->getPrice()->getAmount(), null),
+			new SqlValue(':price_currency', $this->object->getPrice()->getCurrency(), PDO::PARAM_STR),
+			new SqlValue(':creator_id', $this->object->getCreatorId(), PDO::PARAM_INT)
+		);
+	}
+
+	protected function setInsertedId($id) {
+		$this->object->setItemId($id);
+	}
+}
+
+class ItemProducer extends SqlCommand {
+
+	private $sql = "select item_id, title, description, price_amount, price_currency, creator_id from items";
+
+	public function __construct($dbh) {
+		parent::__construct($this->sql, $dbh);
+	}
+
+	public function execute() {
+		$result = array();
+
+		$this->stmt->execute();
+
+		while( $row = $this->stmt->fetch(PDO::FETCH_ASSOC)) {
+			$item = new Item();
+			
+			foreach ($row as $k => $v) {
+				$item->set($k, $v);
+			}
+
+			array_push($result, $item);
 		}
 
 		return $result;

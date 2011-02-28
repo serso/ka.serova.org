@@ -1,6 +1,8 @@
 <?php
 
-/*include ("db/config.php");*/
+include_once ("Constants.php");
+
+include_once ("db/config.php");
 
 include_once ("Session.php");
 include_once ("MessageCollector.php");
