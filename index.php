@@ -1,635 +1,218 @@
 <?php
+// Version
+define('VERSION', '1.4.9.4');
 
-include ("include/header.php");
+// Configuration
+require_once('config.php');
 
-$categories = array(
-	Category::flowers => new CategoryData(Category::flowers, "resources/css/flowers.css", "Flowers"),
-	Category::yummy => new CategoryData(Category::yummy, "resources/css/candy.css", "Yummy"),
-	Category::metal_and_beads => new CategoryData(Category::metal_and_beads, "resources/css/brown.css", "Metal & Beads"),
-	Category::pics => new CategoryData(Category::pics, "resources/css/pictures.css", "Pics"),
-	Category::other => new CategoryData(Category::other, "resources/css/flowers.css", "Other"));
-
-$requestParams = getRequestParams(array("category" => Category::flowers));
-
-$selectedCategory = $categories[$requestParams["category"]];
-if (!isset($selectedCategory)) {
-	$selectedCategory = $categories[Category::flowers];
+// Install 
+if (!defined('DIR_APPLICATION')) {
+	header('Location: install/index.php');
+	exit;
 }
-?>
 
-<html>
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>ka.serova hand made accessories</title>
+// Startup
+require_once(DIR_SYSTEM . 'startup.php');
 
-	<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
-	<link rel="stylesheet" href="<?php echo ($selectedCategory->getCssFileName()); ?>" type="text/css"/>
-	<link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
+// Application Classes
+require_once(DIR_SYSTEM . 'library/customer.php');
+require_once(DIR_SYSTEM . 'library/currency.php');
+require_once(DIR_SYSTEM . 'library/tax.php');
+require_once(DIR_SYSTEM . 'library/weight.php');
+require_once(DIR_SYSTEM . 'library/length.php');
+require_once(DIR_SYSTEM . 'library/cart.php');
 
-	<script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
-	<script type="text/javascript" src="resources/js/jquery.galleriffic.js"></script>
-	<script type="text/javascript" src="resources/js/jquery.opacityrollover.js"></script>
-	<script type="text/javascript" src="resources/js/jquery.history.js"></script>
+// Registry
+$registry = new Registry();
 
-	<!-- We only want the thumbnails to display when javascript is disabled -->
-	<script type="text/javascript">
-		document.write('<style>.noscript { display: none; }</style>');
-	</script>
+// Loader
+$loader = new Loader($registry);
+$registry->set('load', $loader);
 
-</head>
+// Config
+$config = new Config();
+$registry->set('config', $config);
 
-<body class="category_background">
-<div id="page">
-<div id="container">
+// Database 
+$db = new DB(DB_DRIVER, DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+$registry->set('db', $db);
 
-<h1 align="center" style="margin:0;height:130px;">
-	<a href="index.php">ka⚘serova</a>
-</h1>
+// Settings
+$query = $db->query("SELECT * FROM " . DB_PREFIX . "setting");
 
-<div id="h_menu" style="height:60px;">
-	<ul id="menu_list">
-<?php
-		foreach ($categories as $k => $v) {
-	echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
+foreach ($query->rows as $setting) {
+	$config->set($setting['key'], $setting['value']);
 }
-	?>
-	</ul>
-</div>
 
-<!-- Start Advanced Gallery Html Containers -->
-<div id="gallery" class="content">
-
-	<div id="controls" class="controls"></div>
-
-	<div class="slideshow-container">
-		<div id="loading" class="loader"></div>
-		<div id="selected_image" class="slideshow"></div>
-	</div>
-
-	<div id="caption" class="caption-container"></div>
-</div>
-<div id="thumbs" class="navigation">
-<ul class="thumbs noscript">
-<li>
-	<a class="thumb" name="leaf" href="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015.jpg" title="Title #0"
-	   id="4534">
-		<img src="http://farm4.static.flickr.com/3261/2538183196_8baf9a8015_s.jpg" alt="Title #0"/>
-	</a>
-
-	<div class="caption">
-
-		<div class="image-title">Leaf</div>
-
-		<div class="image-desc">
-			Description
-		</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" name="drop" href="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9.jpg" title="Title #1"
-	   id="213">
-		<img src="http://farm3.static.flickr.com/2404/2538171134_2f77bc00d9_s.jpg" alt="Title #1"/>
-	</a>
-
-	<div class="caption">
-		Any html can be placed here ...
-	</div>
-</li>
-
-<li>
-	<a class="thumb" name="bigleaf" href="http://farm3.static.flickr.com/2093/2538168854_f75e408156.jpg"
-	   title="Title #2" id="212">
-		<img src="http://farm3.static.flickr.com/2093/2538168854_f75e408156_s.jpg" alt="Title #2"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2093/2538168854_f75e408156_b.jpg">Download Original</a>
-		</div>
-
-		<div class="image-title">Title #2</div>
-		<div class="image-desc">
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-		</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" name="lizard" href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b.jpg"
-	   title="Title #3" id="211">
-		<img src="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_s.jpg" alt="Title #3"/>
-
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3153/2538167690_c812461b7b_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #3</div>
-		<div class="image-desc">
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-
-
-			I have seen this question asked in many forums, however the solution presented worked on selected browsers
-			only. Here’s a solution I have tested that works on IE7, FireFox 3 and Chrome. Hopefully it should work on
-			other browser versions as well!
-		</div>
-
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm4.static.flickr.com/3150/2538167224_0a6075dd18.jpg" title="Title #4">
-		<img src="http://farm4.static.flickr.com/3150/2538167224_0a6075dd18_s.jpg" alt="Title #4"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-
-			<a href="http://farm4.static.flickr.com/3150/2538167224_0a6075dd18_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #4</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-
-	<a class="thumb" href="http://farm4.static.flickr.com/3204/2537348699_bfd38bd9fd.jpg" title="Title #5">
-		<img src="http://farm4.static.flickr.com/3204/2537348699_bfd38bd9fd_s.jpg" alt="Title #5"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3204/2537348699_bfd38bd9fd_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #5</div>
-
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm4.static.flickr.com/3124/2538164582_b9d18f9d1b.jpg" title="Title #6">
-		<img src="http://farm4.static.flickr.com/3124/2538164582_b9d18f9d1b_s.jpg" alt="Title #6"/>
-	</a>
-
-	<div class="caption">
-
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3124/2538164582_b9d18f9d1b_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #6</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm4.static.flickr.com/3205/2538164270_4369bbdd23.jpg" title="Title #7">
-		<img src="http://farm4.static.flickr.com/3205/2538164270_4369bbdd23_s.jpg" alt="Title #7"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3205/2538164270_c7d1646ecf_o.jpg">Download Original</a>
-		</div>
-
-		<div class="image-title">Title #7</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm4.static.flickr.com/3211/2538163540_c2026243d2.jpg" title="Title #8">
-		<img src="http://farm4.static.flickr.com/3211/2538163540_c2026243d2_s.jpg" alt="Title #8"/>
-
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3211/2538163540_c2026243d2_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #8</div>
-		<div class="image-desc">Description</div>
-
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2315/2537343449_f933be8036.jpg" title="Title #9">
-		<img src="http://farm3.static.flickr.com/2315/2537343449_f933be8036_s.jpg" alt="Title #9"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-
-			<a href="http://farm3.static.flickr.com/2315/2537343449_f933be8036_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #9</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-
-	<a class="thumb" href="http://farm3.static.flickr.com/2167/2082738157_436d1eb280.jpg" title="Title #10">
-		<img src="http://farm3.static.flickr.com/2167/2082738157_436d1eb280_s.jpg" alt="Title #10"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2167/2082738157_436d1eb280_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #10</div>
-
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2342/2083508720_fa906f685e.jpg" title="Title #11">
-		<img src="http://farm3.static.flickr.com/2342/2083508720_fa906f685e_s.jpg" alt="Title #11"/>
-	</a>
-
-	<div class="caption">
-
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2342/2083508720_fa906f685e_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #11</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2132/2082721339_4b06f6abba.jpg" title="Title #12">
-		<img src="http://farm3.static.flickr.com/2132/2082721339_4b06f6abba_s.jpg" alt="Title #12"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2132/2082721339_4b06f6abba_b.jpg">Download Original</a>
-		</div>
-
-		<div class="image-title">Title #12</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2139/2083503622_5b17f16a60.jpg" title="Title #13">
-		<img src="http://farm3.static.flickr.com/2139/2083503622_5b17f16a60_s.jpg" alt="Title #13"/>
-
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2139/2083503622_5b17f16a60_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #13</div>
-		<div class="image-desc">Description</div>
-
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2041/2083498578_114e117aab.jpg" title="Title #14">
-		<img src="http://farm3.static.flickr.com/2041/2083498578_114e117aab_s.jpg" alt="Title #14"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-
-			<a href="http://farm3.static.flickr.com/2041/2083498578_114e117aab_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #14</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-
-	<a class="thumb" href="http://farm3.static.flickr.com/2149/2082705341_afcdda0663.jpg" title="Title #15">
-		<img src="http://farm3.static.flickr.com/2149/2082705341_afcdda0663_s.jpg" alt="Title #15"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2149/2082705341_afcdda0663_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #15</div>
-
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2014/2083478274_26775114dc.jpg" title="Title #16">
-		<img src="http://farm3.static.flickr.com/2014/2083478274_26775114dc_s.jpg" alt="Title #16"/>
-	</a>
-
-	<div class="caption">
-
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2014/2083478274_26775114dc_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #16</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2194/2083464534_122e849241.jpg" title="Title #17">
-		<img src="http://farm3.static.flickr.com/2194/2083464534_122e849241_s.jpg" alt="Title #17"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2194/2083464534_122e849241_b.jpg">Download Original</a>
-		</div>
-
-		<div class="image-title">Title #17</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm4.static.flickr.com/3127/2538173236_b704e7622e.jpg" title="Title #18">
-		<img src="http://farm4.static.flickr.com/3127/2538173236_b704e7622e_s.jpg" alt="Title #18"/>
-
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm4.static.flickr.com/3127/2538173236_b704e7622e_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #18</div>
-		<div class="image-desc">Description</div>
-
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2375/2538172432_3343a47341.jpg" title="Title #19">
-		<img src="http://farm3.static.flickr.com/2375/2538172432_3343a47341_s.jpg" alt="Title #19"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-
-			<a href="http://farm3.static.flickr.com/2375/2538172432_3343a47341_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #19</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-
-	<a class="thumb" href="http://farm3.static.flickr.com/2353/2083476642_d00372b96f.jpg" title="Title #20">
-		<img src="http://farm3.static.flickr.com/2353/2083476642_d00372b96f_s.jpg" alt="Title #20"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2353/2083476642_d00372b96f_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #20</div>
-
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34.jpg" title="Title #21">
-		<img src="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34_s.jpg" alt="Title #21"/>
-	</a>
-
-	<div class="caption">
-
-		<div class="download">
-			<a href="http://farm3.static.flickr.com/2201/1502907190_7b4a2a0e34_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Title #21</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm2.static.flickr.com/1116/1380178473_fc640e097a.jpg" title="Title #22">
-		<img src="http://farm2.static.flickr.com/1116/1380178473_fc640e097a_s.jpg" alt="Title #22"/>
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm2.static.flickr.com/1116/1380178473_fc640e097a_b.jpg">Download Original</a>
-		</div>
-
-		<div class="image-title">Title #22</div>
-		<div class="image-desc">Description</div>
-	</div>
-</li>
-
-<li>
-	<a class="thumb" href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6.jpg" title="Title #23">
-		<img src="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_s.jpg" alt="Title #23"/>
-
-	</a>
-
-	<div class="caption">
-		<div class="download">
-			<a href="http://farm2.static.flickr.com/1260/930424599_e75865c0d6_b.jpg">Download Original</a>
-		</div>
-		<div class="image-title">Test</div>
-
-		<div class="image-desc">
-			description
-		</div>
-
-	</div>
-</li>
-</ul>
-</div>
-<div id="extra">
-	<form action="index.php" method="get">
-		<table class="form-table">
-			<tr class="form-tr">
-				<td class="form-td">
-					<label lang="en" for="email" class="form-input-label">Email</label>
-				</td>
-				<td class="form-td">
-					<input type="hidden" name="item_id" id="item_id">
-					<input type="text" name="email" id="email" class="form-input">
-				</td>
-			</tr>
-			<tr class="form-tr">
-				<td class="form-td">
-					<label lang="en" for="phone" class="form-input-label">Phone Number</label>
-				</td>
-				<td class="form-td">
-					<input type="text" name="phone" id="phone" class="form-input">
-				</td>
-			</tr>
-			<tr class="form-tr">
-				<td class="form-td">
-					<label lang="en" for="additional_info" class="form-input-label">Additional
-																					information</label>
-				</td>
-				<td class="form-td">
-					<textarea name="additional_info" id="additional_info" class="form-text-area" cols="40"
-							  rows="15"></textarea>
-				</td>
-			</tr>
-			<tr class="form-tr">
-				<td class="form-td" colspan="2">
-					<input type="submit" value="Order">
-				</td>
-			</tr>
-		</table>
-	</form>
-</div>
-<?php include "include/footer.html" ?>
-<div style="clear: both;"></div>
-</div>
-</div>
-
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		// We only want these styles applied when javascript is enabled
-		$('div.navigation').css({'width' : '300px', 'float' : 'left'});
-		$('div.content').css('display', 'block');
-
-		// Initially set opacity on thumbs and add
-		// additional styling for hover effect on thumbs
-		var onMouseOutOpacity = 0.67;
-		$('#thumbs ul.thumbs li').opacityrollover({
-			mouseOutOpacity:   onMouseOutOpacity,
-			mouseOverOpacity:  1.0,
-			fadeSpeed:		 'fast',
-			exemptionSelector: '.selected'
-		});
-
-		// Initialize Advanced Galleriffic Gallery
-		var gallery = $('#thumbs').galleriffic({
-			delay:						2500,
-			numThumbs:					15,
-			preloadAhead:				10,
-			enableTopPager:				true,
-			enableBottomPager:			true,
-			maxPagesToShow:				7,
-			imageContainerSel:			'#selected_image',
-			controlsContainerSel:		'#controls',
-			captionContainerSel:		'#caption',
-			loadingContainerSel:		'#loading',
-			renderSSControls:			false,
-			renderNavControls:			true,
-			prevLinkText:				'&lsaquo; Previous',
-			nextLinkText:				'Next &rsaquo;',
-			nextPageLinkText:			'Next &rsaquo;',
-			prevPageLinkText:			'&lsaquo; Prev',
-			enableHistory:				true,
-			autoStart:					false,
-			syncTransitions:			true,
-			defaultTransitionDuration:	900,
-
-			onSlideChange:			 function(prevIndex, nextIndex) {
-				// 'this' refers to the gallery, which is an extension of $('#thumbs')
-				this.find('ul.thumbs').children()
-						.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
-						.eq(nextIndex).fadeTo('fast', 1.0);
-
-				$('input#item_id')[0].value = this.find('ul.thumbs').children().eq(nextIndex).find('a.thumb')[0].id;
-			},
-
-			onPageTransitionOut:	   function(callback) {
-				this.fadeTo('fast', 0.0, callback);
-			},
-
-			onPageTransitionIn:		function() {
-				this.fadeTo('fast', 1.0);
-			}
-
-		});
-
-		/**** Functions to support integration of galleriffic with the jquery.history plugin ****/
-
-		// PageLoad function
-		// This function is called when:
-		// 1. after calling $.historyInit();
-		// 2. after calling $.historyLoad();
-		// 3. after pushing "Go Back" button of a browser
-		function pageload(hash) {
-			// alert("pageload: " + hash);
-			// hash doesn't contain the first # character.
-			if (hash) {
-				$.galleriffic.gotoImage(hash);
-			} else {
-				gallery.gotoIndex(0);
+// Store
+$query = $db->query("SELECT * FROM " . DB_PREFIX . "store WHERE url = '" . $db->escape('http://' . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/.\\') . '/') . "' OR url = '" . $db->escape('http://' . str_replace('www.', '', $_SERVER['HTTP_HOST']) . rtrim(dirname($_SERVER['PHP_SELF']), '/.\\') . '/') . "'");
+
+foreach ($query->row as $key => $value) {
+	$config->set('config_' . $key, $value);
+}
+
+define('HTTP_SERVER', $config->get('config_url'));
+define('HTTP_IMAGE', HTTP_SERVER . 'image/');
+
+if ($config->get('config_ssl')) {
+	define('HTTPS_SERVER', 'https://' . substr($config->get('config_url'), 7));
+	define('HTTPS_IMAGE', HTTPS_SERVER . 'image/');	
+} else {
+	define('HTTPS_SERVER', HTTP_SERVER);
+	define('HTTPS_IMAGE', HTTP_IMAGE);	
+}
+
+// Log 
+$log = new Log($config->get('config_error_filename'));
+$registry->set('log', $log);
+
+// Error Handler
+function error_handler($errno, $errstr, $errfile, $errline) {
+	global $config, $log;
+	
+	switch ($errno) {
+		case E_NOTICE:
+		case E_USER_NOTICE:
+			$error = 'Notice';
+			break;
+		case E_WARNING:
+		case E_USER_WARNING:
+			$error = 'Warning';
+			break;
+		case E_ERROR:
+		case E_USER_ERROR:
+			$error = 'Fatal Error';
+			break;
+		default:
+			$error = 'Unknown';
+			break;
+	}
+		
+	if ($config->get('config_error_display')) {
+		echo '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
+	}
+	
+	if ($config->get('config_error_log')) {
+		$log->write('PHP ' . $error . ':  ' . $errstr . ' in ' . $errfile . ' on line ' . $errline);
+	}
+
+	return TRUE;
+}
+
+// Error Handler
+set_error_handler('error_handler');
+
+// Request
+$request = new Request();
+$registry->set('request', $request);
+ 
+// Response
+$response = new Response();
+$response->addHeader('Content-Type: text/html; charset=utf-8');
+$registry->set('response', $response); 
+
+// Cache
+$registry->set('cache', new Cache());
+
+// Session
+$session = new Session();
+$registry->set('session', $session);
+	
+// Document
+$registry->set('document', new Document());
+
+// Language Detection
+$languages = array();
+
+$query = $db->query("SELECT * FROM " . DB_PREFIX . "language");
+
+foreach ($query->rows as $result) {
+	$languages[$result['code']] = $result;
+}
+
+$detect = '';
+
+if (isset($request->server['HTTP_ACCEPT_LANGUAGE']) && ($request->server['HTTP_ACCEPT_LANGUAGE'])) {
+	$browser_languages = explode(',', $request->server['HTTP_ACCEPT_LANGUAGE']);
+
+	foreach ($browser_languages as $browser_language) {
+		foreach ($languages as $key => $value) {
+			if ($value['status']) {
+				$locale = explode(',', $value['locale']);
+
+				if (in_array($browser_language, $locale)) {
+					$detect = $key;
+				}
 			}
 		}
+	}
+}
 
-		// Initialize history plugin.
-		// The callback is called at once by present location.hash.
-		$.historyInit(pageload, "advanced.html");
+if (isset($request->get['language']) && array_key_exists($request->get['language'], $languages) && $languages[$request->get['language']]['status']) {
+	$code = $request->get['language'];
+} elseif (isset($session->data['language']) && array_key_exists($session->data['language'], $languages)) {
+	$code = $session->data['language'];
+} elseif (isset($request->cookie['language']) && array_key_exists($request->cookie['language'], $languages)) {
+	$code = $request->cookie['language'];
+} elseif ($detect) {
+	$code = $detect;
+} else {
+	$code = $config->get('config_language');
+}
 
-		// set onclick event for buttons using the jQuery 1.3 live method
-		$("a[rel='history']").live('click', function(e) {
-			if (e.button != 0) return true;
+if (!isset($session->data['language']) || $session->data['language'] != $code) {
+	$session->data['language'] = $code;
+}
 
-			var hash = this.href;
-			hash = hash.replace(/^.*#/, '');
+if (!isset($request->cookie['language']) || $request->cookie['language'] != $code) {
+	setcookie('language', $code, time() + 60 * 60 * 24 * 30, '/', $request->server['HTTP_HOST']);
+}
 
-			// moves to a new page.
-			// pageload is called at once.
-			// hash don't contain "#", "?"
-			$.historyLoad(hash);
+$config->set('config_language_id', $languages[$code]['language_id']);
+$config->set('config_language', $languages[$code]['code']);
 
-			return false;
-		});
+// Language		
+$language = new Language($languages[$code]['directory']);
+$language->load($languages[$code]['filename']);	
+$registry->set('language', $language);
 
-		/****************************************************************************************/
-	});
+// Customer
+$registry->set('customer', new Customer($registry));
 
-</script>
-</body>
+// Currency
+$registry->set('currency', new Currency($registry));
 
-</html>
+// Tax
+$registry->set('tax', new Tax($registry));
+
+// Weight
+$registry->set('weight', new Weight($registry));
+
+// Length
+$registry->set('length', new Length($registry));
+
+// Cart
+$registry->set('cart', new Cart($registry));
+
+// Front Controller 
+$controller = new Front($registry);
+
+// Maintenance Mode
+$controller->addPreAction(new Action('common/maintenance/check'));
+
+// SEO URL's
+$controller->addPreAction(new Action('common/seo_url'));
+
+// Router
+if (isset($request->get['route'])) {
+	$action = new Action($request->get['route']);
+} else {
+	$action = new Action('common/home');
+}
+
+// Dispatch
+$controller->dispatch($action, new Action('error/not_found'));
+
+// Output
+$response->output();
+?>

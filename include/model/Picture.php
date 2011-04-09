@@ -6,7 +6,6 @@ class Picture {
 
 	public $thumbnailPath;
 
-
 	public function setPath($path) {
 		$this->path = $path;
 	}
