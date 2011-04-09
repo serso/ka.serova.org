@@ -50,8 +50,8 @@ if (!isset($selectedCategory)) {
 	<ul id="menu_list">
 <?php
 		foreach ($categories as $k => $v) {
-	echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
-}
+			echo ("<li><a href='index.php?category=" . $v->getCategory() . "'>" . $v->getTranslation() . "</a></li>");
+		}
 	?>
 	</ul>
 </div>

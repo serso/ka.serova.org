@@ -50,9 +50,9 @@ final class Response {
 
 	public function output() {
 		if ($this->level) {
-			$ouput = $this->compress($this->output, $this->level);
+			$output = $this->compress($this->output, $this->level);
 		} else {
-			$ouput = $this->output;
+			$output = $this->output;
 		}	
 			
 		if (!headers_sent()) {
@@ -61,7 +61,7 @@ final class Response {
 			}
 		}
 		
-		echo $ouput;
+		echo $output;
 	}
 }
 ?>
