@@ -14,12 +14,12 @@
         <tr>
           <th align="center"><?php echo $column_remove; ?></th>
           <th align="center"><?php echo $column_image; ?></th>
-          <th align="left"><?php echo $column_name; ?></th>
-          <th align="left"><?php echo $column_model; ?></th>
-          <th align="right"><?php echo $column_quantity; ?></th>
+          <th align="center"><?php echo $column_name; ?></th>
+          <th align="center"><?php echo $column_model; ?></th>
+          <th align="center"><?php echo $column_quantity; ?></th>
           <?php if ($display_price) { ?>
-		  <th align="right"><?php echo $column_price; ?></th>
-          <th align="right"><?php echo $column_total; ?></th>
+		  <th align="center"><?php echo $column_price; ?></th>
+          <th align="center"><?php echo $column_total; ?></th>
 		  <?php } ?>
         </tr>
         <?php $class = 'odd'; ?>
@@ -45,29 +45,32 @@
 		  <?php } ?>
         </tr>
         <?php } ?>
+		  <?php foreach ($totals as $total) { ?>
+		  <tr class="totals">
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="left">&nbsp;</td>
+          <td align="left">&nbsp;</td>
+          <td align="right">&nbsp;</td>
+          <?php if ($display_price) { ?>
+		  <td align="right"><b><?php echo $total['title']; ?></b></td>
+          <td align="right"><?php echo $total['text']; ?></td>
+		  <?php } ?>
+        </tr>
+		  <?php } ?>
+
       </table>
-	  <?php if ($display_price) { ?>
-	  <div style="width: 100%; display: inline-block;">
-        <table style="float: right; display: inline-block;">
-          <?php foreach ($totals as $total) { ?>
-          <tr>
-            <td align="right"><b><?php echo $total['title']; ?></b></td>
-            <td align="right"><?php echo $total['text']; ?></td>
-          </tr>
-          <?php } ?>
-        </table>
-        <br />
-      </div>
-	  <?php } ?>
+
       <div class="buttons">
         <table>
           <tr>
-            <td align="left"><a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a></td>
-            <td align="center"><a onclick="location = '<?php echo str_replace('&amp;', '&', $continue); ?>'" class="button"><span><?php echo $button_shopping; ?></span></a></td>
-            <td align="right"><a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a></td>
+            <td align="left">&nbsp;</td>
+            <td align="center">&nbsp;</td>
+            <td align="right"><a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a><a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a></td>
           </tr>
         </table>
       </div>
+		
     </form>
   </div>
   <div class="bottom">

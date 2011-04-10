@@ -67,7 +67,7 @@
 								<?php } ?>
 
 							<a class="button_add_small" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'caption', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')">&nbsp;</a>
-							<a class="button_buy_now" href="<?php echo $product['add']; ?>" title="<?php echo $text_buy; ?>" >&nbsp;</a>
+							<a class="button_buy_now"   title="<?php echo $text_buy; ?>"  href="<?php echo $product['add']; ?>" >&nbsp;</a>
 
 
 							  <?php } ?>

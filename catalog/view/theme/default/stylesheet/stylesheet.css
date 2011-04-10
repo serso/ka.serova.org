@@ -103,7 +103,8 @@ div#page {
 }
 #header .div5 {
 	clear: both;
-	height: 60px;
+	height:40px;
+	padding-top: 20px;
 }
 #header .div5 .left {
 	width: 5px;
@@ -119,7 +120,6 @@ div#page {
 }
 #header .div6 {
 	clear: both;
-	margin-bottom: 10px;
 }
 #header .div6 .left {
 	width: 5px;
@@ -192,13 +192,14 @@ div#page {
 }
 .switcher .selected a {
 	border: 1px solid #CCCCCC;
-	background: url('../image/arrow_down.png') 116px center no-repeat;
+	background: url('../image/arrow_down.png') 36px center no-repeat;
 	color: #666666;
 	padding: 2px 5px 2px 5px;
-	width: 121px;
+	width: 41px;
 }
+
 .switcher .selected a:hover {
-	background: #F0F0F0 url('../image/arrow_down.png') 116px center no-repeat;
+	background: #F0F0F0 url('../image/arrow_down.png') 36px center no-repeat;
 }
 .switcher .option {	
 	position: absolute;
@@ -208,7 +209,7 @@ div#page {
 	border-bottom: 1px solid #CCCCCC;
 	background-color: #EEEEEE;
 	display: none;
-	width: 131px;
+	width: 51px;
 }
 .switcher .option a {
 	color: #000;
@@ -361,15 +362,15 @@ div#page {
 	padding-left: 8px;
 	display: inline-block;
 	margin-right: 5px;
-	background: url('../image/button_left.png') top left no-repeat;
 	text-decoration: none;
+	background:#316727;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
+	background:#316727;
 	display: block;
 	padding: 4px 12px 5px 5px;
-	background: url('../image/button_right.png') top right no-repeat;
 }
 .buttons {
 	background: #F8F8F8;
@@ -530,6 +531,15 @@ div#page {
 .cart td {
 	padding: 5px;
 }
+
+.cart .odd {
+	background: #f7f7f7;
+}
+
+.cart .totals {
+	background: #EEEEEE;
+}
+
 .tags, .tags a {
 	font-style: italic;
 	font-size: x-small;
@@ -655,7 +665,7 @@ body.category_background {
 }
 
 #menu {
-	float: left;
+	float: right;
 	padding-top: 2px;
 }
 
@@ -668,10 +678,9 @@ body.category_background {
 #menu ul li{
     float: left;
     font-family: "Trebuchet MS",Verdana,sans-serif;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     list-style: none outside none;
     margin-left: 15px;
-    margin-right: 15px;
 }
 
 .left {
@@ -686,4 +695,20 @@ body.category_background {
 	text-align:right;
 	padding-right: 50px;
 	width: 40%;
+}
+
+.top_header {
+    float: left;
+    height: 120px;
+    margin: auto;
+    overflow: hidden;
+    padding-left: 15px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.top_header h1 {
+	padding: 0;
+	margin: 0;
 }
