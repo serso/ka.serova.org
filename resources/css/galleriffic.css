@@ -2,14 +2,14 @@ div.content {
 	/* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled. */
 	display: none;
 	float: right;
-	width: 550px; 
+	width: 620px;
 }
 div.content a, div.navigation a {
 	text-decoration: none;
 	color: #777;
 }
 div.content a:focus, div.content a:hover, div.content a:active {
-	text-decoration: underline;
+	text-decoration: none;
 }
 div.controls {
 	margin-top: 5px;
@@ -27,15 +27,15 @@ div.nav-controls {
 div.slideshow-container {
 	position: relative;
 	clear: both;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.loader {
 	position: absolute;
 	top: 0;
 	left: 0;
     background: url('loader.gif') no-repeat center;
-    width: 550px;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+    width: 620px;
+	height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.slideshow {
 
@@ -48,9 +48,9 @@ div.slideshow span.image-wrapper {
 }
 div.slideshow a.advance-link {
 	display: block;
-	width: 550px;
-	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
-	line-height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	width: 620px;
+	height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
+	line-height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 	text-align: center;
 }
 div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
@@ -58,7 +58,6 @@ div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.sli
 }
 div.slideshow img {
 	vertical-align: middle;
-	border: 1px solid #ccc;
 }
 div.download {
 	float: right;
@@ -71,7 +70,7 @@ div.caption-container {
 span.image-caption {
 	display: block;
 	position: absolute;
-	width: 550px;
+	width: 620px;
 	top: 0;
 	left: 0;
 }
@@ -83,8 +82,11 @@ div.image-title {
 	font-size: 1.4em;
 }
 div.image-desc {
-	line-height: 1.3em;
-	padding-top: 12px;
+	float: left;
+    line-height: 1.3em;
+    padding-left: 50px;
+    padding-top: 10px;
+    text-align: left;
 }
 div.navigation {
 	/* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled. */
@@ -97,7 +99,7 @@ ul.thumbs {
 ul.thumbs li {
 	float: left;
 	padding: 0;
-	margin: 5px 10px 5px 0;
+	margin: 5px;
 	list-style: none;
 }
 a.thumb {
@@ -106,7 +108,7 @@ a.thumb {
 	border: 1px solid #ccc;
 }
 ul.thumbs li.selected a.thumb {
-	background: #000;
+	background: #777777;
 }
 a.thumb:focus {
 	outline: none;
@@ -121,9 +123,11 @@ div.pagination {
 div.navigation div.top {
 	margin-bottom: 12px;
 	height: 11px;
+	padding-left: 5px;
 }
 div.navigation div.bottom {
 	margin-top: 12px;
+	 padding-left: 5px;
 }
 div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
 	display: block;
@@ -138,8 +142,8 @@ div.pagination a:hover {
 }
 div.pagination span.current {
 	font-weight: bold;
-	background-color: #000;
-	border-color: #000;
+	background-color: #444444;
+	border-color: #444444;
 	color: #fff;
 }
 div.pagination span.ellipsis {

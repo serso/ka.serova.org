@@ -3,7 +3,7 @@ class ModelToolImage extends Model {
 	function resize($filename, $width, $height) {
 		if (!file_exists(DIR_IMAGE . $filename) || !is_file(DIR_IMAGE . $filename)) {
 			return;
-		} 
+		}
 		
 		$info = pathinfo($filename);
 		$extension = $info['extension'];
@@ -28,7 +28,7 @@ class ModelToolImage extends Model {
 			$image->resize($width, $height);
 			$image->save(DIR_IMAGE . $new_image);
 		}
-		
+
 		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
 			return HTTPS_IMAGE . $new_image;
 		} else {

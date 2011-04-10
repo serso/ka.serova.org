@@ -821,7 +821,7 @@ function image_upload(field, preview) {
 		bgiframe: false,
 		width: 700,
 		height: 400,
-		resizable: false,
+		resizable: true,
 		modal: false
 	});
 };

@@ -68,6 +68,7 @@ if (!isset($selectedCategory)) {
 
 	<div id="caption" class="caption-container"></div>
 </div>
+
 <div id="thumbs" class="navigation">
 <ul class="thumbs noscript">
 <li>

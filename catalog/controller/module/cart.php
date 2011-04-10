@@ -102,7 +102,8 @@ class ControllerModuleCart extends Controller {
 		unset($this->session->data['shipping_method']);
 		unset($this->session->data['payment_methods']);
 		unset($this->session->data['payment_method']);	
-		
+
+		$noNeedResultHtml = false;
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			
 			if (isset($this->request->post['remove'])) {
@@ -117,74 +118,82 @@ class ControllerModuleCart extends Controller {
 				
       			$this->cart->add($this->request->post['product_id'], $this->request->post['quantity'], $option);
 			}
+
+			if (isset($this->request->post['noNeedResultHtml'])) {
+				$noNeedResultHtml = true;
+			}
 		}
-				
-		$output = '<table cellpadding="2" cellspacing="0" style="width: 100%;">';
-		
-		if ($this->cart->getProducts()) {
-		
-    		foreach ($this->cart->getProducts() as $product) {
-      			$output .= '<tr>';
-        		$output .= '<td width="1" valign="top" align="left"><span class="cart_remove" id="remove_ ' . $product['key'] . '" />&nbsp;</span></td><td width="1" valign="top" align="right">' . $product['quantity'] . '&nbsp;x&nbsp;</td>';
-        		$output .= '<td align="left" valign="top"><a href="' . $this->model_tool_seo_url->rewrite(HTTP_SERVER . 'index.php?route=product/product&product_id=' . $product['product_id']) . '">' . $product['name'] . '</a>';
-          		$output .= '<div>';
-	            
-				foreach ($product['option'] as $option) {
-            		$output .= ' - <small style="color: #999;">' . $option['name'] . ' ' . $option['value'] . '</small><br />';
-	            }
-				
-				$output .= '</div></td>';
-				$output .= '</tr>';
-      		}
-			
-			$output .= '</table>';
-    		$output .= '<br />';
-    		
-    		$total = 0;
-			$taxes = $this->cart->getTaxes();
-			 
-			$this->load->model('checkout/extension');
-			
-			$sort_order = array(); 
-			
-			$view = HTTP_SERVER . 'index.php?route=checkout/cart';
-			$checkout = HTTPS_SERVER . 'index.php?route=checkout/shipping';
-			
-			$results = $this->model_checkout_extension->getExtensions('total');
-			
-			foreach ($results as $key => $value) {
-				$sort_order[$key] = $this->config->get($value['key'] . '_sort_order');
-			}
-			
-			array_multisort($sort_order, SORT_ASC, $results);
-			
-			foreach ($results as $result) {
-				$this->load->model('total/' . $result['key']);
 
-				$this->{'model_total_' . $result['key']}->getTotal($total_data, $total, $taxes);
-			}
-			
-			$sort_order = array(); 
-		  
-			foreach ($total_data as $key => $value) {
-      			$sort_order[$key] = $value['sort_order'];
-    		}
-
-    		array_multisort($sort_order, SORT_ASC, $total_data);
-    	    		
-    		$output .= '<table cellpadding="0" cellspacing="0" align="right" style="display:inline-block;">';
-      		foreach ($total_data as $total) {
-      			$output .= '<tr>';
-		        $output .= '<td align="right"><span class="cart_module_total"><b>' . $total['title'] . '</b></span></td>';
-		        $output .= '<td align="right"><span class="cart_module_total">' . $total['text'] . '</span></td>';
-      			$output .= '</tr>';
-      		}
-      		$output .= '</table>';
-      		$output .= '<div style="padding-top:5px;text-align:center;clear:both;"><a href="' . $view . '">' . $this->language->get('text_view') . '</a> | <a href="' . $checkout . '">' . $this->language->get('text_checkout') . '</a></div>';
+		if ($noNeedResultHtml) {
+			$output = '';			
 		} else {
-			$output .= '<div style="text-align: center;">' . $this->language->get('text_empty') . '</div>';
+			$output = '<table cellpadding="2" cellspacing="0" style="width: 100%;">';
+
+			if ($this->cart->getProducts()) {
+
+				foreach ($this->cart->getProducts() as $product) {
+					  $output .= '<tr>';
+					$output .= '<td width="1" valign="top" align="left"><span class="cart_remove" id="remove_ ' . $product['key'] . '" />&nbsp;</span></td><td width="1" valign="top" align="right">' . $product['quantity'] . '&nbsp;x&nbsp;</td>';
+					$output .= '<td align="left" valign="top"><a href="' . $this->model_tool_seo_url->rewrite(HTTP_SERVER . 'index.php?route=product/product&product_id=' . $product['product_id']) . '">' . $product['name'] . '</a>';
+					  $output .= '<div>';
+
+					foreach ($product['option'] as $option) {
+						$output .= ' - <small style="color: #999;">' . $option['name'] . ' ' . $option['value'] . '</small><br />';
+					}
+
+					$output .= '</div></td>';
+					$output .= '</tr>';
+				  }
+
+				$output .= '</table>';
+				$output .= '<br />';
+
+				$total = 0;
+				$taxes = $this->cart->getTaxes();
+
+				$this->load->model('checkout/extension');
+
+				$sort_order = array();
+
+				$view = HTTP_SERVER . 'index.php?route=checkout/cart';
+				$checkout = HTTPS_SERVER . 'index.php?route=checkout/shipping';
+
+				$results = $this->model_checkout_extension->getExtensions('total');
+
+				foreach ($results as $key => $value) {
+					$sort_order[$key] = $this->config->get($value['key'] . '_sort_order');
+				}
+
+				array_multisort($sort_order, SORT_ASC, $results);
+
+				foreach ($results as $result) {
+					$this->load->model('total/' . $result['key']);
+
+					$this->{'model_total_' . $result['key']}->getTotal($total_data, $total, $taxes);
+				}
+
+				$sort_order = array();
+
+				foreach ($total_data as $key => $value) {
+					  $sort_order[$key] = $value['sort_order'];
+				}
+
+				array_multisort($sort_order, SORT_ASC, $total_data);
+
+				$output .= '<table cellpadding="0" cellspacing="0" align="right" style="display:inline-block;">';
+				  foreach ($total_data as $total) {
+					  $output .= '<tr>';
+					$output .= '<td align="right"><span class="cart_module_total"><b>' . $total['title'] . '</b></span></td>';
+					$output .= '<td align="right"><span class="cart_module_total">' . $total['text'] . '</span></td>';
+					  $output .= '</tr>';
+				  }
+				  $output .= '</table>';
+				  $output .= '<div style="padding-top:5px;text-align:center;clear:both;"><a href="' . $view . '">' . $this->language->get('text_view') . '</a> | <a href="' . $checkout . '">' . $this->language->get('text_checkout') . '</a></div>';
+			} else {
+				$output .= '<div style="text-align: center;">' . $this->language->get('text_empty') . '</div>';
+			}
 		}
-		
+
 		$this->response->setOutput($output, $this->config->get('config_compression'));
 	} 	
 }

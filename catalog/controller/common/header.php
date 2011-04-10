@@ -68,7 +68,7 @@ class ControllerCommonHeader extends Controller {
     	$this->data['text_account'] = $this->language->get('text_account');
     	$this->data['text_login'] = $this->language->get('text_login');
     	$this->data['text_logout'] = $this->language->get('text_logout');
-    	$this->data['text_cart'] = $this->language->get('text_cart'); 
+    	$this->data['text_cart'] = $this->language->get('text_cart');
     	$this->data['text_checkout'] = $this->language->get('text_checkout');
 		$this->data['text_keyword'] = $this->language->get('text_keyword');
 		$this->data['text_category'] = $this->language->get('text_category');
@@ -110,7 +110,7 @@ class ControllerCommonHeader extends Controller {
 		$this->load->model('catalog/category');
 		
 		$this->data['categories'] = $this->getCategories(0);
-		
+
 		$this->data['action'] = HTTP_SERVER . 'index.php?route=common/home';
 
 		if (!isset($this->request->get['route'])) {
@@ -156,9 +156,11 @@ class ControllerCommonHeader extends Controller {
 		$this->data['currency_code'] = $this->currency->getCode(); 
 		
 		$this->load->model('localisation/currency');
-		 
+
+		 $this->data['cartObj'] = new Cart($this->registry);
+
 		 $this->data['currencies'] = array();
-		 
+
 		$results = $this->model_localisation_currency->getCurrencies();	
 		
 		foreach ($results as $result) {

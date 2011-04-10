@@ -15,7 +15,7 @@ define('DIR_LOGS', '/home/serso/applications/web/ka.serova.org/system/logs/');
 define('DB_DRIVER', 'mysql');
 define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'opencart');
-define('DB_PASSWORD', '96eVfZcl41sEKzIJh5CJaigPp');
+define('DB_PASSWORD', 'opencart');
 define('DB_DATABASE', 'opencart');
 define('DB_PREFIX', '');
 ?>

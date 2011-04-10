@@ -3,14 +3,7 @@
   <div class="top">
     <div class="left"></div>
     <div class="right"></div>
-    <div class="center">
-      <h1>
-        <?php echo $heading_title; ?>
-        <?php if ($weight) { ?>
-        &nbsp;(<?php echo $weight; ?>)
-        <?php } ?>
-      </h1>
-    </div>
+    <div class="center"></div>
   </div>
   <div class="middle">
     <?php if ($error_warning) { ?>

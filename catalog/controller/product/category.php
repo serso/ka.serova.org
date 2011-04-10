@@ -2,7 +2,11 @@
 class ControllerProductCategory extends Controller {  
 	public function index() { 
 		$this->language->load('product/category');
-	
+
+		$this->data['cart'] = HTTP_SERVER . 'index.php?route=checkout/cart';
+		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
+		$this->data['text_buy'] = $this->language->get('buy_product');
+
 		$this->document->breadcrumbs = array();
 
    		$this->document->breadcrumbs[] = array(
@@ -165,13 +169,16 @@ class ControllerProductCategory extends Controller {
 					} else {
 						$add = HTTPS_SERVER . 'index.php?route=checkout/cart&product_id=' . $result['product_id'];
 					}
-					
+
 					$this->data['products'][] = array(
+            			'product_id'    => $result['product_id'],
             			'name'    => $result['name'],
 						'model'   => $result['model'],
+						'description'   => html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'),
             			'rating'  => $rating,
 						'stars'   => sprintf($this->language->get('text_stars'), $rating),
-						'thumb'   => $this->model_tool_image->resize($image, $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height')),
+						'thumb'   => $this->model_tool_image->resize($image, 80, 80),
+						'image'   => $this->model_tool_image->resize($image, 615, 300),
             			'price'   => $price,
             			'options' => $options,
 						'special' => $special,

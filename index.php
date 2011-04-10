@@ -52,11 +52,11 @@ foreach ($query->row as $key => $value) {
 }
 
 define('HTTP_SERVER', $config->get('config_url'));
-define('HTTP_IMAGE', HTTP_SERVER . 'image/');
+define('HTTP_IMAGE', HTTP_SERVER . 'resources/images/');
 
 if ($config->get('config_ssl')) {
 	define('HTTPS_SERVER', 'https://' . substr($config->get('config_url'), 7));
-	define('HTTPS_IMAGE', HTTPS_SERVER . 'image/');	
+	define('HTTPS_IMAGE', HTTPS_SERVER . 'resources/images/');
 } else {
 	define('HTTPS_SERVER', HTTP_SERVER);
 	define('HTTPS_IMAGE', HTTP_IMAGE);	

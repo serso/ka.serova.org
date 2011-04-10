@@ -8,7 +8,7 @@ $_['text_bookmark'] = 'Bookmark';
 $_['text_account']  = 'Account';
 $_['text_login']    = 'Log In';
 $_['text_logout']   = 'Log Off';
-$_['text_cart']     = 'Basket';
+$_['text_cart']     = 'Cart';
 $_['text_checkout'] = 'Checkout';
 
 $_['text_keyword']  = 'Keywords';
