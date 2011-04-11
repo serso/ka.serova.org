@@ -1,8 +1,10 @@
-div.content {
+#gallery.content {
 	/* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled. */
 	display: none;
 	float: right;
-	width: 620px;
+	width: 550px;
+	padding:0;
+	margin-top:5px;
 }
 div.content a, div.navigation a {
 	text-decoration: none;
@@ -21,8 +23,8 @@ div.controls a {
 div.ss-controls {
 	float: left;
 }
-div.nav-controls {
-	float: right;
+div.nav-controls a:hover{
+	text-decoration:underline;
 }
 div.slideshow-container {
 	position: relative;
@@ -34,7 +36,7 @@ div.loader {
 	top: 0;
 	left: 0;
     background: url('loader.gif') no-repeat center;
-    width: 620px;
+    width: 550px;
 	height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 }
 div.slideshow {
@@ -48,7 +50,6 @@ div.slideshow span.image-wrapper {
 }
 div.slideshow a.advance-link {
 	display: block;
-	width: 620px;
 	height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 	line-height: 302px; /* This should be set to be at least the height of the largest image in the slideshow */
 	text-align: center;
@@ -70,7 +71,7 @@ div.caption-container {
 span.image-caption {
 	display: block;
 	position: absolute;
-	width: 620px;
+	width: 550px;
 	top: 0;
 	left: 0;
 }
@@ -84,7 +85,7 @@ div.image-title {
 div.image-desc {
 	float: left;
     line-height: 1.3em;
-    padding-left: 50px;
+    padding-left: 10px;
     padding-top: 10px;
     text-align: left;
 }

@@ -140,11 +140,7 @@ function bookmark(url, title) {
 	
   <div class="div1">
 
-	    <div class="top_header">
-		  <h1>
-			  <a href="index.php">ka⚘serova</a>
-		  </h1>
-	</div>
+	  <a href="index.php"><div class="top_header">&nbsp;</div></a>
 
 	  <div class="div5">
       <div class="left"></div>
@@ -155,7 +151,13 @@ function bookmark(url, title) {
 			<div id="h_menu">
 				<ul>
 			<?php foreach ($categories as $category) { ?>
-				<li><a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>" ><?php echo str_replace('&nbsp;', '', $category['name']); ?></a></li>
+
+					<?php if ( isset($category_id) && $category_id == $category['category_id'] ) { ?>
+						<li class="selected"><a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>" ><?php echo str_replace('&nbsp;', '', $category['name']); ?></a></li>
+					<?php } else { ?>
+						<li><a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>" ><?php echo str_replace('&nbsp;', '', $category['name']); ?></a></li>
+					<?php } ?>
+
 			<?php } ?>
 					</ul>
 				</div>

@@ -15,6 +15,7 @@ body {
 body, td, th, input, textarea, select, a {
 	font-size: 12px;
 }
+
 form {
 	padding: 0;
 	margin: 0;
@@ -27,6 +28,7 @@ a, a:visited {
 	color: #316727;
 	text-decoration: underline;
 	cursor: pointer;
+	outline:none;
 }
 a:hover {
 	text-decoration: none;
@@ -39,7 +41,7 @@ p {
 }
 /* layout */
 div#page {
-	width: 1000px;
+	width: 940px;
 	background-color: #fff;
 	margin: 0 auto;
 	text-align: left;
@@ -48,7 +50,7 @@ div#page {
 }
 
 #container {
-	width: 960px;
+	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
@@ -104,7 +106,6 @@ div#page {
 #header .div5 {
 	clear: both;
 	height:40px;
-	padding-top: 20px;
 }
 #header .div5 .left {
 	width: 5px;
@@ -224,13 +225,11 @@ div#page {
 }
 #column_left {
 	float: left;
-	width: 180px;
 	margin-right: 10px;
 	clear: left;
 }
 #column_right {
 	float: right;
-	width: 180px;
 	margin-left: 10px;
 	clear: right;
 }
@@ -377,6 +376,7 @@ div#page {
 	border: 1px solid #DDDDDD;
 	padding: 5px;
 	margin-bottom: 10px;
+	float:left;
 }
 .buttons input {
 	padding: 0px;
@@ -660,6 +660,10 @@ body.category_background {
 	color: inherit;
 }
 
+#h_menu a:hover {
+	text-decoration:underline;
+}
+
 #menu {
 	float: right;
 	padding-top: 2px;
@@ -679,29 +683,33 @@ body.category_background {
     margin-left: 15px;
 }
 
-.left {
+#h_menu .selected {
+	text-decoration:underline;
+}
+
+div.caption .left {
 	  float: left;
 	text-align:left;
-    padding-left: 50px;
+    padding-left: 10px;
 	width:40%;
 }
 
-.right {
+div.caption .right {
 	float: right;
 	text-align:right;
-	padding-right: 50px;
+	padding-right: 10px;
 	width: 40%;
 }
 
 .top_header {
-    float: left;
-    height: 120px;
+    clear: both;
+    height: 160px;
+	width: 900px;
     margin: auto;
     overflow: hidden;
-    padding-left: 15px;
     position: relative;
     text-align: center;
-    width: 100%;
+	background:url("../image/flower_header.png") no-repeat 0 0;
 }
 
 .top_header h1 {

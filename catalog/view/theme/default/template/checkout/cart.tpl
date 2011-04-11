@@ -37,11 +37,11 @@
               - <small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small><br />
               <?php } ?>
             </div></td>
-          <td align="left" valign="top"><?php echo $product['model']; ?></td>
-          <td align="right" valign="top"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
+          <td align="center" valign="top"><?php echo $product['model']; ?></td>
+          <td align="center" valign="top"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
           <?php if ($display_price) { ?>
-		  <td align="right" valign="top"><?php echo $product['price']; ?></td>
-          <td align="right" valign="top"><?php echo $product['total']; ?></td>
+		  <td align="left" valign="top"><?php echo $product['price']; ?></td>
+          <td align="left" valign="top"><?php echo $product['total']; ?></td>
 		  <?php } ?>
         </tr>
         <?php } ?>
@@ -53,15 +53,15 @@
           <td align="left">&nbsp;</td>
           <td align="right">&nbsp;</td>
           <?php if ($display_price) { ?>
-		  <td align="right"><b><?php echo $total['title']; ?></b></td>
-          <td align="right"><?php echo $total['text']; ?></td>
+		  <td align="left"><b><?php echo $total['title']; ?></b></td>
+          <td align="left"><?php echo $total['text']; ?></td>
 		  <?php } ?>
         </tr>
 		  <?php } ?>
 
       </table>
 
-      <div class="buttons">
+      <div class="buttons" style="float:left;width:100%;">
         <table>
           <tr>
             <td align="left">&nbsp;</td>

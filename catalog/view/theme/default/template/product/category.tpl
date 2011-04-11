@@ -104,11 +104,11 @@
 		// Initialize Advanced Galleriffic Gallery
 		var gallery = $('#thumbs').galleriffic({
 			delay:						2500,
-			numThumbs:					15,
+			numThumbs:					12,
 			preloadAhead:				10,
 			enableTopPager:				true,
 			enableBottomPager:			true,
-			maxPagesToShow:				7,
+			maxPagesToShow:				15,
 			imageContainerSel:			'#selected_image',
 			controlsContainerSel:		'#controls',
 			captionContainerSel:		'#caption',
