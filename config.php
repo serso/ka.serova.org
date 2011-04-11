@@ -1,15 +1,18 @@
 <?php
+
+$webRoot = '/home/ssolovyev/applications/web/ka.serova.org';
+
 // DIR
-define('DIR_APPLICATION', '/home/serso/applications/web/ka.serova.org/catalog/');
-define('DIR_SYSTEM', '/home/serso/applications/web/ka.serova.org/system/');
-define('DIR_DATABASE', '/home/serso/applications/web/ka.serova.org/system/database/');
-define('DIR_LANGUAGE', '/home/serso/applications/web/ka.serova.org/catalog/language/');
-define('DIR_TEMPLATE', '/home/serso/applications/web/ka.serova.org/catalog/view/theme/');
-define('DIR_CONFIG', '/home/serso/applications/web/ka.serova.org/system/config/');
-define('DIR_IMAGE', '/home/serso/applications/web/ka.serova.org/resources/images/');
-define('DIR_CACHE', '/home/serso/applications/web/ka.serova.org/system/cache/');
-define('DIR_DOWNLOAD', '/home/serso/applications/web/ka.serova.org/download/');
-define('DIR_LOGS', '/home/serso/applications/web/ka.serova.org/system/logs/');
+define('DIR_APPLICATION', $webRoot . '/catalog/');
+define('DIR_SYSTEM', $webRoot . '/system/');
+define('DIR_DATABASE', $webRoot . '/system/database/');
+define('DIR_LANGUAGE', $webRoot . '/catalog/language/');
+define('DIR_TEMPLATE', $webRoot . '/catalog/view/theme/');
+define('DIR_CONFIG', $webRoot . '/system/config/');
+define('DIR_IMAGE', $webRoot . '/resources/images/');
+define('DIR_CACHE', $webRoot . '/system/cache/');
+define('DIR_DOWNLOAD', $webRoot . '/download/');
+define('DIR_LOGS', $webRoot . '/system/logs/');
 
 // DB
 define('DB_DRIVER', 'mysql');

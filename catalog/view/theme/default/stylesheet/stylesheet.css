@@ -597,7 +597,7 @@ h1 a {
 	letter-spacing: 35px;
 	font-family: "Trebuchet MS", sans-serif;
 	color: #316727;
-	font-size: 5em;
+	font-size: 110px;
 	text-decoration:none;
 }
 
@@ -649,18 +649,14 @@ body.category_background {
 	padding: 0;
 	position: relative;
 	right: 50%;
-	font-family: "Trebuchet MS", Verdana, sans-serif;
-	letter-spacing: 5px;
 	list-style: none outside none;
-	font-size: 2.25em;
-	color: inherit;
 }
 
 #h_menu a {
 	font-family: "Trebuchet MS", Verdana, sans-serif;
 	letter-spacing: 5px;
 	list-style: none outside none;
-	font-size: 1em;
+	font-size: 22px;
 	color: inherit;
 }
 
