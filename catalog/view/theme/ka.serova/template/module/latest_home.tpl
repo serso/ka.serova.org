@@ -2,9 +2,7 @@
 <div class="top">
   <div class="left"></div>
   <div class="right"></div>
-  <div class="center">
-    <div class="heading"><?php echo $heading_title; ?></div>
-  </div>
+  <div class="center"></div>
 </div>
 
 <div class="middle">

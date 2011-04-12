@@ -3,17 +3,19 @@ html {
 	margin: 0;
 	padding: 0;
 }
-* {
-	font-family: Arial, Helvetica, sans-serif;
-}
+
 body {
-	margin: 0px;
-	padding: 0px;
-	text-align: center;
+    color: #444444;
+    font-family: "Lucida Grande","Lucida Sans Unicode",Verdana,Helvetica,Arial,sans-serif;
+    font-size: 75%;
+    text-align: center;
+	margin:0;
+	padding:0;
 }
 body, td, th, input, textarea, select, a {
 	font-size: 12px;
 }
+
 form {
 	padding: 0;
 	margin: 0;
@@ -23,9 +25,10 @@ input, textarea, select {
 	margin: 3px 0px;
 }
 a, a:visited {
-	color: #1B57A3;
+	color: #316727;
 	text-decoration: underline;
 	cursor: pointer;
+	outline:none;
 }
 a:hover {
 	text-decoration: none;
@@ -37,12 +40,24 @@ p {
 	margin-top: 0px;
 }
 /* layout */
+div#page {
+	width: 940px;
+	background-color: #fff;
+	margin: 0 auto;
+	text-align: left;
+	border: 1px solid #ddd;
+	border-top: medium none;
+}
+
 #container {
-	width: 960px;
+	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
+	padding: 0 20px 20px;
 }
+
+
 #header .div2 {
 	float: left;
 	padding-top: 15px;
@@ -90,43 +105,34 @@ p {
 }
 #header .div5 {
 	clear: both;
+	height:40px;
 }
 #header .div5 .left {
-	background: url('../image/header_1_left.png') no-repeat;
 	width: 5px;
-	height: 40px;
 	float: left;
 }
 #header .div5 .right {
-	background: url('../image/header_1_right.png') no-repeat;
 	width: 5px;
-	height: 40px;
 	float: right;
 }
 #header .div5 .center {
-	background: url('../image/header_1_center.png') repeat-x;
-	height: 40px;
 	margin-left: 5px;
 	margin-right: 5px;
 }
 #header .div6 {
 	clear: both;
-	margin-bottom: 10px;
 }
 #header .div6 .left {
-	background: url('../image/header_2_left.png') no-repeat;
 	width: 5px;
 	height: 32px;
 	float: left;
 }
 #header .div6 .right {
-	background: url('../image/header_2_right.png') no-repeat;
 	width: 5px;
 	height: 32px;
 	float: right;
 }
 #header .div6 .center {
-	background: url('../image/header_2_center.png') repeat-x;
 	height: 32px;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -137,6 +143,7 @@ p {
 	float: right;
 	padding-top: 2px;
 }
+
 #header .div8 {
 	float: left; margin-top: 6px;
 }
@@ -186,13 +193,14 @@ p {
 }
 .switcher .selected a {
 	border: 1px solid #CCCCCC;
-	background: url('../image/arrow_down.png') 116px center no-repeat;
+	background: url('../image/arrow_down.png') 36px center no-repeat;
 	color: #666666;
 	padding: 2px 5px 2px 5px;
-	width: 121px;
+	width: 41px;
 }
+
 .switcher .selected a:hover {
-	background: #F0F0F0 url('../image/arrow_down.png') 116px center no-repeat;
+	background: #F0F0F0 url('../image/arrow_down.png') 36px center no-repeat;
 }
 .switcher .option {	
 	position: absolute;
@@ -202,7 +210,7 @@ p {
 	border-bottom: 1px solid #CCCCCC;
 	background-color: #EEEEEE;
 	display: none;
-	width: 131px;
+	width: 51px;
 }
 .switcher .option a {
 	color: #000;
@@ -217,35 +225,29 @@ p {
 }
 #column_left {
 	float: left;
-	width: 180px;
 	margin-right: 10px;
 	clear: left;
 }
 #column_right {
 	float: right;
-	width: 180px;
 	margin-left: 10px;
 	clear: right;
 }
 #content {
-	margin-left: 190px;
-	margin-right: 190px;
 	margin-bottom: 10px;
+	text-align: center;
 }
 #content .top .left {
-	background: url('../image/content_top_left.png') no-repeat;
-	width: 5px;
-	height: 32px;
+	width: 0;
+	height: 0;
 	float: left;
 }
 #content .top .right {
-	background: url('../image/content_top_right.png') no-repeat;
-	width: 5px;
-	height: 32px;
+	width: 0;
+	height: 0;
 	float: right;
 }
 #content .top .center {
-	background: url('../image/content_top_center.png') repeat-x;
 	margin-left: 5px;
 	margin-right: 5px;
 }
@@ -261,27 +263,23 @@ p {
 	margin: 0px;
 }
 #content .middle {
-	border-left: 1px solid #DDDDDD;
-	border-right: 1px solid #DDDDDD;
 	background: #FFFFFF;
 	padding: 10px 10px 1px 10px;
 	min-height: 30px;
+	margin: 0 auto;
 }
 #content .bottom .left {
-	background: url('../image/content_bottom_left.png') no-repeat;
-	width: 5px;
-	height: 5px;
+	width: 0;
+	height: 0;
 	float: left;
 }
 #content .bottom .right {
-	background: url('../image/content_bottom_right.png') no-repeat;
-	width: 5px;
-	height: 5px;
+	width: 0;
+	height: 0;
 	float: right;
 }
 #content .bottom .center {
-	background: url('../image/content_bottom_center.png') repeat-x;
-	height: 5px;
+	height: 0;
 	margin: 0 5px 10px 5px;
 }
 .box {
@@ -363,15 +361,15 @@ p {
 	padding-left: 8px;
 	display: inline-block;
 	margin-right: 5px;
-	background: url('../image/button_left.png') top left no-repeat;
 	text-decoration: none;
+	background:#316727;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
+	background:#316727;
 	display: block;
 	padding: 4px 12px 5px 5px;
-	background: url('../image/button_right.png') top right no-repeat;
 }
 .buttons {
 	background: #F8F8F8;
@@ -391,8 +389,6 @@ p {
 	vertical-align: middle;
 }
 .content {
-	background: #F7F7F7;
-	border: 1px solid #DDDDDD;
 	padding: 10px;
 	margin-top: 3px;
 	margin-bottom: 10px;
@@ -427,7 +423,7 @@ p {
 	margin: 0;
 	padding: 0;
 }
-.pagination {
+/*.pagination {
 	display: inline-block;
 	width: 100%;
 	background: #F8F8F8;
@@ -454,7 +450,7 @@ p {
 }
 .pagination .results {
 	float: right;
-}
+}*/
 .tabs {
 	width: 100%;
 	height: 31px;
@@ -496,15 +492,14 @@ p {
 	width: 100%;
 	clear: both;
 	padding-top: 5px;
-	border-top: 1px solid #DDDDDD;
+	color: #777777;
 }
 #footer .div1 {
 	float: left;
 	text-align: left;
 }
 #footer .div2 {
-	float: right;
-	text-align: right;
+	text-align: center;
 }
 #category ul {
 	margin-top: 0px;
@@ -525,6 +520,7 @@ p {
 	width: 100%;
 	border: 1px solid #EEEEEE;
 	margin-bottom: 10px;
+	float: left;
 }
 .cart th {
 	background: #EEEEEE;
@@ -534,6 +530,15 @@ p {
 .cart td {
 	padding: 5px;
 }
+
+.cart .odd {
+	background: #f7f7f7;
+}
+
+.cart .totals {
+	background: #EEEEEE;
+}
+
 .tags, .tags a {
 	font-style: italic;
 	font-size: x-small;
@@ -559,11 +564,20 @@ p {
 }
 .button_add_small, a.button_add_small:visited {
 	margin-top: 3px;
-	background: url('../image/button_add_small.png') no-repeat left center transparent;
+	background: url('../image/cart_add.png') no-repeat left center transparent;
+	padding:10px;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.button_buy_now, a.button_buy_now:visited {
+	margin-top: 3px;
+	background: url('../image/discount.png') no-repeat left center transparent;
 	padding:5px;
 	text-decoration: none;
 	cursor:pointer;
 }
+
 #content .middle .box {
 	float: left;
 	margin: 0 6px 10px 6px;
@@ -572,4 +586,132 @@ p {
 #content .middle .box .middle {
 	width: 158px;
 	min-height: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 a {
+	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #316727;
+	font-size: 110px;
+	text-decoration:none;
+}
+
+.added_item {
+	text-decoration: underline;
+	font-size: 12px;
+	font-weight: normal;
+	background-color: white;
+	z-index:10;
+	position:absolute;
+	top:0;
+	right:50px;
+}
+
+.price {
+	color: #316727;
+	font-weight: bold;
+}
+
+body.category_background {
+	background: url("../image/flowers.jpg") repeat fixed;
+}
+
+#h_menu {
+	height: 60px;
+	margin: auto;
+
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+#h_menu ul {
+   clear:left;
+   float:left;
+   list-style:none;
+   margin:0;
+   padding:0;
+   position:relative;
+   left:50%;
+   text-align:center;
+}
+
+#h_menu ul li {
+	display: block;
+	float: left;
+	margin: 0 15px;
+	padding: 0;
+	position: relative;
+	right: 50%;
+	list-style: none outside none;
+}
+
+#h_menu a {
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	letter-spacing: 5px;
+	list-style: none outside none;
+	font-size: 22px;
+	color: inherit;
+}
+
+#h_menu a:hover {
+	text-decoration:underline;
+}
+
+#menu {
+	float: right;
+	padding-top: 2px;
+}
+
+#menu ul{
+    display: block;
+    list-style-type: disc;
+    text-align: center;
+}
+
+#menu ul li{
+    float: left;
+    font-family: "Trebuchet MS",Verdana,sans-serif;
+    letter-spacing: 3px;
+    list-style: none outside none;
+    margin-left: 15px;
+}
+
+#h_menu .selected {
+	text-decoration:underline;
+}
+
+div.caption .left {
+	  float: left;
+	text-align:left;
+    padding-left: 10px;
+	width:40%;
+}
+
+div.caption .right {
+	float: right;
+	text-align:right;
+	padding-right: 10px;
+	width: 40%;
+}
+
+.top_header {
+    clear: both;
+    height: 160px;
+	width: 900px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+	background:url("../image/flower_header.png") no-repeat 0 0;
+}
+
+.top_header h1 {
+	padding: 0;
+	margin: 0;
 }

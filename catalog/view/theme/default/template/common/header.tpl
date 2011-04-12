@@ -17,7 +17,6 @@
 <link href="<?php echo str_replace('&', '&amp;', $link['href']); ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css" />
-<link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
 <!--[if lt IE 7]>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
 <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -28,24 +27,10 @@ DD_belatedPNG.fix('img, #header .div3 a, #content .left, #content .right, .box .
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-
-<script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
-
+<script type="text/javascript" src="catalog/view/javascript/jquery/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="catalog/view/javascript/jquery/thickbox/thickbox-compressed.js"></script>
 <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/thickbox/thickbox.css" />
-
 <script type="text/javascript" src="catalog/view/javascript/jquery/tab.js"></script>
-
-<script type="text/javascript" src="resources/js/jquery.galleriffic.js"></script>
-<script type="text/javascript" src="resources/js/jquery.opacityrollover.js"></script>
-<script type="text/javascript" src="resources/js/jquery.history.js"></script>
-
-	<!-- We only want the thumbnails to display when javascript is disabled -->
-<script type="text/javascript">
-		document.write('<style>.noscript { display: none; }</style>');
-</script>
-
-
 <?php foreach ($scripts as $script) { ?>
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
@@ -65,34 +50,81 @@ function bookmark(url, title) {
 }
 //--></script>
 </head>
-<body class="category_background">
-<div id="page">
+<body>
 <div id="container">
 <div id="header">
-	  <div class="div6">
-    <div class="left">
-	</div>
+  <div class="div1">
+    <div class="div2">
+      <?php if ($logo) { ?>
+      <a href="<?php echo str_replace('&', '&amp;', $home); ?>"><img src="<?php echo $logo; ?>" title="<?php echo $store; ?>" alt="<?php echo $store; ?>" /></a>
+      <?php } ?>
+    </div>
+    <div class="div3"><a href="<?php echo str_replace('&', '&amp;', $special); ?>" style="background-image: url('catalog/view/theme/default/image/special.png');"><?php echo $text_special; ?></a><a onclick="bookmark(document.location, '<?php echo addslashes($title); ?>');" style="background-image: url('catalog/view/theme/default/image/bookmark.png');"><?php echo $text_bookmark; ?></a><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" style="background-image: url('catalog/view/theme/default/image/contact.png');"><?php echo $text_contact; ?></a><a href="<?php echo str_replace('&', '&amp;', $sitemap); ?>" style="background-image: url('catalog/view/theme/default/image/sitemap.png');"><?php echo $text_sitemap; ?></a></div>
+    <div class="div4"><a href="<?php echo str_replace('&', '&amp;', $home); ?>" id="tab_home"><?php echo $text_home; ?></a>
+      <?php if (!$logged) { ?>
+      <a href="<?php echo str_replace('&', '&amp;', $login); ?>" id="tab_login"><?php echo $text_login; ?></a>
+      <?php } else { ?>
+      <a href="<?php echo str_replace('&', '&amp;', $logout); ?>" id="tab_logout"><?php echo $text_logout; ?></a>
+      <?php } ?>
+      <a href="<?php echo str_replace('&', '&amp;', $account); ?>" id="tab_account"><?php echo $text_account; ?></a><a href="<?php echo str_replace('&', '&amp;', $cart); ?>" id="tab_cart"><?php echo $text_cart; ?></a><a href="<?php echo str_replace('&', '&amp;', $checkout); ?>" id="tab_checkout"><?php echo $text_checkout; ?></a></div>
+    <div class="div5">
+      <div class="left"></div>
+      <div class="right"></div>
+      <div class="center">
+        <div id="search">
+          <div class="div8"><?php echo $entry_search; ?>&nbsp;</div>
+          <div class="div9">
+            <?php if ($keyword) { ?>
+            <input type="text" value="<?php echo $keyword; ?>" id="filter_keyword" />
+            <?php } else { ?>
+            <input type="text" value="<?php echo $text_keyword; ?>" id="filter_keyword" onclick="this.value = '';" onkeydown="this.style.color = '#000000'" style="color: #999;" />
+            <?php } ?>
+            <select id="filter_category_id">
+              <option value="0"><?php echo $text_category; ?></option>
+              <?php foreach ($categories as $category) { ?>
+              <?php if ($category['category_id'] == $category_id) { ?>
+              <option value="<?php echo $category['category_id']; ?>" selected="selected"><?php echo $category['name']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="div10">&nbsp;&nbsp;<a onclick="moduleSearch();" class="button"><span><?php echo $button_go; ?></span></a> <a href="<?php echo str_replace('&', '&amp;', $advanced); ?>"><?php echo $text_advanced; ?></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div6">
+    <div class="left"></div>
     <div class="right"></div>
     <div class="center">
-		<div class="div7">
+	  <?php if (isset($common_error)) { ?>
+	  <div class="warning"><?php echo $common_error; ?></div>
+	  <?php } ?>
+      <div id="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <?php echo $breadcrumb['separator']; ?><a href="<?php echo str_replace('&', '&amp;', $breadcrumb['href']); ?>"><?php echo $breadcrumb['text']; ?></a>
+        <?php } ?>
+      </div>
+      <div class="div7">
         <?php if ($currencies) { ?>
         <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="currency_form">
           <div class="switcher">
             <?php foreach ($currencies as $currency) { ?>
             <?php if ($currency['code'] == $currency_code) { ?>
-            <div class="selected"><a><img src="resources/images/currencies/<?php echo $currency['code']; ?>" alt="<?php echo $currency['title']; ?>" /></a></div>
+            <div class="selected"><a><?php echo $currency['title']; ?></a></div>
             <?php } ?>
             <?php } ?>
             <div class="option">
               <?php foreach ($currencies as $currency) { ?>
-              <a onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><img src="resources/images/currencies/<?php echo $currency['code']; ?>" alt="<?php echo $currency['title']; ?>" /></a>
+              <a onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><?php echo $currency['title']; ?></a>
               <?php } ?>
             </div>
           </div>
           <div style="display: inline;">
             <input type="hidden" name="currency_code" value="" />
-            <input type="hidden" id="currency_redirect" name="redirect" value="<?php echo $redirect; ?>" />
-            <input type="hidden" id="redirect_original" name="redirect_original" value="<?php echo $redirect; ?>" />
+            <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
           </div>
         </form>
         <?php } ?>
@@ -101,82 +133,24 @@ function bookmark(url, title) {
           <div class="switcher">
             <?php foreach ($languages as $language) { ?>
             <?php if ($language['code'] == $language_code) { ?>
-            <div class="selected"><a><img src="resources/images/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" /></a></div>
+            <div class="selected"><a><img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" />&nbsp;&nbsp;<?php echo $language['name']; ?></a></div>
             <?php } ?>
             <?php } ?>
             <div class="option">
               <?php foreach ($languages as $language) { ?>
-              <a onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#language_form').submit();"><img src="resources/images/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" /></a>
+              <a onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#language_form').submit();"><img src="image/flags/<?php echo $language['image']; ?>" alt="<?php echo $language['name']; ?>" />&nbsp;&nbsp;<?php echo $language['name']; ?></a>
               <?php } ?>
             </div>
           </div>
           <div>
             <input type="hidden" name="language_code" value="" />
-            <input type="hidden" id="language_redirect" name="redirect" value="<?php echo $redirect; ?>" />
-			  <?php if (!$currencies) { ?>
-			  	<input type="hidden" id="redirect_original" name="redirect_original" value="<?php echo $redirect; ?>" />
-			<?php }?>
+            <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
           </div>
         </form>
         <?php } ?>
       </div>
-		<div id="menu">
-			<ul>
-
-				<?php if (!$logged) { ?>
-					<li><a href="<?php echo str_replace('&', '&amp;', $login); ?>" id="tab_login"><?php echo $text_login; ?></a></li>
-				<?php } else { ?>
-					<li><a href="<?php echo str_replace('&', '&amp;', $logout); ?>" id="tab_logout"><?php echo $text_logout; ?></a></li>
-					<li><a href="<?php echo str_replace('&', '&amp;', $account); ?>" id="tab_account"><?php echo $text_account; ?></a></li>
-				<?php } ?>
-
-				<li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>" id="tab_cart"><?php echo $text_cart; ?>(<span id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
-				<li><a href="<?php echo str_replace('&', '&amp;', $checkout); ?>" id="tab_checkout"><?php echo $text_checkout; ?></a></li>
-
-			</ul>
-		</div>
     </div>
   </div>
-	
-  <div class="div1">
-
-	  <a href="index.php"><div class="top_header">&nbsp;</div></a>
-
-	  <div class="div5">
-      <div class="left"></div>
-      <div class="right"></div>
-
-		  <div class="center">
-		  <?php if (isset($categories)) { ?>
-			<div id="h_menu">
-				<ul>
-			<?php foreach ($categories as $category) { ?>
-
-					<?php if ( isset($category_id) && $category_id == $category['category_id'] ) { ?>
-						<li class="selected"><a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>" ><?php echo str_replace('&nbsp;', '', $category['name']); ?></a></li>
-					<?php } else { ?>
-						<li><a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>" ><?php echo str_replace('&nbsp;', '', $category['name']); ?></a></li>
-					<?php } ?>
-
-			<?php } ?>
-					</ul>
-				</div>
-		<?php } ?>
-      </div>
-
-    </div>
-  </div>
-
-	<?php if (isset($common_error)) { ?>
-		<div class="div6">
-			<div class="left"></div>
-			<div class="right"></div>
-			<div class="center">
-				<div class="warning"><?php echo $common_error; ?></div>
-			</div>
-		</div>
-	<?php } ?>
-
 </div>
 <script type="text/javascript"><!-- 
 function getURLVar(urlVarName) {
