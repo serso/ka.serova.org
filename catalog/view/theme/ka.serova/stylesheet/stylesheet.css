@@ -30,7 +30,7 @@ a, a:visited {
 	cursor: pointer;
 	outline:none;
 }
-a:hover {
+a:hover, a:visited, a:active {
 	text-decoration: none;
 }
 a img {
