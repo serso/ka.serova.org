@@ -14,5 +14,6 @@ $_['text_rating_asc']   = 'Низкому рейтингу';
 $_['text_rating_desc']  = 'Высокому рейтингу';
 $_['text_added_to_cart']  = 'Добавлено в корзину';
 $_['text_buy']  = 'Купить';
+$_['text_go_to_description']  = 'Перейти к описанию товара';
 
 ?>

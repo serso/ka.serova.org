@@ -28,7 +28,7 @@
         <tr class="<?php echo $class; ?>">
           <td align="center"><input type="checkbox" name="remove[<?php echo $product['key']; ?>]" /></td>
           <td align="center"><a href="<?php echo str_replace('&', '&amp;', $product['href']); ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" /></a></td>
-          <td align="left" valign="top"><a href="<?php echo str_replace('&', '&amp;', $product['href']); ?>"><?php echo $product['name']; ?></a>
+          <td align="center"><a href="<?php echo str_replace('&', '&amp;', $product['href']); ?>"><?php echo $product['name']; ?></a>
             <?php if (!$product['stock']) { ?>
             <span style="color: #FF0000; font-weight: bold;">***</span>
             <?php } ?>
@@ -37,11 +37,11 @@
               - <small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small><br />
               <?php } ?>
             </div></td>
-          <td align="center" valign="top"><?php echo $product['model']; ?></td>
-          <td align="center" valign="top"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
+          <td align="center" ><?php echo $product['model']; ?></td>
+          <td align="center" ><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
           <?php if ($display_price) { ?>
-		  <td align="left" valign="top"><?php echo $product['price']; ?></td>
-          <td align="left" valign="top"><?php echo $product['total']; ?></td>
+		  <td align="center" ><?php echo $product['price']; ?></td>
+          <td align="center" ><?php echo $product['total']; ?></td>
 		  <?php } ?>
         </tr>
         <?php } ?>
@@ -49,12 +49,12 @@
 		  <tr class="totals">
           <td align="center">&nbsp;</td>
           <td align="center">&nbsp;</td>
-          <td align="left">&nbsp;</td>
-          <td align="left">&nbsp;</td>
-          <td align="right">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
           <?php if ($display_price) { ?>
-		  <td align="left"><b><?php echo $total['title']; ?></b></td>
-          <td align="left"><?php echo $total['text']; ?></td>
+		  <td align="right"><b><?php echo $total['title']; ?></b></td>
+          <td align="center"><b><?php echo $total['text']; ?></b></td>
 		  <?php } ?>
         </tr>
 		  <?php } ?>
@@ -64,7 +64,10 @@
       <div class="buttons" style="float:left;width:100%;">
         <table>
           <tr>
-            <td align="left">&nbsp;</td>
+			  <td align="left">
+				  <a class="button" onclick="history.back();">
+				  <span><?php echo $button_back; ?></span>
+			  </a></td>
             <td align="center">&nbsp;</td>
             <td align="right"><a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a><a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a></td>
           </tr>

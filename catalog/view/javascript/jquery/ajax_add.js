@@ -39,16 +39,20 @@ function addToCart(productId, elementId, text) {
 		dataType: 'html',
 		data: {'product_id': productId, 'quantity': 1, 'noNeedResultHtml': 'anyVar'},
 		success: function (html) {
-			$('#' + elementId + " .button_add_small").after('<div class="added_item">' + text + '</div>');
+			if (elementId != null) {
+				$('#' + elementId).after('<div class="added_item">' + text + '</div>');
+			}
 			$('#goodsInBasket').each(function(index, span) {
 				if ( isNumber(span.innerHTML) ) {
 					span.innerHTML = 1 + parseInt(span.innerHTML);
 				}
 			});
 
-			setTimeout(function() {
-				$('.added_item').slideUp(1000);
-			}, 2000);
+			if (elementId != null) {
+				setTimeout(function() {
+					$('.added_item').slideUp(1000);
+				}, 2000);
+			}
 		},
 		complete: function () {
 			/*var image = $('#image').offset();

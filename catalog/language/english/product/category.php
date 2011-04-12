@@ -16,5 +16,6 @@ $_['text_model_asc']    = 'Model A - Z';
 $_['text_model_desc']   = 'Model Z - A';
 $_['text_buy']  = 'Buy';
 $_['text_added_to_cart']  = 'Added to cart';
+$_['text_go_to_description']  = 'Go to description';
 
 ?>

@@ -16,6 +16,10 @@ class ControllerProductProduct extends Controller {
 		$this->load->model('tool/seo_url'); 
 		
 		$this->load->model('catalog/category');	
+
+		$this->data['cart'] = HTTP_SERVER . 'index.php?route=checkout/cart';
+		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
+		$this->data['text_buy'] = $this->language->get('text_buy');
 		
 		if (isset($this->request->get['path'])) {
 			$path = '';
@@ -172,6 +176,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['text_stars'] = sprintf($this->language->get('text_stars'), $average);
 			
 			$this->data['button_add_to_cart'] = $this->language->get('button_add_to_cart');
+			$this->data['button_back'] = $this->language->get('button_back');
 
 			$this->data['action'] = HTTP_SERVER . 'index.php?route=checkout/cart';
 			
@@ -185,8 +190,8 @@ class ControllerProductProduct extends Controller {
 				$image = 'no_image.jpg';
 			}	
 					
-			$this->data['popup'] = $this->model_tool_image->resize($image, $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
-			$this->data['thumb'] = $this->model_tool_image->resize($image, $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+			$this->data['popup'] = $this->model_tool_image->resize($image,1090, 600);
+			$this->data['thumb'] = $this->model_tool_image->resize($image, 545, 300);
 
 			$this->data['product_info'] = $product_info;
 			
@@ -271,7 +276,7 @@ class ControllerProductProduct extends Controller {
 			
 			foreach ($results as $result) {
 				$this->data['images'][] = array(
-					'popup' => $this->model_tool_image->resize($result['image'] , $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
+					'popup' => $this->model_tool_image->resize($result['image'] , 1090, 600),
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
 				);
 			}

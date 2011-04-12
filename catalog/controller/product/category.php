@@ -6,6 +6,7 @@ class ControllerProductCategory extends Controller {
 		$this->data['cart'] = HTTP_SERVER . 'index.php?route=checkout/cart';
 		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
 		$this->data['text_buy'] = $this->language->get('text_buy');
+		$this->data['text_go_to_description'] = $this->language->get('text_go_to_description');
 
 		$this->document->breadcrumbs = array();
 

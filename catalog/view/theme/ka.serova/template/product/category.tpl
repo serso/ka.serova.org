@@ -33,7 +33,7 @@
 	<?php if ($products) { ?>
 
 	  <!-- Start Advanced Gallery Html Containers -->
-	  <div id="gallery" class="content">
+	  <div id="gallery" class="gallery-content">
 
 		  <div id="controls" class="controls"></div>
 
@@ -66,7 +66,8 @@
 									<span class="price"><?php echo $product['special']; ?></span>
 								<?php } ?>
 
-							<a class="button_add_small" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'caption', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')">&nbsp;</a>
+							<a class="button_go_to_description_small" title="<?php echo $text_go_to_description; ?>" href="<?php echo $product['href']; ?>" >&nbsp;</a>
+							<a class="button_add_small" id="my_add_to_cart" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')">&nbsp;</a>
 							<a class="button_buy_now"   title="<?php echo $text_buy; ?>"  href="<?php echo $product['add']; ?>" >&nbsp;</a>
 
 
@@ -89,7 +90,7 @@
 	jQuery(document).ready(function($) {
 		// We only want these styles applied when javascript is enabled
 		$('div.navigation').css({'width' : '300px', 'float' : 'left'});
-		$('div.content').css('display', 'block');
+		$('div.gallery-content').css('display', 'block');
 
 		// Initially set opacity on thumbs and add
 		// additional styling for hover effect on thumbs
@@ -103,9 +104,9 @@
 
 		// Initialize Advanced Galleriffic Gallery
 		var gallery = $('#thumbs').galleriffic({
-			delay:						2500,
+			delay:						3000,
 			numThumbs:					12,
-			preloadAhead:				10,
+			preloadAhead:				5,
 			enableTopPager:				true,
 			enableBottomPager:			true,
 			maxPagesToShow:				15,

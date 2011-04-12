@@ -204,10 +204,11 @@ $controller->addPreAction(new Action('common/maintenance/check'));
 $controller->addPreAction(new Action('common/seo_url'));
 
 // Router
-if (isset($request->get['route'])) {
+if (isset($request->get['route']) && $request->get['route'] != 'common/home') {
 	$action = new Action($request->get['route']);
 } else {
-	$action = new Action('common/home');
+	$action = new Action('product/category');
+	$request->get['path'] = 35;
 }
 
 // Dispatch

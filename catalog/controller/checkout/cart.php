@@ -4,7 +4,7 @@ class ControllerCheckoutCart extends Controller {
 	
 	public function index() {
 		$this->language->load('checkout/cart');
-		
+
 		if ($this->request->server['REQUEST_METHOD'] == 'GET' && isset($this->request->get['product_id'])) {
 		
 			if (isset($this->request->get['option'])) {
@@ -103,6 +103,7 @@ class ControllerCheckoutCart extends Controller {
 			$this->data['column_price'] = $this->language->get('column_price');
       		$this->data['column_total'] = $this->language->get('column_total');
 
+      		$this->data['button_back'] = $this->language->get('button_back');
       		$this->data['button_update'] = $this->language->get('button_update');
       		$this->data['button_shopping'] = $this->language->get('button_shopping');
       		$this->data['button_checkout'] = $this->language->get('button_checkout');

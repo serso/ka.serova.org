@@ -255,13 +255,20 @@ div#page {
 	padding: 8px 0px 8px 7px;
 }
 #content h1, .heading {
-	color: #000000;
+	color: #316727;
 	font-size: 14px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Trebuchet MS", sans-serif;
+	letter-spacing:5px;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 0px;
 }
+
+/*	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #316727;
+	font-size: 110px;
+	text-decoration:none;*/
 #content .middle {
 	background: #FFFFFF;
 	padding: 10px 10px 1px 10px;
@@ -357,6 +364,11 @@ div#page {
 	overflow: hidden;
 	width: 100%;
 }
+
+.button .mybutton {
+	
+}
+
 .button {
 	padding-left: 8px;
 	display: inline-block;
@@ -389,9 +401,11 @@ div#page {
 	vertical-align: middle;
 }
 .content {
-	padding: 10px;
-	margin-top: 3px;
-	margin-bottom: 10px;
+    background: none repeat scroll 0 0 #F7F7F7;
+    border: 1px solid #DDDDDD;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    padding: 10px;
 }
 .list {
 	margin-bottom: 10px;
@@ -500,6 +514,7 @@ div#page {
 }
 #footer .div2 {
 	text-align: center;
+	font-size:0.9em;
 }
 #category ul {
 	margin-top: 0px;
@@ -565,7 +580,7 @@ div#page {
 .button_add_small, a.button_add_small:visited {
 	margin-top: 3px;
 	background: url('../image/cart_add.png') no-repeat left center transparent;
-	padding:10px;
+	padding:7px;
 	text-decoration: none;
 	cursor:pointer;
 }
@@ -573,10 +588,19 @@ div#page {
 .button_buy_now, a.button_buy_now:visited {
 	margin-top: 3px;
 	background: url('../image/discount.png') no-repeat left center transparent;
-	padding:5px;
+	padding:7px;
 	text-decoration: none;
 	cursor:pointer;
 }
+
+.button_go_to_description_small, a.button_go_to_description_small:visited {
+	margin-top: 3px;
+	background: url('../image/magnifier.png') no-repeat left center transparent;
+	padding:7px;
+	text-decoration: none;
+	cursor:pointer;
+}
+
 
 #content .middle .box {
 	float: left;
@@ -659,9 +683,11 @@ body.category_background {
 	color: inherit;
 }
 
+/*
 #h_menu a:hover {
 	text-decoration:underline;
 }
+*/
 
 #menu {
 	float: right;
@@ -683,7 +709,7 @@ body.category_background {
 }
 
 #h_menu .selected {
-	text-decoration:underline;
+	font-weight:bold;
 }
 
 div.caption .left {
