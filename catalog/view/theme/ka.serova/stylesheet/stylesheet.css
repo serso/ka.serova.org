@@ -154,23 +154,16 @@ div#page {
 	float: left; 
 	margin-top: 2px;	
 }
-#search {
-	padding-top: 7px;
-	padding-left: 5px;
-	color: #FFF;
-	font-weight: bold;
-}
-#search select {
-	border: 1px solid #0A5391;
-	padding: 1px;
-}
-#search a {
-	color: #FFF;
-}
+
 #search input {
-	border: 1px solid #0A5391;
-	padding: 2px;
+	border: 1px solid;
+    margin-top: 3px;
 }
+
+#search{
+    margin-top: 3px;
+}
+
 #breadcrumb {
 	float: left;
 	padding-top: 7px;
@@ -689,18 +682,20 @@ body.category_background {
 }
 */
 
-#menu {
-	float: right;
+.menu {
 	padding-top: 2px;
+	opacity:0.7;
 }
 
-#menu ul{
+.menu ul{
     display: block;
     list-style-type: disc;
     text-align: center;
+	margin: 10px;
+    padding: 0;
 }
 
-#menu ul li{
+.menu ul li{
     float: left;
     font-family: "Trebuchet MS",Verdana,sans-serif;
     letter-spacing: 3px;

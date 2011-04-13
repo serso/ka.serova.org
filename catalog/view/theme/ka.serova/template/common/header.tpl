@@ -72,101 +72,116 @@
 <div id="page">
     <div id="container">
         <div id="header">
-            <div class="div6">
-                <div class="left">
-                </div>
-                <div class="right"></div>
-                <div class="center">
-                    <div class="div7">
-                        <?php if ($currencies) { ?>
+			<div class="div6">
+				<div class="left"></div>
+				<div class="right"></div>
+				<div class="center">
+										<div class="div7">
+						<?php if ($currencies) { ?>
 
-                        <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="currency_form">
-                            <div class="switcher">
+						<form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="currency_form">
+							<div class="switcher">
 
-                                <?php $selectedCreated = false; ?>
-                                <?php foreach ($currencies as $i => $currency) { ?>
-                                <?php if ($currency['code'] == $currency_code || ( $i == count($currencies) - 1 && !$selectedCreated )) { ?>
-                                    <?php $selectedCreated = true; ?>                                        
-                                    <div class="selected"><a><img
-                                            src="resources/images/currencies/<?php echo $currency['code']; ?>.png"
-                                            alt="<?php echo $currency['title']; ?>"/></a></div>
-                                    <?php } ?>
-                                <?php } ?>
+								<?php $selectedCreated = false; ?>
+								<?php foreach ($currencies as $i => $currency) { ?>
+								<?php if ($currency['code'] == $currency_code || ($i == count($currencies) - 1 && !$selectedCreated)) { ?>
+									<?php $selectedCreated = true; ?>
+									<div class="selected"><a><img
+											src="resources/images/currencies/<?php echo $currency['code']; ?>.png"
+											alt="<?php echo $currency['title']; ?>"/></a></div>
+									<?php } ?>
+								<?php } ?>
 
-                                <div class="option">
-                                    <?php foreach ($currencies as $currency) { ?>
-                                        <!--todo serso: not very good (.png for curreny)-->
-                                    <a onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><img
-                                            src="resources/images/currencies/<?php echo $currency['code']; ?>.png"
-                                            alt="<?php echo $currency['title']; ?>"/></a>
-                                    <?php } ?>
-                                </div>
-                            </div>
+								<div class="option">
+									<?php foreach ($currencies as $currency) { ?>
+									<!--todo serso: not very good (.png for curreny)-->
+									<a onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><img
+											src="resources/images/currencies/<?php echo $currency['code']; ?>.png"
+											alt="<?php echo $currency['title']; ?>"/></a>
+									<?php } ?>
+								</div>
+							</div>
 
-                            <div style="display: inline;">
-                                <input type="hidden" name="currency_code" value=""/>
-                                <input type="hidden" id="currency_redirect" name="redirect"
-                                       value="<?php echo $redirect; ?>"/>
-                                <input type="hidden" id="redirect_original" name="redirect_original"
-                                       value="<?php echo $redirect; ?>"/>
-                            </div>
-                        </form>
-                        <?php } ?>
-                        <?php if ($languages) { ?>
-                        <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post"
-                              enctype="multipart/form-data" id="language_form">
-                            <div class="switcher">
-                                <?php $selectedCreated = false; ?>
-                                <?php foreach ($languages as $i => $language) { ?>
-                                    <?php if ($language['code'] == $language_code || ( $i == count($languages) - 1 && !$selectedCreated )) { ?>
-                                        <?php $selectedCreated = true; ?>
-                                        <div class="selected"><a><img
-                                                src="resources/images/flags/<?php echo $language['image']; ?>"
-                                                alt="<?php echo $language['name']; ?>"/></a></div>
-                                    <?php } ?>
-                                <?php } ?>
-                                <div class="option">
-                                    <?php foreach ($languages as $language) { ?>
-                                    <a onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#language_form').submit();"><img
-                                            src="resources/images/flags/<?php echo $language['image']; ?>"
-                                            alt="<?php echo $language['name']; ?>"/></a>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <div>
-                                <input type="hidden" name="language_code" value=""/>
-                                <input type="hidden" id="language_redirect" name="redirect"
-                                       value="<?php echo $redirect; ?>"/>
-                                <?php if (!$currencies) { ?>
-                                <input type="hidden" id="redirect_original" name="redirect_original"
-                                       value="<?php echo $redirect; ?>"/>
-                                <?php }?>
-                            </div>
-                        </form>
-                        <?php } ?>
-                    </div>
-                    <div id="menu">
-                        <ul>
+							<div style="display: inline;">
+								<input type="hidden" name="currency_code" value=""/>
+								<input type="hidden" id="currency_redirect" name="redirect"
+									   value="<?php echo $redirect; ?>"/>
+								<input type="hidden" id="redirect_original" name="redirect_original"
+									   value="<?php echo $redirect; ?>"/>
+							</div>
+						</form>
+						<?php } ?>
+						<?php if ($languages) { ?>
+						<form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post"
+							  enctype="multipart/form-data" id="language_form">
+							<div class="switcher">
+								<?php $selectedCreated = false; ?>
+								<?php foreach ($languages as $i => $language) { ?>
+								<?php if ($language['code'] == $language_code || ($i == count($languages) - 1 && !$selectedCreated)) { ?>
+									<?php $selectedCreated = true; ?>
+									<div class="selected"><a><img
+											src="resources/images/flags/<?php echo $language['image']; ?>"
+											alt="<?php echo $language['name']; ?>"/></a></div>
+									<?php } ?>
+								<?php } ?>
+								<div class="option">
+									<?php foreach ($languages as $language) { ?>
+									<a onclick="$('input[name=\'language_code\']').attr('value', '<?php echo $language['code']; ?>'); $('#language_form').submit();"><img
+											src="resources/images/flags/<?php echo $language['image']; ?>"
+											alt="<?php echo $language['name']; ?>"/></a>
+									<?php } ?>
+								</div>
+							</div>
+							<div>
+								<input type="hidden" name="language_code" value=""/>
+								<input type="hidden" id="language_redirect" name="redirect"
+									   value="<?php echo $redirect; ?>"/>
+								<?php if (!$currencies) { ?>
+								<input type="hidden" id="redirect_original" name="redirect_original"
+									   value="<?php echo $redirect; ?>"/>
+								<?php }?>
+							</div>
+						</form>
+						<?php } ?>
+					</div>
 
-                            <?php if (!$logged) { ?>
-                            <li><a href="<?php echo str_replace('&', '&amp;', $login); ?>"
-                                   id="tab_login"><?php echo $text_login; ?></a></li>
-                            <?php } else { ?>
-                            <li><a href="<?php echo str_replace('&', '&amp;', $logout); ?>"
-                                   id="tab_logout"><?php echo $text_logout; ?></a></li>
-                            <li><a href="<?php echo str_replace('&', '&amp;', $account); ?>"
-                                   id="tab_account"><?php echo $text_account; ?></a></li>
-                            <?php } ?>
+					<div class="menu" style="float:right;">
+						<ul>
 
-                            <li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>"
-                                   id="tab_cart"><?php echo $text_cart; ?>(<span
-                                    id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
-                            <li><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" id="tab_contancts"><?php echo $text_contact; ?></a></li>
+							<?php if (!$logged) { ?>
+							<li><a href="<?php echo str_replace('&', '&amp;', $login); ?>"id="tab_login"><?php echo $text_login; ?></a></li>
+							<?php } else { ?>
+							<li><a href="<?php echo str_replace('&', '&amp;', $logout); ?>"id="tab_logout"><?php echo $text_logout; ?></a></li>
+							<li><a href="<?php echo str_replace('&', '&amp;', $account); ?>"id="tab_account"><?php echo $text_account; ?></a></li>
+							<?php } ?>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
+							<li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>"id="tab_cart"><?php echo $text_cart; ?>(<span id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
+							<li><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" id="tab_contancts"><?php echo $text_contact; ?></a></li>
+
+						</ul>
+					</div>
+
+					<div class="div7" style="float:left;">
+						<div id="search">
+							<?php if ($keyword) { ?>
+							<input type="text" value="<?php echo $keyword; ?>" id="filter_keyword"/>
+							<?php } else { ?>
+							<input type="text" value="<?php echo $text_keyword; ?>" id="filter_keyword" onclick="this.value = '';" onkeydown="this.style.color = '#000000'" style="color: #999;"/>
+							<?php } ?>
+							<input type="hidden" name="filter_category_id" value="0">
+						</div>
+					</div>
+
+
+					<div class="menu" style="float:left;">
+						<ul>
+							<li style="margin-left:5px;">
+								<a onclick="moduleSearch();"><span><?php echo $button_go; ?></span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
             <div class="div1">
 
