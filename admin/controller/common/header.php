@@ -15,7 +15,7 @@ class ControllerCommonHeader extends Controller {
 		$this->data['breadcrumbs'] = $this->document->breadcrumbs;
 		
 		$this->data['heading_title'] = $this->language->get('heading_title');
-		
+
 		$this->data['text_backup'] = $this->language->get('text_backup');
 		$this->data['text_catalog'] = $this->language->get('text_catalog');
 		$this->data['text_category'] = $this->language->get('text_category');

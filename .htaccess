@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule  ^pics$ /ka.serova.org/index.php?route=product/category&path=40
+RewriteRule  ^flowers$ /ka.serova.org/index.php?route=product/category&path=35
+RewriteRule  ^yummy$ /ka.serova.org/index.php?route=product/category&path=37
+RewriteRule  ^metal&beads$ /ka.serova.org/index.php?route=product/category&path=38
+RewriteRule  ^other$ /ka.serova.org/index.php?route=product/category&path=36

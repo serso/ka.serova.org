@@ -50,6 +50,9 @@ class ControllerProductCategory extends Controller {
 		$category_info = $this->model_catalog_category->getCategory($category_id);
 
 		if ($category_info) {
+
+			$this->session->data['category_css'] = $category_info['display_details'];
+
 	  		$this->document->title = $category_info['name'];
 
 			$this->document->keywords = $category_info['meta_keywords'];

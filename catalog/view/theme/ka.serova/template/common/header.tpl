@@ -17,8 +17,8 @@
     <?php foreach ($links as $link) { ?>
     <link href="<?php echo str_replace('&', '&amp;', $link['href']); ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
-    <link rel="stylesheet" type="text/css"
-          href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css"/>
+	<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/<?php echo $category_css; ?>"/>
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css"/>
     <link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
     <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
@@ -47,6 +47,13 @@
     <script type="text/javascript">
         document.write('<style>.noscript { display: none; }</style>');
     </script>
+
+	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+
+	<script type="text/javascript">
+		VK.init({apiId: 0, onlyWidgets: true});
+	</script>
+
 
 
     <?php foreach ($scripts as $script) { ?>
@@ -178,6 +185,12 @@
 							<li style="margin-left:5px;">
 								<a onclick="moduleSearch();"><span><?php echo $button_go; ?></span></a>
 							</li>
+							<li>
+								<div id="vk_like"></div>
+								<script type="text/javascript">
+									VK.Widgets.Like("vk_like", {type: "10"});
+								</script>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -201,11 +214,11 @@
 
                                 <?php if (isset($category_id) && $category_id == $category['category_id']) { ?>
                                     <li class="selected"><a
-                                            href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+                                            href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
                                     </li>
                                     <?php } else { ?>
                                     <li>
-                                        <a href="index.php?route=product/category&path=<?php echo str_replace('&nbsp;', '', $category['category_id']); ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+                                        <a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
                                     </li>
                                     <?php } ?>
 

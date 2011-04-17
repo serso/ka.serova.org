@@ -1,6 +1,13 @@
 <?php   
 class ControllerCommonHeader extends Controller {
 	protected function index() {
+
+		if (!isset($this->session->data['category_css'])) {
+			$this->session->data['category_css'] = 'category_flowers.css';
+		}
+
+		$this->data['category_css'] = $this->session->data['category_css'];
+
     	if (($this->request->server['REQUEST_METHOD'] == 'POST') && isset($this->request->post['language_code'])) {
 			$this->session->data['language'] = $this->request->post['language_code'];
 		
@@ -189,10 +196,12 @@ class ControllerCommonHeader extends Controller {
 		$data = array();
 		
 		$results = $this->model_catalog_category->getCategories($parent_id);
+
 		
 		foreach ($results as $result) {
 			$data[] = array(
 				'category_id' => $result['category_id'],
+				'category_name' => $result['category_name'],
 				'name'        => str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level) . $result['name']
 			);
 			

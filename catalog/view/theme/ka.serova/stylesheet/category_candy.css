@@ -1,0 +1,61 @@
+a, a:visited {
+	color: #C61039;
+	cursor: pointer;
+	outline:none;
+}
+
+#content h1, .heading {
+	color: #C61039;
+	font-size: 14px;
+	font-family: "Trebuchet MS", sans-serif;
+	letter-spacing:5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0px;
+}
+
+.button {
+	padding-left: 8px;
+	display: inline-block;
+	margin-right: 5px;
+	text-decoration: none;
+	background:#C61039;
+	color:#FFF;
+}
+.button span {
+	color: #FFF;
+	background:#C61039;
+	display: block;
+	padding: 4px 12px 5px 5px;
+}
+
+h1 a {
+	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #C61039;
+	font-size: 110px;
+	text-decoration:none;
+}
+
+.price {
+	color: #C61039;
+	font-weight: bold;
+}
+
+body.category_background {
+	background: url("../image/category_bg_candy.png") repeat fixed;
+}
+
+#h_menu a:hover {
+	color: #C61039;
+}
+.top_header {
+    clear: both;
+    height: 160px;
+	width: 900px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+	background:url("../image/header_candy.png") no-repeat 0 0;
+}
