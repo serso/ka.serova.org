@@ -55,3 +55,6 @@ update category
  where category_id in ( select cd.category_id
 			  from category_description cd
 			 where lcase ( cd.name ) = 'yummy' );
+
+			 update category set display_details = 'category_candy.css', category_name = 'handmade'
+where category_id = 41;

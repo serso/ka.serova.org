@@ -116,7 +116,7 @@ class ControllerProductSearch extends Controller {
 		
 		if (isset($this->request->get['keyword'])) {
 			$this->load->model('catalog/product');
-			
+
 			$product_total = $this->model_catalog_product->getTotalProductsByKeyword($this->request->get['keyword'], isset($this->request->get['category_id']) ? $this->request->get['category_id'] : '', isset($this->request->get['description']) ? $this->request->get['description'] : '', isset($this->request->get['model']) ? $this->request->get['model'] : '');
 			
 			$product_tag_total = $this->model_catalog_product->getTotalProductsByTag($this->request->get['keyword'], isset($this->request->get['category_id']) ? $this->request->get['category_id'] : '');

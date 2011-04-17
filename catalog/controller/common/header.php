@@ -201,6 +201,7 @@ class ControllerCommonHeader extends Controller {
 		foreach ($results as $result) {
 			$data[] = array(
 				'category_id' => $result['category_id'],
+				'parent_id' => $result['parent_id'],
 				'category_name' => $result['category_name'],
 				'name'        => str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level) . $result['name']
 			);

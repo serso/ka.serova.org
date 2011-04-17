@@ -8,3 +8,5 @@ RewriteRule  ^flowers$ /ka.serova.org/index.php?route=product/category&path=35
 RewriteRule  ^yummy$ /ka.serova.org/index.php?route=product/category&path=37
 RewriteRule  ^metal&beads$ /ka.serova.org/index.php?route=product/category&path=38
 RewriteRule  ^other$ /ka.serova.org/index.php?route=product/category&path=36
+RewriteRule  ^all$ /ka.serova.org/index.php?route=product/category&path=41
+RewriteRule  ^handmade$ /ka.serova.org/index.php?route=product/category&path=41

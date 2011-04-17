@@ -198,7 +198,7 @@
 
             <div class="div1">
 
-                <a href="index.php">
+                <a href="all">
                     <div class="top_header">&nbsp;</div>
                 </a>
 
@@ -210,17 +210,21 @@
                         <?php if (isset($categories)) { ?>
                         <div id="h_menu">
                             <ul>
+
                                 <?php foreach ($categories as $category) { ?>
 
+									<?php if ( $category['parent_id'] != 0 ) { ?>
+
                                 <?php if (isset($category_id) && $category_id == $category['category_id']) { ?>
-                                    <li class="selected"><a
+                                    <li><a id="h_menu_selected"
                                             href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
                                     </li>
                                     <?php } else { ?>
                                     <li>
-                                        <a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+                                        <a class="not_selected" href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
                                     </li>
                                     <?php } ?>
+					<?php } ?>
 
                                 <?php } ?>
                             </ul>

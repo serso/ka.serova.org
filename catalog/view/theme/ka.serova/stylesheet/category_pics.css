@@ -46,7 +46,7 @@ body.category_background {
 	background: url("../image/category_bg_pics.png") repeat fixed;
 }
 
-#h_menu a:hover {
+#h_menu a:hover, .menu a:hover {
 	color: #004a79;
 }
 .top_header {
