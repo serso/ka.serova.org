@@ -66,11 +66,13 @@
         <table>
           <tr>
 			  <td align="left">
-				  <a class="button" onclick="history.back();">
-				  <span><?php echo $button_back; ?></span>
-			  </a></td>
+				  <a class="button" onclick="history.back();"><span><?php echo $button_back; ?></span></a>
+			  </td>
             <td align="center">&nbsp;</td>
-            <td align="right"><a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a><a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a></td>
+            <td align="right">
+				<a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a>
+				<a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a>
+			</td>
           </tr>
         </table>
       </div>

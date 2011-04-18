@@ -211,22 +211,19 @@
                         <div id="h_menu">
                             <ul>
 
-                                <?php foreach ($categories as $category) { ?>
+								<?php foreach ($categories as $category) { ?>
 
-									<?php if ( $category['parent_id'] != 0 ) { ?>
+									<?php if (isset($category_id) && $category_id == $category['category_id']) { ?>
+										<li  id="h_menu_selected">
+											<a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+										</li>
+									<?php } else { ?>
+										<li class="not_selected">
+											<a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+										</li>
+									<?php } ?>
 
-                                <?php if (isset($category_id) && $category_id == $category['category_id']) { ?>
-                                    <li><a id="h_menu_selected"
-                                            href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
-                                    </li>
-                                    <?php } else { ?>
-                                    <li>
-                                        <a class="not_selected" href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
-                                    </li>
-                                    <?php } ?>
-					<?php } ?>
-
-                                <?php } ?>
+								<?php } ?>
                             </ul>
                         </div>
                         <?php } ?>

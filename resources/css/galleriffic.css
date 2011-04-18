@@ -66,7 +66,7 @@ div.download {
 div.caption-container {
 	position: relative;
 	clear: left;
-	height: 75px;
+	height: 150px;
 }
 span.image-caption {
 	display: block;
@@ -88,6 +88,7 @@ div.image-desc {
     padding-left: 10px;
     padding-top: 10px;
     text-align: left;
+	width:340px;
 }
 div.navigation {
 	/* The navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled. */

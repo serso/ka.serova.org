@@ -50,12 +50,14 @@ body.category_background {
 	color: #C61039;
 }
 .top_header {
-    clear: both;
-    height: 160px;
-	width: 900px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
 	background:url("../image/header_candy.png") no-repeat 0 0;
+}
+
+#h_menu a {
+	color: #444444;
+}
+
+#h_menu_selected a {
+	font-weight:bold;
+	color: #C61039;
 }

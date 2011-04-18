@@ -65,12 +65,6 @@
 									<span class="price" style="text-decoration: line-through; opacity:0.3;"><?php echo $product['price']; ?></span>
 									<span class="price"><?php echo $product['special']; ?></span>
 								<?php } ?>
-
-							<a class="button_go_to_description_small" title="<?php echo $text_go_to_description; ?>" href="<?php echo $product['href']; ?>" >&nbsp;</a>
-							<a class="button_add_small" id="my_add_to_cart" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')">&nbsp;</a>
-							<a class="button_buy_now"   title="<?php echo $text_buy; ?>"  href="<?php echo $product['add']; ?>" >&nbsp;</a>
-
-
 							  <?php } ?>
 						  </div>
 					  	</div>
@@ -78,6 +72,16 @@
 					  <?php if ($product['description']) { ?>
 						  <div class="image-desc"><?php echo $product['description']; ?></div>
 					  <?php } ?>
+
+					  <div style="float:right; width:160px;text-align:right; padding-right: 7px;padding-top: 10px;">
+						  <?php if ($display_price) { ?>
+							  <div style="margin-bottom:3px;"><a class="button" title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>"><span style="font-weight:bold;"><?php echo $text_buy;?></span></a></div>
+							  <div style="margin-bottom:3px;"><a class="button" id="my_add_to_cart" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')"><span><?php echo $text_add_to_cart;?></span></a></div>
+							  <?php } ?>
+						  <div style="margin-bottom:3px;"><a class="button" title="<?php echo $text_go_to_description; ?>" href="<?php echo $product['href']; ?>"><span><?php echo $text_go_to_description;?></span></a></div>
+					  </div>
+
+
 
 				  </div>
 			  </li>
@@ -109,7 +113,7 @@
 			preloadAhead:				5,
 			enableTopPager:				true,
 			enableBottomPager:			true,
-			maxPagesToShow:				15,
+			maxPagesToShow:				7,
 			imageContainerSel:			'#selected_image',
 			controlsContainerSel:		'#controls',
 			captionContainerSel:		'#caption',

@@ -1,4 +1,10 @@
-<?php 
+<?php
+	function sortByProductId($l, $r) {
+		if ($l == $r) {
+			return 0;
+		}
+		return ($l['product_id'] > $r['product_id']) ? -1 : 1;
+	}
 class ControllerProductCategory extends Controller {  
 	public function index() {
 		$this->language->load('product/category');
@@ -7,6 +13,7 @@ class ControllerProductCategory extends Controller {
 		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
 		$this->data['text_buy'] = $this->language->get('text_buy');
 		$this->data['text_go_to_description'] = $this->language->get('text_go_to_description');
+		$this->data['text_add_to_cart'] = $this->language->get('text_add_to_cart');
 
 		$this->document->breadcrumbs = array();
 
@@ -186,6 +193,7 @@ class ControllerProductCategory extends Controller {
 					}
 				}
 
+				usort($this->data['products'], "sortByProductId");
 
 				if (!$this->config->get('config_customer_price')) {
 					$this->data['display_price'] = TRUE;

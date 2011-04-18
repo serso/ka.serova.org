@@ -592,14 +592,13 @@ a {
 	background-color: white;
 	z-index:10;
 	position:absolute;
-	top:0;
-	right:50px;
+	top:77px;
+	right:-65px;
 }
 
 #h_menu {
-	height: 60px;
+	height: 30px;
 	margin: auto;
-
 	float: left;
 	width: 100%;
 	overflow: hidden;
@@ -620,7 +619,7 @@ a {
 #h_menu ul li {
 	display: block;
 	float: left;
-	margin: 0 15px;
+	margin: 0 10px;
 	padding: 0;
 	position: relative;
 	right: 50%;
@@ -632,11 +631,6 @@ a {
 	letter-spacing: 5px;
 	list-style: none outside none;
 	font-size: 22px;
-	color: #444444;
-}
-
-#h_menu_selected {
-	font-weight:bold;
 }
 
 .not_selected {
@@ -684,4 +678,14 @@ div.caption .right {
 	text-align:right;
 	padding-right: 10px;
 	width: 40%;
+}
+
+.top_header {
+	clear: both;
+	height: 145px;
+	width: 900px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
 }
