@@ -208,7 +208,7 @@ if (isset($request->get['route']) && $request->get['route'] != 'common/home') {
 	$action = new Action($request->get['route']);
 } else {
 	$action = new Action('product/category');
-	$request->get['path'] = 35;
+	$request->get['path'] = 41;
 }
 
 // Dispatch

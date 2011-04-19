@@ -58,3 +58,7 @@ update category
 
 			 update category set display_details = 'category_candy.css', category_name = 'handmade'
 where category_id = 41;
+
+update category set display_details = 'category_other.css' where category_name = 'other';
+update category set display_details = 'category_handmade.css' where category_name = 'handmade';
+update category set display_details = 'category_yummy.css' where category_name = 'yummy';
