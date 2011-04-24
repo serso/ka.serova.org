@@ -10,3 +10,8 @@ RewriteRule  ^metal&beads$ /index.php?route=product/category&path=38
 RewriteRule  ^other$ /index.php?route=product/category&path=36
 RewriteRule  ^all$ /index.php?route=product/category&path=41
 RewriteRule  ^handmade$ /index.php?route=product/category&path=41
+
+<Files config.php>
+  order allow,deny
+  deny from all
+</Files>
