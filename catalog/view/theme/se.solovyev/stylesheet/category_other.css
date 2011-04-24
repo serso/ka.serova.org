@@ -61,3 +61,6 @@ body.category_background {
 	font-weight:bold;
 	color: #198997;
 }
+#jSuccess {
+	border:1px solid #198997;
+}

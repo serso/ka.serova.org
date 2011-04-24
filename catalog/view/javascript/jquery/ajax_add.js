@@ -39,20 +39,33 @@ function addToCart(productId, elementId, text) {
 		dataType: 'html',
 		data: {'product_id': productId, 'quantity': 1, 'noNeedResultHtml': 'anyVar'},
 		success: function (html) {
-			if (elementId != null) {
-				$('#' + elementId).after('<div class="added_item">' + text + '</div>');
-			}
 			$('#goodsInBasket').each(function(index, span) {
 				if ( isNumber(span.innerHTML) ) {
 					span.innerHTML = 1 + parseInt(span.innerHTML);
 				}
 			});
 
-			if (elementId != null) {
-				setTimeout(function() {
-					$('.added_item').slideUp(1000);
-				}, 2000);
-			}
+			jSuccess(
+				text,
+			{
+				autoHide : true, // added in v2.0
+				clickOverlay : false, // added in v2.0
+				MinWidth : 200,
+				TimeShown : 1000,
+				ShowTimeEffect : 400,
+				HideTimeEffect : 200,
+				LongTrip :20,
+				HorizontalPosition : 'right',
+				VerticalPosition : 'bottom',
+				ShowOverlay : false,
+				ColorOverlay : '#000',
+				OpacityOverlay : 0.3,
+				onClosed : function() { // added in v2.0
+
+				},
+				onCompleted : function() { // added in v2.0
+				}
+			});
 		},
 		complete: function () {
 			/*var image = $('#image').offset();

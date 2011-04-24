@@ -42,6 +42,8 @@
     <script type="text/javascript" src="resources/js/jquery.galleriffic.js"></script>
     <script type="text/javascript" src="resources/js/jquery.opacityrollover.js"></script>
     <script type="text/javascript" src="resources/js/jquery.history.js"></script>
+    <script type="text/javascript" src="resources/js/jnotify/jquery/jNotify.jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/js/jnotify/jquery/jNotify.jquery.css"/>
 
     <!-- We only want the thumbnails to display when javascript is disabled -->
     <script type="text/javascript">

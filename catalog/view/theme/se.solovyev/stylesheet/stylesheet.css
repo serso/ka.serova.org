@@ -670,7 +670,7 @@ div.caption .left {
 	  float: left;
 	text-align:left;
     padding-left: 10px;
-	width:40%;
+	width:50%;
 }
 
 div.caption .right {
@@ -688,4 +688,15 @@ div.caption .right {
     overflow: hidden;
     position: relative;
     text-align: center;
+}
+
+#jSuccess {
+	position:absolute;
+	background:white;
+	padding:10px;
+	margin:15px;
+	z-index:9999;
+	-moz-border-radius : 5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
 }

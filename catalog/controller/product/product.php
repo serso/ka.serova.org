@@ -2,9 +2,13 @@
 class ControllerProductProduct extends Controller {
 	private $error = array(); 
 	
-	public function index() { 
+	public function index() {
+		$this->language->load('product/category');
+		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
+		$this->data['text_buy'] = $this->language->get('text_buy');
+
 		$this->language->load('product/product');
-				
+
 		$this->document->breadcrumbs = array();
 
 		$this->document->breadcrumbs[] = array(
@@ -14,12 +18,10 @@ class ControllerProductProduct extends Controller {
 		);
 		
 		$this->load->model('tool/seo_url'); 
-		
-		$this->load->model('catalog/category');	
+
+		$this->load->model('catalog/category');
 
 		$this->data['cart'] = HTTP_SERVER . 'index.php?route=checkout/cart';
-		$this->data['text_added_to_cart'] = $this->language->get('text_added_to_cart');
-		$this->data['text_buy'] = $this->language->get('text_buy');
 		
 		if (isset($this->request->get['path'])) {
 			$path = '';

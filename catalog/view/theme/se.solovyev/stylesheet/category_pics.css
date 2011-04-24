@@ -60,3 +60,8 @@ body.category_background {
 #h_menu_selected a {
 	font-weight:bold;
 	color: #004a79;
+}
+
+#jSuccess {
+	border:1px solid #004a79;
+}
