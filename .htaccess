@@ -3,10 +3,10 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
 
-RewriteRule  ^pics$ /ka.serova.org/index.php?route=product/category&path=40
-RewriteRule  ^flowers$ /ka.serova.org/index.php?route=product/category&path=35
-RewriteRule  ^yummy$ /ka.serova.org/index.php?route=product/category&path=37
-RewriteRule  ^metal&beads$ /ka.serova.org/index.php?route=product/category&path=38
-RewriteRule  ^other$ /ka.serova.org/index.php?route=product/category&path=36
-RewriteRule  ^all$ /ka.serova.org/index.php?route=product/category&path=41
-RewriteRule  ^handmade$ /ka.serova.org/index.php?route=product/category&path=41
+RewriteRule  ^pics$ /index.php?route=product/category&path=40
+RewriteRule  ^flowers$ /index.php?route=product/category&path=35
+RewriteRule  ^yummy$ /index.php?route=product/category&path=37
+RewriteRule  ^metal&beads$ /index.php?route=product/category&path=38
+RewriteRule  ^other$ /index.php?route=product/category&path=36
+RewriteRule  ^all$ /index.php?route=product/category&path=41
+RewriteRule  ^handmade$ /index.php?route=product/category&path=41
