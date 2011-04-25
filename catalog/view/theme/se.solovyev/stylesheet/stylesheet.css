@@ -158,6 +158,7 @@ div#page {
 	border: 1px solid;
     margin-top: 3px;
 	height:19px;
+	padding-left: 3px;
 }
 
 #search{
@@ -181,7 +182,7 @@ div#page {
 	display: block;
 }
 .switcher .selected {
-	background: #FFFFFF url('../image/switcher.png') repeat-x;
+	background: #FFFFFF;
 }
 .switcher .selected a {
 	border: 1px solid #CCCCCC;
@@ -200,7 +201,7 @@ div#page {
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	display: none;
 	width: 51px;
 }
