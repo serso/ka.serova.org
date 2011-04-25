@@ -157,10 +157,10 @@ div#page {
 #search input {
 	border: 1px solid;
     margin-top: 3px;
+	height:19px;
 }
 
 #search{
-    margin-top: 3px;
 }
 
 #breadcrumb {
