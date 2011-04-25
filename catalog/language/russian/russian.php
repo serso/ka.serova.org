@@ -19,7 +19,7 @@ $_['text_pagination']       = 'Показано с {start} по {end} из {tota
 $_['text_separator']        = ' &gt; ';
 
 // Buttons
-$_['button_continue']       = 'Вперед';
+$_['button_continue']       = 'Далее';
 $_['button_back']           = 'Назад';
 $_['button_add_to_cart']    = 'Добавить в корзину';
 $_['button_add_address']    = 'Добавить адрес';
@@ -30,7 +30,7 @@ $_['button_delete']         = 'Удалить';
 $_['button_reviews']        = 'Отзывы';
 $_['button_write']          = 'Написать отзыв';
 $_['button_login']          = 'Войти';
-$_['button_update']         = 'Обновить';
+$_['button_update']         = 'Пересчитать';
 $_['button_shopping']       = 'Продолжить покупку';
 $_['button_checkout']       = 'Оформить';
 $_['button_confirm']        = 'Подтвердить заказ';
