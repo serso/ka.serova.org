@@ -61,6 +61,7 @@ class ControllerCommonHeader extends Controller {
 			$this->data['logo'] = '';
 		}
 		
+		$this->data['text_ka_serova_title'] = $this->language->get('text_ka.serova_title');
 		$this->data['charset'] = $this->language->get('charset');
 		$this->data['lang'] = $this->language->get('code');
 		$this->data['direction'] = $this->language->get('direction');

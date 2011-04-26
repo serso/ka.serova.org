@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>"
       xml:lang="<?php echo $lang; ?>">
 <head>
-    <title><?php echo $title; ?></title>
+    <title><?php echo $text_ka_serova_title.$title; ?></title>
     <?php if ($keywords) { ?>
     <meta name="keywords" content="<?php echo $keywords; ?>"/>
     <?php } ?>

@@ -15,6 +15,8 @@ $_['text_keyword']  = 'Поиск...';
 $_['text_advanced'] = 'Расширенный поиск';
 $_['text_category'] = 'Все категории';
 
+$_['text_ka.serova_title'] = 'ka.serova ♥ украшения ручной работы ♥ ';
+
 // Entry
 $_['entry_search']   = 'Поиск:';
 ?>

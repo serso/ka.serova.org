@@ -155,7 +155,7 @@ div#page {
 }
 
 #search input {
-	border: 1px solid;
+	border: 1px solid #CCCCCC;
     margin-top: 3px;
 	height:19px;
 	padding-left: 3px;

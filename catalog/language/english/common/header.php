@@ -15,6 +15,8 @@ $_['text_keyword']  = 'Keywords';
 $_['text_advanced'] = 'Advanced Search';
 $_['text_category'] = 'All Categories';
 
+$_['text_ka.serova_title'] = 'ka.serova ♥ handmade accessories ♥ ';
+
 // Entry
 $_['entry_search']   = 'Search:';
 ?>
