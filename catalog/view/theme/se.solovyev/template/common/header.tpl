@@ -32,7 +32,7 @@
           media="<?php echo $style['media']; ?>"/>
     <?php } ?>
 
-    <script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
+    <script type="text/javascript" src="resources/js/jquery-1.5.2.min.js"></script>
 
     <script type="text/javascript" src="catalog/view/javascript/jquery/thickbox/thickbox-compressed.js"></script>
     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/thickbox/thickbox.css"/>
