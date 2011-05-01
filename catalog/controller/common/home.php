@@ -2,11 +2,11 @@
 class ControllerCommonHome extends Controller {
 
 	public function index() {
-		$this->language->load('common/home1');
+		$this->language->load('common/home');
 		
 		$this->document->title = $this->config->get('config_title');
 		$this->document->description = $this->config->get('config_meta_description');
-		
+
 		$this->data['heading_title'] = sprintf($this->language->get('heading_title'), $this->config->get('config_name'));
 		
 		$this->load->model('setting/store');
