@@ -15,6 +15,7 @@ RewriteRule  ^cart$ /index.php?route=checkout/cart
 RewriteRule  ^login$ /index.php?route=account/login
 RewriteRule  ^logout$ /index.php?route=account/logout
 RewriteRule  ^contacts$ /index.php?route=information/contact
+RewriteRule  ^home$ /index.php?route=common/home
 
 <Files config.php>
   order allow,deny
