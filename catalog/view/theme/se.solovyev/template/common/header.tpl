@@ -181,6 +181,7 @@
 							<?php } ?>
 
 							<li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>"id="tab_cart"><?php echo $text_cart; ?>(<span id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
+							<li><a href="<?php echo str_replace('&', '&amp;', $about_us); ?>"><?php echo $text_about_us; ?></a></li>
 							<li><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" id="tab_contancts"><?php echo $text_contact; ?></a></li>
 
 						</ul>

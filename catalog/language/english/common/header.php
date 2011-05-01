@@ -10,6 +10,7 @@ $_['text_login']    = 'Log In';
 $_['text_logout']   = 'Log Off';
 $_['text_cart']     = 'Cart';
 $_['text_checkout'] = 'Checkout';
+$_['text_about_us'] = 'About Us';
 
 $_['text_keyword']  = 'Keywords';
 $_['text_advanced'] = 'Advanced Search';
