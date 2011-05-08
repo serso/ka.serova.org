@@ -2,6 +2,7 @@ html {
 	overflow: -moz-scrollbars-vertical;
 	margin: 0;
 	padding: 0;
+    height: 100%;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     text-align: center;
 	margin:0;
 	padding:0;
+    height: 100%;
 }
 body, td, th, input, textarea, select, a {
 	font-size: 12px;
@@ -46,6 +48,7 @@ div#page {
 	text-align: left;
 	border: 1px solid #ddd;
 	border-top: medium none;
+    min-height: 100%;
 }
 
 #container {
