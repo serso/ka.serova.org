@@ -211,4 +211,15 @@
     <div class="center"></div>
   </div>
 </div>
+<!--, pageUrl: url + "#" + item.id.substring("vk_like_".length)-->
+<script type="text/javascript">
+	if (jQuery && VK) {
+
+		var url = document.location.href.split('#', 1)[0];
+
+		$(".vk_like").each(function (index, item) {
+			VK.Widgets.Like(item.id, {type: "mini"}, item.id.substring("vk_like_".length));
+		});
+	}
+</script>
 <?php echo $footer; ?> 
