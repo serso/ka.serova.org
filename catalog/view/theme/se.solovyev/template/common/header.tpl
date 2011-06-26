@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
     <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+
+	<link rel="shortcut icon" href="catalog/view/theme/<?php echo $template; ?>/image/favicon.ico" type="image/x-icon"/>
+
     <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>
     DD_belatedPNG.fix('img, #header .div3 a, #content .left, #content .right, .box .top');
