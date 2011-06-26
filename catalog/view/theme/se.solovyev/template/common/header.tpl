@@ -53,11 +53,13 @@
         document.write('<style>.noscript { display: none; }</style>');
     </script>
 
-<!--	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?32"></script>
 
 	<script type="text/javascript">
-		VK.init({apiId: 0, onlyWidgets: true});
-	</script>-->
+		if (VK) {
+			VK.init({apiId: 2395707, onlyWidgets: true});
+		}
+	</script>
 
 
 	<script type="text/javascript">
@@ -206,12 +208,6 @@
 						<ul>
 							<li style="margin-left:5px;">
 								<a onclick="moduleSearch();"><span><?php echo $button_go; ?></span></a>
-							</li>
-							<li>
-								<div id="vk_like"></div>
-								<script type="text/javascript">
-									VK.Widgets.Like("vk_like", {type: "10"});
-								</script>
 							</li>
 						</ul>
 					</div>
