@@ -1,4 +1,4 @@
 <?php
 // Text
-$_['text_powered_by'] = 'Разработано <a href="http://se.solovyev.org:3000">se.solovyev</a> на основе <a href="http://myopencart.ru">opencart</a><br /> <a href="http://ka.serova.org">%s</a> &copy; %s';
+$_['text_powered_by'] = 'Разработано <a href="http://se.solovyev.org">se.solovyev</a> на основе <a href="http://myopencart.ru">opencart</a><br /> <a href="http://ka.serova.org">%s</a> &copy; %s';
 ?>

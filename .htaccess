@@ -1,6 +1,10 @@
 Options +FollowSymLinks
 
 RewriteEngine On
+
+RewriteCond %{HTTP_HOST} !^ka\.serova\.org$
+RewriteRule ^ http://ka.serova.org%{REQUEST_URI} [R=301,L] 
+
 RewriteBase /
 
 RewriteRule  ^pics$ /index.php?route=product/category&path=40
