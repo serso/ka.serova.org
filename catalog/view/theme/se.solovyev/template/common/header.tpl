@@ -53,11 +53,11 @@
         document.write('<style>.noscript { display: none; }</style>');
     </script>
 
-	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+<!--	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 
 	<script type="text/javascript">
 		VK.init({apiId: 0, onlyWidgets: true});
-	</script>
+	</script>-->
 
 
 	<script type="text/javascript">
