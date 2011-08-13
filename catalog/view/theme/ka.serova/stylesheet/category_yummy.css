@@ -1,11 +1,11 @@
 a, a:visited {
-	color: #d0015b;
+	color: #701d47;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #d0015b;
+	color: #701d47;
 	font-size: 14px;
 	font-family: "Trebuchet MS", sans-serif;
 	letter-spacing:5px;
@@ -19,12 +19,12 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#d0015b;
+	background:#701d47;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#d0015b;
+	background:#701d47;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
@@ -32,25 +32,25 @@ a, a:visited {
 h1 a {
 	letter-spacing: 35px;
 	font-family: "Trebuchet MS", sans-serif;
-	color: #d0015b;
+	color: #701d47;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #d0015b;
+	color: #701d47;
 	font-weight: bold;
 }
 
 body.category_background {
-	background: url("../image/category_bg_yummy.jpg") repeat fixed;
+	background: url("../image/category_bg_handmade.jpg") repeat fixed;
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #d0015b;
+	color: #701d47;
 }
 .top_header {
-	background:url("../image/header_yummy.png") no-repeat 0 0;
+	background:url("../image/header_handmade.png") no-repeat 0 0;
 }
 
 #h_menu a {
@@ -59,5 +59,9 @@ body.category_background {
 
 #h_menu_selected a {
 	font-weight:bold;
-	color: #d0015b;
+	color: #701d47;
+}
+
+#jSuccess {
+	border:1px solid #701d47;
 }

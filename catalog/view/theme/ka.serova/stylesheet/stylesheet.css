@@ -2,6 +2,7 @@ html {
 	overflow: -moz-scrollbars-vertical;
 	margin: 0;
 	padding: 0;
+    height: 100%;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     text-align: center;
 	margin:0;
 	padding:0;
+    height: 100%;
 }
 body, td, th, input, textarea, select, a {
 	font-size: 12px;
@@ -46,6 +48,7 @@ div#page {
 	text-align: left;
 	border: 1px solid #ddd;
 	border-top: medium none;
+    min-height: 100%;
 }
 
 #container {
@@ -155,12 +158,13 @@ div#page {
 }
 
 #search input {
-	border: 1px solid;
+	border: 1px solid #CCCCCC;
     margin-top: 3px;
+	height:19px;
+	padding-left: 3px;
 }
 
 #search{
-    margin-top: 3px;
 }
 
 #breadcrumb {
@@ -181,7 +185,7 @@ div#page {
 	display: block;
 }
 .switcher .selected {
-	background: #FFFFFF url('../image/switcher.png') repeat-x;
+	background: #FFFFFF;
 }
 .switcher .selected a {
 	border: 1px solid #CCCCCC;
@@ -200,7 +204,7 @@ div#page {
 	border-left: 1px solid #CCCCCC;
 	border-right: 1px solid #CCCCCC;
 	border-bottom: 1px solid #CCCCCC;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	display: none;
 	width: 51px;
 }
@@ -670,7 +674,7 @@ div.caption .left {
 	  float: left;
 	text-align:left;
     padding-left: 10px;
-	width:40%;
+	width:50%;
 }
 
 div.caption .right {
@@ -688,4 +692,15 @@ div.caption .right {
     overflow: hidden;
     position: relative;
     text-align: center;
+}
+
+#jSuccess {
+	position:absolute;
+	background:white;
+	padding:10px;
+	margin:15px;
+	z-index:9999;
+	-moz-border-radius : 5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
 }

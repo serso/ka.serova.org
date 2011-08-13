@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>"
       xml:lang="<?php echo $lang; ?>">
 <head>
-    <title><?php echo $title; ?></title>
+    <title><?php echo $text_ka_serova_title.$title; ?></title>
     <?php if ($keywords) { ?>
     <meta name="keywords" content="<?php echo $keywords; ?>"/>
     <?php } ?>
@@ -20,8 +20,11 @@
 	<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/<?php echo $category_css; ?>"/>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css"/>
     <link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
+	<link rel="shortcut icon" href="catalog/view/theme/<?php echo $template; ?>/image/favicon.ico" type="image/x-icon"/>
+
     <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+
     <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>
     DD_belatedPNG.fix('img, #header .div3 a, #content .left, #content .right, .box .top');
@@ -32,7 +35,7 @@
           media="<?php echo $style['media']; ?>"/>
     <?php } ?>
 
-    <script type="text/javascript" src="resources/js/jquery-1.5.js"></script>
+    <script type="text/javascript" src="resources/js/jquery-1.5.2.min.js"></script>
 
     <script type="text/javascript" src="catalog/view/javascript/jquery/thickbox/thickbox-compressed.js"></script>
     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/jquery/thickbox/thickbox.css"/>
@@ -42,19 +45,39 @@
     <script type="text/javascript" src="resources/js/jquery.galleriffic.js"></script>
     <script type="text/javascript" src="resources/js/jquery.opacityrollover.js"></script>
     <script type="text/javascript" src="resources/js/jquery.history.js"></script>
+    <script type="text/javascript" src="resources/js/jnotify/jquery/jNotify.jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="resources/js/jnotify/jquery/jNotify.jquery.css"/>
 
     <!-- We only want the thumbnails to display when javascript is disabled -->
     <script type="text/javascript">
         document.write('<style>.noscript { display: none; }</style>');
     </script>
 
-	<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?32"></script>
 
 	<script type="text/javascript">
-		VK.init({apiId: 0, onlyWidgets: true});
+		if (VK) {
+			VK.init({apiId: 2395707, onlyWidgets: true});
+		}
 	</script>
 
 
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-23041894-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
 
     <?php foreach ($scripts as $script) { ?>
     <script type="text/javascript" src="<?php echo $script; ?>"></script>
@@ -163,6 +186,7 @@
 							<?php } ?>
 
 							<li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>"id="tab_cart"><?php echo $text_cart; ?>(<span id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
+							<li><a href="<?php echo str_replace('&', '&amp;', $about_us); ?>"><?php echo $text_about_us; ?></a></li>
 							<li><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" id="tab_contancts"><?php echo $text_contact; ?></a></li>
 
 						</ul>
@@ -184,12 +208,6 @@
 						<ul>
 							<li style="margin-left:5px;">
 								<a onclick="moduleSearch();"><span><?php echo $button_go; ?></span></a>
-							</li>
-							<li>
-								<div id="vk_like"></div>
-								<script type="text/javascript">
-									VK.Widgets.Like("vk_like", {type: "10"});
-								</script>
 							</li>
 						</ul>
 					</div>

@@ -21,6 +21,7 @@
           <?php if ($display_price) { ?>
 		  <th align="center"><?php echo $column_price; ?></th>
           <th align="center"><?php echo $column_total; ?></th>
+          <th align="center">&nbsp;</th>
 		  <?php } ?>
         </tr>
         <?php $class = 'odd'; ?>
@@ -39,11 +40,12 @@
               <?php } ?>
             </div></td>
           <td align="center" ><?php echo $product['model']; ?></td>
-          <td align="center" ><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="3" /></td>
+          <td align="center" ><input type="text" name="quantity[<?php echo $product['key']; ?>]" id="product_<?php echo $product['key']; ?>" value="<?php echo $product['quantity']; ?>" size="3" /></td>
           <?php if ($display_price) { ?>
 		  <td align="center" ><?php echo $product['price']; ?></td>
           <td align="center" ><?php echo $product['total']; ?></td>
 		  <?php } ?>
+			<td align="center"><a onclick="removeProduct('<?php echo $product['key']; ?>');$('#cart').submit();" class="button"><span><?php echo $column_remove; ?></span></a></td>
         </tr>
         <?php } ?>
 		  <?php foreach ($totals as $total) { ?>
@@ -57,27 +59,26 @@
 		  <td align="right"><b><?php echo $total['title']; ?></b></td>
           <td align="center"><b><?php echo $total['text']; ?></b></td>
 		  <?php } ?>
+		<td align="center">&nbsp;</td>
         </tr>
 		  <?php } ?>
 
       </table>
-
-      <div class="buttons" style="float:left;width:100%;">
-        <table>
-          <tr>
-			  <td align="left">
-				  <a class="button" onclick="history.back();"><span><?php echo $button_back; ?></span></a>
-			  </td>
-            <td align="center">&nbsp;</td>
-            <td align="right">
-				<a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a>
-				<a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a>
-			</td>
-          </tr>
-        </table>
-      </div>
-		
     </form>
+	  <div class="buttons" style="float:left;width:100%;">
+		  <table>
+			  <tr>
+				  <td align="left">
+					  <a class="button" onclick="history.back();"><span><?php echo $button_back; ?></span></a>
+				  </td>
+				  <td align="center">&nbsp;</td>
+				  <td align="right">
+					  <a onclick="$('#cart').submit();" class="button"><span><?php echo $button_update; ?></span></a>
+					  <a onclick="location = '<?php echo str_replace('&amp;', '&', $checkout); ?>'" class="button"><span><?php echo $button_checkout; ?></span></a>
+				  </td>
+			  </tr>
+		  </table>
+	  </div>
   </div>
   <div class="bottom">
     <div class="left"></div>
@@ -85,4 +86,10 @@
     <div class="center"></div>
   </div>
 </div>
+
+	<script type="text/javascript">
+		function removeProduct (productId) {
+			$('#product_' + productId).val(0);
+		}
+	</script>
 <?php echo $footer; ?> 

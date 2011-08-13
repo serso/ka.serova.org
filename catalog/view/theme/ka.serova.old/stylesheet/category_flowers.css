@@ -1,0 +1,63 @@
+a, a:visited {
+	color: #316727;
+	cursor: pointer;
+	outline:none;
+}
+
+#content h1, .heading {
+	color: #316727;
+	font-size: 14px;
+	font-family: "Trebuchet MS", sans-serif;
+	letter-spacing:5px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0px;
+}
+
+.button {
+	padding-left: 8px;
+	display: inline-block;
+	margin-right: 5px;
+	text-decoration: none;
+	background:#316727;
+	color:#FFF;
+}
+.button span {
+	color: #FFF;
+	background:#316727;
+	display: block;
+	padding: 4px 12px 5px 5px;
+}
+
+h1 a {
+	letter-spacing: 35px;
+	font-family: "Trebuchet MS", sans-serif;
+	color: #316727;
+	font-size: 110px;
+	text-decoration:none;
+}
+
+.price {
+	color: #316727;
+	font-weight: bold;
+}
+
+body.category_background {
+	background: url("../image/category_bg_flowers.jpg") repeat fixed;
+}
+
+#h_menu a:hover, .menu a:hover {
+	color: #316727;
+}
+.top_header {
+	background:url("../image/header_flowers.png") no-repeat 0 0;
+}
+
+#h_menu a {
+	color: #444444;
+}
+
+#h_menu_selected a {
+	font-weight:bold;
+	color: #316727;
+}

@@ -1,7 +1,7 @@
 <div id="footer">
-  <div class="div2">
-	  <?php echo $text_powered_by; ?>
-  </div>
+	<div class="div2">
+		<?php echo $text_powered_by; ?>
+	</div>
 </div>
 </div>
 </div>
