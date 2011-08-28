@@ -1,17 +1,25 @@
 a, a:visited {
-	color: #316727;
+	color: #5d8a37;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #316727;
+	color: #5d8a37;
 	font-size: 14px;
-	font-family: "Trebuchet MS", sans-serif;
+	font-family: arial, sans-serif;
 	letter-spacing:5px;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 0px;
+}
+
+.menu ul li{
+	font-family: arial, sans-serif !important;
+}
+
+#h_menu a {
+	text-transform: lowercase !important;
 }
 
 .button {
@@ -19,26 +27,26 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#316727;
+	background:#5d8a37;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#316727;
+	background:#5d8a37;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
 
 h1 a {
 	letter-spacing: 35px;
-	font-family: "Trebuchet MS", sans-serif;
-	color: #316727;
+	font-family: arial, sans-serif;
+	color: #5d8a37;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #316727;
+	color: #5d8a37;
 	font-weight: bold;
 }
 
@@ -47,10 +55,10 @@ body.category_background {
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #316727;
+	color: #5d8a37;
 }
 .top_header {
-	background:url("../image/header_flowers.png") no-repeat 0 0;
+	background:url("../image/header.png") no-repeat 0 0;
 }
 
 #h_menu a {
@@ -59,9 +67,9 @@ body.category_background {
 
 #h_menu_selected a {
 	font-weight:bold;
-	color: #316727;
+	color: #5d8a37;
 }
 
 #jSuccess {
-	border:1px solid #316727;
+	border:1px solid #5d8a37;
 }

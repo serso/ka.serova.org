@@ -1,17 +1,24 @@
 a, a:visited {
-	color: #198997;
+	color: #408d85;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #198997;
+	color: #408d85;
 	font-size: 14px;
-	font-family: "Trebuchet MS", sans-serif;
+	font-family: arial, sans-serif;
 	letter-spacing:5px;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 0px;
+}
+.menu ul li{
+	font-family: arial, sans-serif !important;
+}
+
+#h_menu a {
+	text-transform: lowercase !important;
 }
 
 .button {
@@ -19,26 +26,26 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#198997;
+	background:#408d85;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#198997;
+	background:#408d85;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
 
 h1 a {
 	letter-spacing: 35px;
-	font-family: "Trebuchet MS", sans-serif;
-	color: #198997;
+	font-family: arial, sans-serif;
+	color: #408d85;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #198997;
+	color: #408d85;
 	font-weight: bold;
 }
 
@@ -47,10 +54,10 @@ body.category_background {
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #198997;
+	color: #408d85;
 }
 .top_header {
-	background:url("../image/header_other.png") no-repeat 0 0;
+	background:url("../image/header.png") no-repeat 0 0;
 }
 
 #h_menu a {
@@ -59,8 +66,8 @@ body.category_background {
 
 #h_menu_selected a {
 	font-weight:bold;
-	color: #198997;
+	color: #408d85;
 }
 #jSuccess {
-	border:1px solid #198997;
+	border:1px solid #408d85;
 }
