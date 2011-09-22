@@ -10,7 +10,7 @@ class ModelCatalogProduct extends Model {
 		}
 
 		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keywords = '" . $this->db->escape($value['meta_keywords']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', description = '" . $this->db->escape($value['description']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_description SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', meta_keywords = '" . $this->db->escape($value['name']) . "', meta_description = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "'");
 		}
 
 		if (isset($data['product_store'])) {
@@ -84,15 +84,24 @@ class ModelCatalogProduct extends Model {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'product_id=" . (int)$product_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
-		foreach ($data['product_tags'] as $language_id => $value) {
-			$tags = explode(',', $value);
+
+        // copy product name to tag
+        foreach ($data['product_description'] as $language_id => $value) {
+            $tags = explode(' ', $value['name']);
 			foreach ($tags as $tag) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "product_tags SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', tag = '" . $this->db->escape(trim($tag)) . "'");
 			}
 		}
 
 
-		$this->cache->delete('product');
+        foreach ($data['product_tags'] as $language_id => $value) {
+            $tags = explode(',', $value);
+            foreach ($tags as $tag) {
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_tags SET product_id = '" . (int)$product_id . "', language_id = '" . (int)$language_id . "', tag = '" . $this->db->escape(trim($tag)) . "'");
+            }
+        }
+
+        $this->cache->delete('product');
 	}
 
 	public function editProduct($product_id, $data) {

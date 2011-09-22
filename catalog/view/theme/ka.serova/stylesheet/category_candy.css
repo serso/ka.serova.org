@@ -1,14 +1,14 @@
 a, a:visited {
-	color: #C61039;
+	color: #db0774;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #C61039;
+	color: #db0774;
 	font-size: 14px;
-	font-family: "Trebuchet MS", sans-serif;
-	letter-spacing:5px;
+	font-family: Verdana, sans-serif;
+	letter-spacing:2px;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin: 0px;
@@ -19,12 +19,12 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#C61039;
+	background:#db0774;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#C61039;
+	background:#db0774;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
@@ -32,25 +32,25 @@ a, a:visited {
 h1 a {
 	letter-spacing: 35px;
 	font-family: "Trebuchet MS", sans-serif;
-	color: #C61039;
+	color: #db0774;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #C61039;
+	color: #db0774;
 	font-weight: bold;
 }
 
 body.category_background {
-	background: url("../image/category_bg_candy.png") repeat fixed;
+	background: url("../image/bg.jpg") repeat fixed;
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #C61039;
+	color: #db0774;
 }
 .top_header {
-	background:url("../image/header_candy.png") no-repeat 0 0;
+	background:url("../image/header.png") no-repeat 0 0;
 }
 
 #h_menu a {
@@ -59,9 +59,9 @@ body.category_background {
 
 #h_menu_selected a {
 	font-weight:bold;
-	color: #C61039;
+	color: #db0774;
 }
 
 #jSuccess {
-	border:1px solid #C61039;
+	border:1px solid #db0774;
 }

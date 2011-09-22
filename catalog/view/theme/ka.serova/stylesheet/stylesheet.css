@@ -52,11 +52,11 @@ div#page {
 }
 
 #container {
-	width: 900px;
+	width: 940px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
-	padding: 0 20px 20px;
+	padding: 0;
 }
 
 
@@ -123,6 +123,7 @@ div#page {
 }
 #header .div6 {
 	clear: both;
+    margin-bottom: 10px;
 }
 #header .div6 .left {
 	width: 5px;
@@ -487,7 +488,6 @@ div#page {
 }
 #footer .div2 {
 	text-align: center;
-	font-size:0.9em;
 }
 #category ul {
 	margin-top: 0px;
@@ -631,10 +631,11 @@ a {
 }
 
 #h_menu a {
-	font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-family: "Verdana", sans-serif;
 	letter-spacing: 5px;
 	list-style: none outside none;
-	font-size: 22px;
+    text-transform: uppercase !important;
+	/*font-size: 16px;*/
 }
 
 .not_selected {
@@ -664,7 +665,7 @@ a {
 
 .menu ul li{
     float: left;
-    font-family: "Trebuchet MS",Verdana,sans-serif;
+    font-family: "Verdana",sans-serif;
     letter-spacing: 3px;
     list-style: none outside none;
     margin-left: 10px;
@@ -687,8 +688,8 @@ div.caption .right {
 .top_header {
 	clear: both;
 	height: 145px;
-	width: 900px;
-    margin: auto;
+	width: 940px;
+    margin-bottom: 10px;
     overflow: hidden;
     position: relative;
     text-align: center;
