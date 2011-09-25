@@ -675,6 +675,7 @@ div.caption .left {
 	  float: left;
 	text-align:left;
     padding-left: 10px;
+     text-transform: capitalize;
 	width:50%;
 }
 
