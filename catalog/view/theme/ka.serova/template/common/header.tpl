@@ -5,11 +5,17 @@
 <head>
     <title><?php echo $text_ka_serova_title.$title; ?></title>
     <?php if ($keywords) { ?>
-    <meta name="keywords" content="<?php echo $keywords; ?>"/>
+        <meta name="keywords" content="<?php echo $keywords; ?>"/>
+    <?php } else { ?>
+        <meta name="keywords" content="украшения ручной работы, hand made, подарки, украшения, своими руками, авторские украшения, Санкт-Петербург, серьги, кольца, цветы, брошь, купить, подвески, пластика, бижутерия, хенд мейд, творчество, браслеты, сережки,  колье, заколки, подарки, открытки, альбомы, скрапбукинг, scrapbooking, хэндмэйд, подарок, fimo, ромашка, мак, ландышь"/>
     <?php } ?>
+
     <?php if ($description) { ?>
-    <meta name="description" content="<?php echo $description; ?>"/>
+        <meta name="description" content="<?php echo $description; ?>"/>
+    <?php } else { ?>
+        <meta name="description" content="украшения ручной работы, hand made, подарки, украшения, своими руками, авторские украшения, Санкт-Петербург, серьги, кольца, цветы, брошь, купить, подвески, пластика, бижутерия, хенд мейд, творчество, браслеты, сережки,  колье, заколки, подарки, открытки, альбомы, скрапбукинг, scrapbooking, хэндмэйд, подарок, fimo, ромашка, мак, ландышь"/>
     <?php } ?>
+
     <base href="<?php echo $base; ?>"/>
     <?php if ($icon) { ?>
     <link href="<?php echo $icon; ?>" rel="icon"/>
