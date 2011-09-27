@@ -1,10 +1,13 @@
 <?php
 final class Language {
   	private $directory;
+    public $language_id;
 	private $data = array();
- 
-	public function __construct($directory) {
+
+    // 1 = en
+	public function __construct($directory, $language_id = 1) {
 		$this->directory = $directory;
+        $this->language_id = $language_id;
 	}
 	
   	public function get($key) {
