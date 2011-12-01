@@ -10,7 +10,7 @@ $_['text_login']    = 'Войти';
 $_['text_logout']   = 'Выйти';
 $_['text_cart']     = 'Корзина';
 $_['text_checkout'] = 'Оформить';
-$_['text_about_us'] = 'Обо мне';
+$_['text_about_us'] = 'Обо мне, Как купить, Доставка';
 
 $_['text_keyword']  = 'Поиск...';
 $_['text_advanced'] = 'Расширенный поиск';

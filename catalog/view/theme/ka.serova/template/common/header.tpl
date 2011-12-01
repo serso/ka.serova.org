@@ -103,8 +103,18 @@
         }
     }
     //--></script>
+
 </head>
 <body class="category_background">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Yandex.Metrika counter -->
 <div style="display:none;"><script type="text/javascript">
@@ -130,6 +140,7 @@
 				<div class="right"></div>
 				<div class="center">
 										<div class="div7">
+
 						<?php if ($currencies) { ?>
 
 						<form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="currency_form">
@@ -196,6 +207,7 @@
 							</div>
 						</form>
 						<?php } ?>
+
 					</div>
 
 					<div class="menu" style="float:right;">
@@ -211,7 +223,6 @@
 							<li><a href="<?php echo str_replace('&', '&amp;', $cart); ?>"id="tab_cart"><?php echo $text_cart; ?>(<span id="goodsInBasket"><?php echo $cartObj->countProducts(); ?></span>)</a></li>
 							<li><a href="<?php echo str_replace('&', '&amp;', $about_us); ?>"><?php echo $text_about_us; ?></a></li>
 							<li><a href="<?php echo str_replace('&', '&amp;', $contact); ?>" id="tab_contancts"><?php echo $text_contact; ?></a></li>
-
 						</ul>
 					</div>
 
@@ -227,6 +238,7 @@
 					</div>
 
 
+
 					<div class="menu" style="float:left;">
 						<ul>
 							<li style="margin-left:5px;">
@@ -234,6 +246,11 @@
 							</li>
 						</ul>
 					</div>
+
+                    <div id="vk_like_site"  class="div7" style="float:left;"></div>
+                    <div class="div7" style="float:left;"><div class="fb-like" data-href="http://ka.serova.org" data-send="false" data-layout="button_count" data-width="100" data-show-faces="true"></div></div>
+
+
 				</div>
 			</div>
 
@@ -270,6 +287,19 @@
                         <?php } ?>
                     </div>
 
+                </div>
+            </div>
+
+            <div>
+                <div class="left"></div>
+                <div class="right"></div>
+                <div class="center">
+                    <div style="text-align: center;">
+                    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                    <?php echo $breadcrumb['separator']; ?><a
+                        href="<?php echo str_replace('&', '&amp;', $breadcrumb['href']); ?>"><?php echo $breadcrumb['text']; ?></a>
+                    <?php } ?>
+                    </div>
                 </div>
             </div>
 
@@ -367,3 +397,14 @@
             $(this).find('.option').slideUp('fast');
         });
         //--></script>
+
+        <script type="text/javascript">
+        if (jQuery && VK) {
+
+            var url = document.location.href.split('#', 1)[0];
+
+            $("#vk_like_site").each(function (index, item) {
+                VK.Widgets.Like(item.id, {type: "mini"}, "ka.serova");
+            });
+        }
+        </script>

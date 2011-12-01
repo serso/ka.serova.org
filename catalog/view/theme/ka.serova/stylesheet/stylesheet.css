@@ -600,7 +600,7 @@ a {
 	right:-65px;
 }
 
-#h_menu {
+#h_menu{
 	height: 30px;
 	margin: auto;
 	float: left;
@@ -632,7 +632,7 @@ a {
 
 #h_menu a {
     font-family: "Verdana", sans-serif;
-	letter-spacing: 5px;
+	letter-spacing: 2px;
 	list-style: none outside none;
     text-transform: uppercase !important;
 	/*font-size: 16px;*/
@@ -666,7 +666,7 @@ a {
 .menu ul li{
     float: left;
     font-family: "Verdana",sans-serif;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     list-style: none outside none;
     margin-left: 20px;
 }
