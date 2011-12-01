@@ -73,8 +73,6 @@
 						  <div class="image-desc"><?php echo $product['description']; ?></div>
 					  <?php } ?>
 
-					  <div id="vk_like_<?php echo $product['product_id']; ?>" style="float:left; text-align:left; padding-left: 7px;padding-top: 10px;" class="vk_like"></div>
-
 					  <div style="float:right; width:350px;text-align:right; padding-right: 7px;padding-top: 10px;">
 						  <?php if ($display_price) { ?>
 							  <div style="margin-bottom:3px;float:right;"><a class="button" title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>"><span style="font-weight:bold;"><?php echo $text_buy;?></span></a></div>
@@ -211,15 +209,4 @@
     <div class="center"></div>
   </div>
 </div>
-<!--, pageUrl: url + "#" + item.id.substring("vk_like_".length)-->
-<script type="text/javascript">
-	if (jQuery && VK) {
-
-		var url = document.location.href.split('#', 1)[0];
-
-		$(".vk_like").each(function (index, item) {
-			VK.Widgets.Like(item.id, {type: "mini"}, item.id.substring("vk_like_".length));
-		});
-	}
-</script>
 <?php echo $footer; ?> 
