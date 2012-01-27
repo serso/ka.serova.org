@@ -27,7 +27,15 @@ input, textarea, select {
 	margin: 3px 0px;
 }
 
-a:hover, a:visited, a:active {
+a:hover {
+	text-decoration: underline;
+}
+
+a:hover.button {
+	text-decoration: none;
+}
+
+a:visited, a:active {
 	text-decoration: none;
 }
 a:hover {

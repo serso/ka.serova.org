@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']      = 'Доставка по городу';
+$_['heading_title']      = 'Платная доставка по Санкт-Петербургу';
 
 // Text
 $_['text_shipping']      = 'Доставка';

@@ -1,5 +1,5 @@
 <?php
 // Text
-$_['text_title']       = 'Flat Rate';
-$_['text_description'] = 'Flat Shipping Rate';
+$_['text_title']       = 'Доставка по России';
+$_['text_description'] = 'Доставка Почтой России при 100% предоплате всего заказа';
 ?>

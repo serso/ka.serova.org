@@ -1,5 +1,5 @@
 <?php
 // Text
-$_['text_title']  = 'Citylink';
-$_['text_weight'] = 'Weight:';
+$_['text_title']  = 'Платная доставка по Санкт-Петербургу';
+$_['text_description'] = 'Доставка к удобным Вам станциям метрополитена';
 ?>
