@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']      = 'Citylink';
+$_['heading_title']      = 'Prepaid shipping in St. Petersburg, Russia';
 
 // Text
 $_['text_shipping']      = 'Shipping';

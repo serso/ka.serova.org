@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']    = 'Free Shipping';
+$_['heading_title']    = 'Free Shipping in St. Petersburg, Russia';
 
 // Text 
 $_['text_shipping']    = 'Shipping';

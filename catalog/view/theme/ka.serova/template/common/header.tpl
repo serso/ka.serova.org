@@ -248,7 +248,7 @@
 					</div>
 
                     <div id="vk_like_site"  class="div7" style="float:left;"></div>
-                    <div class="div7" style="float:left;"><div class="fb-like" data-href="http://ka.serova.org/" data-send="false" data-width="100" data-show-faces="false"></div></div>
+                    <div class="div7" style="float:left;"><div class="fb-like" data-href="http://ka.serova.org/" data-send="false" data-width="100" data-show-faces="false" layout="button_count"></div></div>
 
 
 				</div>

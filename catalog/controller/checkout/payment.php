@@ -244,7 +244,7 @@ class ControllerCheckoutPayment extends Controller {
 		$this->data['change_address'] = HTTPS_SERVER . 'index.php?route=checkout/address/payment';
 
 		if (isset($this->session->data['payment_methods'])) {
-        	$this->data['payment_methods'] = $this->session->data['payment_methods']; 
+        	$this->data['payment_methods'] = $this->session->data['payment_methods'];
       	} else {
         	$this->data['payment_methods'] = array();
 		}

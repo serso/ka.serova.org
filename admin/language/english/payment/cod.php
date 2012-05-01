@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']      = 'Cash On Delivery';
+$_['heading_title']      = 'Cash On Delivery (If post shipping 100% prepayment)';
 
 // Text
 $_['text_payment']       = 'Payment';
