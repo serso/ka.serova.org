@@ -102,8 +102,9 @@ final class Mail {
 		$header .= 'X-Mailer: PHP/' . phpversion() . $this->newline;
 		$header .= 'MIME-Version: 1.0' . $this->newline;
 		$header .= 'Content-Type: multipart/mixed; boundary="' . $boundary . '"' . $this->newline;
+        $header .= $this->newline;
 
-		if (!$this->html) {
+        if (!$this->html) {
 			$message  = '--' . $boundary . $this->newline;
 			$message .= 'Content-Type: text/plain; charset="utf-8"' . $this->newline;
 			$message .= 'Content-Transfer-Encoding: 8bit' . $this->newline . $this->newline;
