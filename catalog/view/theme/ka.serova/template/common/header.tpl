@@ -158,7 +158,7 @@
 
 								<div class="option">
 									<?php foreach ($currencies as $currency) { ?>
-									<!--todo serso: not very good (.png for curreny)-->
+									<!--todo serso: not very good (.png for currency)-->
 									<a onclick="$('input[name=\'currency_code\']').attr('value', '<?php echo $currency['code']; ?>'); $('#currency_form').submit();"><img
 											src="resources/images/currencies/<?php echo $currency['code']; ?>.png"
 											alt="<?php echo $currency['title']; ?>"/></a>
@@ -404,7 +404,7 @@
             var url = document.location.href.split('#', 1)[0];
 
             $("#vk_like_site").each(function (index, item) {
-                VK.Widgets.Like(item.id, {type: "mini"}, "ka.serova");
+                VK.Widgets.Like(item.id, {type: "mini", pageUrl: "https://vk.com/ka_serova"}, "ka.serova");
             });
         }
         </script>
