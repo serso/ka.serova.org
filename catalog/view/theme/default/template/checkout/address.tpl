@@ -100,9 +100,10 @@
               <span class="error"><?php echo $error_country; ?></span>
               <?php } ?></td>
           </tr>
-          <tr>
+          <tr style="display: none;">
             <td><span class="required">*</span> <?php echo $entry_zone; ?></td>
             <td><select name="zone_id">
+                <option value=" "> </option>
               </select>
               <?php if ($error_zone) { ?>
               <span class="error"><?php echo $error_zone; ?></span>
@@ -126,7 +127,7 @@
   </div>
 </div>
 <script type="text/javascript"><!--
-$('select[name=\'zone_id\']').load('index.php?route=checkout/address/zone&country_id=<?php echo $country_id; ?>&zone_id=<?php echo $zone_id; ?>');
+/*$('select[name=\'zone_id\']').load('index.php?route=checkout/address/zone&country_id=<?php echo $country_id; ?>&zone_id=<?php echo $zone_id; ?>');*/
 $('#postcode').load('index.php?route=checkout/address/postcode&country_id=<?php echo $country_id; ?>');
 //--></script>
 <?php echo $footer; ?> 
