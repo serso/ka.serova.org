@@ -60,13 +60,13 @@
     </script>
 
 	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?32"></script>
+    <script type="text/javascript" src="http://vk.com/js/api/openapi.js?79"></script>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 		if (VK) {
 			VK.init({apiId: 2395707, onlyWidgets: true});
 		}
 	</script>
-
 
 	<script type="text/javascript">
 
@@ -249,7 +249,6 @@
 
                     <div id="vk_like_site"  class="div7" style="float:left;"></div>
                     <div class="div7" style="float:left;"><div class="fb-like" data-href="http://ka.serova.org/" data-send="false" data-width="100" data-show-faces="false" layout="button_count"></div></div>
-
 
 				</div>
 			</div>

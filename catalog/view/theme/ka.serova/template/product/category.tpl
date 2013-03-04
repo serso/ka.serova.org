@@ -43,7 +43,7 @@
 		  </div>
 
 		  <div id="caption" class="caption-container"></div>
-	  </div>
+      </div>
 
 
 	  <div id="thumbs" class="navigation">
@@ -87,7 +87,10 @@
 			  </li>
 			  <?php } ?>
 		  </ul>
+
 	  </div>
+
+      <div id="vk_groups" style="float: left; margin-top: 15px; margin-left: 5px;"></div>
 
 	  <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -197,7 +200,8 @@
 		});
 
 		/****************************************************************************************/
-	});
+
+        VK.Widgets.Group("vk_groups", {mode: 1, width: "280", height: "290"}, 943116);	});
 
 </script>
 
