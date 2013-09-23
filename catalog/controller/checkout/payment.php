@@ -109,6 +109,20 @@ class ControllerCheckoutPayment extends Controller {
 			$method = $this->{'model_payment_' . $result['key']}->getMethod($payment_address); 
 			 
 			if ($method) {
+                if($this->cart->hasShipping()) {
+                    $shippingMethodId = $this->session->data['shipping_method']['id'];
+                    if ($shippingMethodId == 'free.free' ||
+                        $shippingMethodId == 'citylink.citylink') {
+
+                        if($result['key'] == 'cod') {
+                            $method['title'] = 'Оплата наличными при получении';
+                        }
+                    } else {
+                        if($result['key'] == 'cod') {
+                            $method['title'] = 'Полная предоплата на карту Сбербанка либо Киви-кошелек (информация об оплате будет выслана Вам на электронную почту после подтверждения заказа)';
+                        }
+                    }
+                }
 				$method_data[$result['key']] = $method;
 			}
 		}

@@ -72,7 +72,7 @@
               <?php } else { ?>
               <input type="radio" name="payment_method" value="<?php echo $payment_method['id']; ?>" id="<?php echo $payment_method['id']; ?>" style="margin: 0px;" />
               <?php } ?></td>
-            <td><label for="<?php echo $payment_method['id']; ?>" style="cursor: pointer;"><?php echo $payment_method['title']; ?></label></td>
+            <td><label id="label_<?php echo $payment_method['id']; ?>" for="<?php echo $payment_method['id']; ?>" style="cursor: pointer;"><?php echo $payment_method['title']; ?></label></td>
           </tr>
           <?php } ?>
         </table>
@@ -115,4 +115,21 @@
     <div class="center"></div>
   </div>
 </div>
+<script type="text/javascript">
+    function updatePaymentText() {
+        var shippingMethod = $("#guest input[name='shipping_method']:checked").val();
+        if (shippingMethod == 'free.free' ||
+                shippingMethod == 'citylink.citylink') {
+            $("#label_cod").text("Оплата наличными при получении")
+        } else {
+            $("#label_cod").text("Полная предоплата на карту Сбербанка либо Киви-кошелек (информация об оплате будет выслана Вам на электронную почту после подтверждения заказа)")
+        }
+    }
+    $(document).ready(function(){
+        updatePaymentText();
+        $("input[name='shipping_method']:radio").change(function () {
+            updatePaymentText();
+        })
+    })
+</script>
 <?php echo $footer; ?> 
