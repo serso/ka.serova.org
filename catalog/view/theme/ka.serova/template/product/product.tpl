@@ -114,6 +114,7 @@
       </table>
     </div>
     <div class="tabs">
+      <a tab="#tab_related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
       <a tab="#tab_description"><?php echo $tab_description; ?></a>
       <a tab="#tab_image"><?php echo $tab_image; ?>  (<?php echo count($images); ?>)</a>
       <?php if ($review_status) { ?><a tab="#tab_review"><?php echo $tab_review; ?></a><?php } ?>
@@ -157,7 +158,7 @@
     </div>
     <?php } ?>
 
-	  <div id="tab_image" class="tab_page">
+	<div id="tab_image" class="tab_page">
       <?php if ($images) { ?>
       <div style="display: inline-block;">
         <?php foreach ($images as $image) { ?>
@@ -169,7 +170,37 @@
       <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;"><?php echo $text_no_images; ?></div>
       <?php } ?>
     </div>
-
+    <div id="tab_related" class="tab_page">
+      <?php if ($products) { ?>
+      <table class="list">
+        <?php for ($i = 0; $i < sizeof($products); $i = $i + 4) { ?>
+        <tr>
+          <?php for ($j = $i; $j < ($i + 4); $j++) { ?>
+          <td width="25%"><?php if (isset($products[$j])) { ?>
+            <a href="<?php echo str_replace('&', '&amp;', $products[$j]['href']); ?>"><img src="<?php echo $products[$j]['thumb']; ?>" title="<?php echo $products[$j]['name']; ?>" alt="<?php echo $products[$j]['name']; ?>" /></a><br />
+            <a href="<?php echo str_replace('&', '&amp;', $products[$j]['href']); ?>"><?php echo $products[$j]['name']; ?></a><br />
+            <span style="color: #999; font-size: 11px;"><?php echo $products[$j]['model']; ?></span><br />
+            <?php if ($display_price) { ?>
+            <?php if (!$products[$j]['special']) { ?>
+            <span style="color: #900; font-weight: bold;"><?php echo $products[$j]['price']; ?></span>
+            <?php } else { ?>
+            <span style="color: #900; font-weight: bold; text-decoration: line-through;"><?php echo $products[$j]['price']; ?></span> <span style="color: #F00;"><?php echo $products[$j]['special']; ?></span>
+            <?php } ?>
+			<a class="button_add_small" href="<?php echo $products[$j]['add']; ?>" title="<?php echo $button_add_to_cart; ?>" >&nbsp;</a>
+            <?php } ?>
+            <br />
+            <?php if ($products[$j]['rating']) { ?>
+            <img src="catalog/view/theme/default/image/stars_<?php echo $products[$j]['rating'] . '.png'; ?>" alt="<?php echo $products[$j]['stars']; ?>" />
+            <?php } ?>
+            <?php } ?></td>
+          <?php } ?>
+        </tr>
+        <?php } ?>
+      </table>
+      <?php } else { ?>
+      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;"><?php echo $text_no_related; ?></div>
+      <?php } ?>
+    </div>
   </div>
   <div class="bottom">
     <div class="left"></div>
