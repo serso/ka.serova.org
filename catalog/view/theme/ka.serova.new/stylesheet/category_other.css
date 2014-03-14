@@ -1,0 +1,73 @@
+a, a:visited {
+	color: #6bbd95;
+	cursor: pointer;
+	outline:none;
+}
+
+#content h1, .heading {
+	color: #6bbd95;
+	font-size: 14px;
+	font-family: Verdana, sans-serif;
+	letter-spacing:2px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin: 0px;
+}
+.menu ul li{
+	font-family: arial, sans-serif !important;
+}
+
+#h_menu a {
+	text-transform: lowercase !important;
+}
+
+.button {
+	padding-left: 8px;
+	display: inline-block;
+	margin-right: 5px;
+	text-decoration: none;
+	background:#6bbd95;
+	color:#FFF;
+}
+.button span {
+	color: #FFF;
+	background:#6bbd95;
+	display: block;
+	padding: 4px 12px 5px 5px;
+}
+
+h1 a {
+	letter-spacing: 35px;
+	font-family: arial, sans-serif;
+	color: #6bbd95;
+	font-size: 110px;
+	text-decoration:none;
+}
+
+.price {
+	color: #6bbd95;
+	font-weight: bold;
+}
+
+body.category_background {
+	background: url("../image/bg.jpg") repeat fixed;
+}
+
+#h_menu a:hover, .menu a:hover {
+	color: #6bbd95;
+}
+.top_header {
+	background:url("../image/header.png") no-repeat 0 0;
+}
+
+#h_menu a {
+	color: #444444;
+}
+
+#h_menu_selected a {
+	font-weight:bold;
+	color: #6bbd95;
+}
+#jSuccess {
+	border:1px solid #6bbd95;
+}
