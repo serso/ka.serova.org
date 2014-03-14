@@ -54,7 +54,6 @@ div#page {
 	background-color: #fff;
 	margin: 0 auto;
 	text-align: left;
-	border: 1px solid #ddd;
 	border-top: medium none;
     min-height: 100%;
 }
@@ -150,7 +149,7 @@ div#page {
 	padding-left: 5px;
 	padding-right: 5px;
 }
-#header .div7 {
+#header .menu-div {
 	float: right;
 	padding-top: 2px;
 }
@@ -167,9 +166,9 @@ div#page {
 }
 
 #search input {
-	border: 1px solid #CCCCCC;
+	border: 1px solid #e3e3e3;
     margin-top: 3px;
-	height:19px;
+	height:17px;
 	padding-left: 3px;
 }
 
@@ -197,7 +196,7 @@ div#page {
 	background: #FFFFFF;
 }
 .switcher .selected a {
-	border: 1px solid #CCCCCC;
+	border: 1px solid #E3E3E3;
 	background: url('../image/arrow_down.png') 36px center no-repeat;
 	color: #666666;
 	padding: 2px 5px 2px 5px;
@@ -210,9 +209,9 @@ div#page {
 .switcher .option {	
 	position: absolute;
 	z-index: 3;
-	border-left: 1px solid #CCCCCC;
-	border-right: 1px solid #CCCCCC;
-	border-bottom: 1px solid #CCCCCC;
+	border-left: 1px solid #E3E3E3;
+	border-right: 1px solid #E3E3E3;
+	border-bottom: 1px solid #E3E3E3;
 	background-color: #FFFFFF;
 	display: none;
 	width: 51px;
@@ -366,8 +365,8 @@ div#page {
 }
 
 .buttons {
-	background: #F8F8F8;
-	border: 1px solid #DDDDDD;
+	background: #fdfdfd;
+	border: 1px solid #e8e8e8;
 	padding: 5px;
 	margin-bottom: 10px;
 }
@@ -383,8 +382,8 @@ div#page {
 	vertical-align: middle;
 }
 .content {
-    background: none repeat scroll 0 0 #F7F7F7;
-    border: 1px solid #DDDDDD;
+    background: none repeat scroll 0 0 #fdfdfd;
+    border: 1px solid #e8e8e8;
     margin-bottom: 10px;
     margin-top: 3px;
     padding: 10px;
@@ -620,7 +619,6 @@ a {
 #h_menu ul {
    clear:left;
    float:left;
-   list-style:none;
    margin:0;
    padding:0;
    position:relative;
@@ -640,9 +638,8 @@ a {
 
 #h_menu a {
     font-family: "Verdana", sans-serif;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 	list-style: none outside none;
-    text-transform: uppercase !important;
 	/*font-size: 16px;*/
 }
 
@@ -663,11 +660,11 @@ a {
 	opacity:0.7;
 }
 
-.menu ul{
+.menu ul {
     display: block;
     list-style-type: disc;
     text-align: center;
-	margin: 10px;
+    margin: 6px;
     padding: 0;
 }
 
@@ -677,6 +674,12 @@ a {
     letter-spacing: 1px;
     list-style: none outside none;
     margin-left: 20px;
+}
+
+.menu-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
 }
 
 div.caption .left {
@@ -696,7 +699,7 @@ div.caption .right {
 
 .top_header {
 	clear: both;
-	height: 145px;
+	height: 100px;
 	width: 940px;
     margin-bottom: 10px;
     overflow: hidden;
