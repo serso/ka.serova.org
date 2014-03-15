@@ -11,7 +11,7 @@
     <?php if ($addresses) { ?>
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="address_1">
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_entries; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table width="536" cellpadding="3">
           <?php foreach ($addresses as $address) { ?>
           <?php if ($address['address_id'] == $default) { ?>
@@ -39,7 +39,7 @@
     <?php } ?>
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="address_2">
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_new_address; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><span class="required">*</span> <?php echo $entry_firstname; ?></td>

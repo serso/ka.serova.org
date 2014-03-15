@@ -73,7 +73,7 @@
               <?php /*if ($display_price) { */?>
               <?php /*if ($discounts) { */?>
               <b><?php /*echo $text_discount; */?></b><br />
-              <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-top: 2px; margin-bottom: 15px;">
+              <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-top: 2px; margin-bottom: 15px;">
                 <table style="width: 100%;">
                   <tr>
                     <td style="text-align: right;"><b><?php /*echo $text_order_quantity; */?></b></td>
@@ -166,7 +166,7 @@
         <?php } ?>
       </div>
       <?php } else { ?>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;"><?php echo $text_no_images; ?></div>
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;"><?php echo $text_no_images; ?></div>
       <?php } ?>
     </div>
 

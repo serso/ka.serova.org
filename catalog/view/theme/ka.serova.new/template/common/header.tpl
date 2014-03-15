@@ -315,11 +315,11 @@
 
                         <?php if (isset($category_id) && $category_id == $category['category_id']) { ?>
                         <li id="h_menu_selected">
-                            <a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+                            <a href="<?php echo $category['category_alias']; ?>"><?php echo str_replace('&nbsp;', '', '•'.$category['name']); ?></a>
                         </li>
                         <?php } else { ?>
                         <li class="not_selected">
-                            <a href="<?php echo $category['category_name']; ?>"><?php echo str_replace('&nbsp;', '', $category['name']); ?></a>
+                            <a href="<?php echo $category['category_alias']; ?>"><?php echo str_replace('&nbsp;', '', '•'.$category['name']); ?></a>
                         </li>
                         <?php } ?>
 

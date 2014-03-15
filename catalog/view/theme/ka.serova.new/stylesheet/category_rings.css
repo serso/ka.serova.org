@@ -1,11 +1,11 @@
 a, a:visited {
-	color: #6bbd95;
+	color: #546aaa;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #6bbd95;
+	color: #546aaa;
 	font-size: 14px;
 	font-family: Verdana, sans-serif;
 	letter-spacing:2px;
@@ -13,6 +13,7 @@ a, a:visited {
 	text-transform: uppercase;
 	margin: 0px;
 }
+
 .menu ul li{
 	font-family: arial, sans-serif !important;
 }
@@ -25,12 +26,12 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#6bbd95;
+	background:#546aaa;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#6bbd95;
+	background:#546aaa;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
@@ -38,13 +39,13 @@ a, a:visited {
 h1 a {
 	letter-spacing: 35px;
 	font-family: arial, sans-serif;
-	color: #6bbd95;
+	color: #546aaa;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #6bbd95;
+	color: #546aaa;
 	font-weight: bold;
 }
 
@@ -53,7 +54,7 @@ body.category_background {
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #6bbd95;
+	color: #546aaa;
 }
 .top_header {
 	background:url("../image/header.png") no-repeat 0 0;
@@ -64,8 +65,9 @@ body.category_background {
 }
 
 #h_menu_selected a {
-	color: #6bbd95;
+	color: #546aaa;
 }
+
 #jSuccess {
-	border:1px solid #6bbd95;
+	border:1px solid #546aaa;
 }

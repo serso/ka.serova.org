@@ -1,11 +1,11 @@
 a, a:visited {
-	color: #78bc0f;
+	color: #e56e06;
 	cursor: pointer;
 	outline:none;
 }
 
 #content h1, .heading {
-	color: #78bc0f;
+	color: #e56e06;
 	font-size: 14px;
 	font-family: Verdana, sans-serif;
 	letter-spacing:2px;
@@ -26,12 +26,12 @@ a, a:visited {
 	display: inline-block;
 	margin-right: 5px;
 	text-decoration: none;
-	background:#78bc0f;
+	background:#e56e06;
 	color:#FFF;
 }
 .button span {
 	color: #FFF;
-	background:#78bc0f;
+	background:#e56e06;
 	display: block;
 	padding: 4px 12px 5px 5px;
 }
@@ -39,13 +39,13 @@ a, a:visited {
 h1 a {
 	letter-spacing: 35px;
 	font-family: arial, sans-serif;
-	color: #78bc0f;
+	color: #e56e06;
 	font-size: 110px;
 	text-decoration:none;
 }
 
 .price {
-	color: #78bc0f;
+	color: #e56e06;
 	font-weight: bold;
 }
 
@@ -54,7 +54,7 @@ body.category_background {
 }
 
 #h_menu a:hover, .menu a:hover {
-	color: #78bc0f;
+	color: #e56e06;
 }
 .top_header {
 	background:url("../image/header.png") no-repeat 0 0;
@@ -65,10 +65,9 @@ body.category_background {
 }
 
 #h_menu_selected a {
-	font-weight:bold;
-	color: #78bc0f;
+	color: #e56e06;
 }
 
 #jSuccess {
-	border:1px solid #78bc0f;
+	border:1px solid #e56e06;
 }

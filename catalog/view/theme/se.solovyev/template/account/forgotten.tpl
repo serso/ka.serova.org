@@ -11,7 +11,7 @@
     <?php } ?>
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="forgotten">
       <p><?php echo $text_email; ?></p>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><?php echo $entry_email; ?></td>

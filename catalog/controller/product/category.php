@@ -58,7 +58,7 @@ class ControllerProductCategory extends Controller {
 
 		if ($category_info) {
 
-			$this->session->data['category_css'] = $category_info['display_details'];
+			$this->session->data['category_css'] = 'category_' . $category_info['category_alias'] . '.css';
 
 	  		$this->document->title = $category_info['name'];
 

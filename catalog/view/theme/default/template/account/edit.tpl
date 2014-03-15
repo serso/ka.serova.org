@@ -13,7 +13,7 @@
     <?php } ?>
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="edit">
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_your_details; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><span class="required">*</span> <?php echo $entry_firstname; ?></td>

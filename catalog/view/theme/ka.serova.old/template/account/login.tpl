@@ -15,7 +15,7 @@
     <?php } ?>
     <div style="margin-bottom: 10px; display: inline-block; width: 100%;">
       <div style="float: left; display: inline-block; width: 49%;"><b style="margin-bottom: 2px; display: block;"><?php echo $text_i_am_new_customer; ?></b>
-        <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; min-height: 210px;">
+        <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; min-height: 210px;">
           <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="account">
             <p><?php echo $text_checkout; ?></p>
             <label for="register" style="cursor: pointer;">
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div style="float: right; display: inline-block; width: 49%;"><b style="margin-bottom: 2px; display: block;"><?php echo $text_returning_customer; ?></b>
-        <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; min-height: 210px;">
+        <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; min-height: 210px;">
           <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="login">
             <?php echo $text_i_am_returning_customer; ?><br />
             <br />

@@ -1,4 +1,4 @@
-<div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;"><?php echo $text_payable; ?><br />
+<div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;"><?php echo $text_payable; ?><br />
   <?php echo $payable; ?><br />
   <br />
   <?php echo $text_address; ?><br />

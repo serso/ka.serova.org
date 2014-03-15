@@ -27,7 +27,7 @@
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="guest">
       <?php if ($shipping_methods) { ?>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_shipping_method; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <p><?php echo $text_shipping_methods; ?></p>
         <table width="536" cellpadding="3">
           <?php foreach ($shipping_methods as $shipping_method) { ?>
@@ -60,7 +60,7 @@
       <?php } ?>
       <?php if ($payment_methods) { ?>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_payment_method; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <p><?php echo $text_payment_methods; ?></p>
         <table width="536" cellpadding="3">
           <?php foreach ($payment_methods as $payment_method) { ?>
@@ -79,7 +79,7 @@
       </div>
       <?php } ?>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_comments; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <textarea name="comment" rows="8" style="width: 99%;"><?php echo $comment; ?></textarea>
       </div>
       <?php if ($text_agree) { ?>

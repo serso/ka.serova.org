@@ -3,7 +3,7 @@ class ControllerCommonHeader extends Controller {
 	protected function index() {
 
 		if (!isset($this->session->data['category_css'])) {
-			$this->session->data['category_css'] = 'category_flowers.css';
+			$this->session->data['category_css'] = 'category_all.css';
 		}
 
 		$this->data['category_css'] = $this->session->data['category_css'];
@@ -200,12 +200,13 @@ class ControllerCommonHeader extends Controller {
 		
 		$results = $this->model_catalog_category->getCategories($parent_id);
 
-		
+
 		foreach ($results as $result) {
 			$data[] = array(
 				'category_id' => $result['category_id'],
 				'parent_id' => $result['parent_id'],
 				'category_name' => $result['category_name'],
+                'category_alias' => $result['category_alias'],
 				'name'        => str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;', $level) . $result['name']
 			);
 			

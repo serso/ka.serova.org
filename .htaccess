@@ -7,13 +7,17 @@ RewriteRule ^ http://ka.serova.org%{REQUEST_URI} [R=301,L]
 
 RewriteBase /
 
-RewriteRule  ^pics$ /index.php?route=product/category&path=40
-RewriteRule  ^flowers$ /index.php?route=product/category&path=35
-RewriteRule  ^yummy$ /index.php?route=product/category&path=37
-RewriteRule  ^metal&beads$ /index.php?route=product/category&path=38
-RewriteRule  ^other$ /index.php?route=product/category&path=36
+RewriteRule  ^earrings$ /index.php?route=product/category&path=35
+RewriteRule  ^fake-earstrechers$ /index.php?route=product/category&path=40
+RewriteRule  ^earcuffs$ /index.php?route=product/category&path=37
+RewriteRule  ^rings$ /index.php?route=product/category&path=36
+RewriteRule  ^brooches$ /index.php?route=product/category&path=38
+RewriteRule  ^sets$ /index.php?route=product/category&path=43
+RewriteRule  ^other$ /index.php?route=product/category&path=44
+
 RewriteRule  ^all$ /index.php?route=product/category&path=41
 RewriteRule  ^handmade$ /index.php?route=product/category&path=41
+
 RewriteRule  ^about-us$ /index.php?route=information/information&information_id=4
 RewriteRule  ^cart$ /index.php?route=checkout/cart
 RewriteRule  ^login$ /index.php?route=account/login

@@ -24,6 +24,7 @@ form {
 	display: inline;
 }
 input, textarea, select {
+    border: 1px solid #e3e3e3;
 	margin: 3px 0px;
 }
 
@@ -43,7 +44,7 @@ a:hover {
 }
 
 a img {
-	border: none;
+    border: none;
 }
 p {
 	margin-top: 0px;
@@ -165,11 +166,17 @@ div#page {
 	margin-top: 2px;	
 }
 
+.div1 a {
+    text-decoration: none;
+}
+
 #search input {
-	border: 1px solid #e3e3e3;
     margin-top: 3px;
 	height:17px;
 	padding-left: 3px;
+}
+
+#h_menu_selected a {
 }
 
 #search{

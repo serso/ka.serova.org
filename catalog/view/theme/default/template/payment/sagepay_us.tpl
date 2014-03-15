@@ -1,5 +1,5 @@
 <b style="margin-bottom: 3px; display: block;"><?php echo $text_credit_card; ?></b>
-<div id="sagepay" style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+<div id="sagepay" style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
   <table width="100%">
     <tr>
       <td><?php echo $entry_cc_owner; ?></td>

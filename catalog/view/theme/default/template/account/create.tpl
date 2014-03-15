@@ -14,7 +14,7 @@
     <form action="<?php echo str_replace('&', '&amp;', $action); ?>" method="post" enctype="multipart/form-data" id="create">
       <p><?php echo $text_account_already; ?></p>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_your_details; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><span class="required">*</span> <?php echo $entry_firstname; ?></td>
@@ -51,7 +51,7 @@
         </table>
       </div>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_your_address; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><?php echo $entry_company; ?></td>
@@ -109,7 +109,7 @@
         </table>
       </div>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_your_password; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><span class="required">*</span> <?php echo $entry_password; ?></td>
@@ -128,7 +128,7 @@
         </table>
       </div>
       <b style="margin-bottom: 2px; display: block;"><?php echo $text_newsletter; ?></b>
-      <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-bottom: 10px;">
+      <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-bottom: 10px;">
         <table>
           <tr>
             <td width="150"><?php echo $entry_newsletter; ?></td>

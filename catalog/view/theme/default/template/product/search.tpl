@@ -8,7 +8,7 @@
     </div>
   </div>
   <div class="middle"><b><?php echo $text_critea; ?></b>
-    <div id="content_search" style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-top: 3px; margin-bottom: 10px;">
+    <div id="content_search" style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-top: 3px; margin-bottom: 10px;">
       <table>
         <tr>
           <td><?php echo $entry_search; ?></td>
@@ -96,7 +96,7 @@
     </table>
     <div class="pagination"><?php echo $pagination; ?></div>
     <?php } else { ?>
-    <div style="background: #F7F7F7; border: 1px solid #DDDDDD; padding: 10px; margin-top: 3px; margin-bottom: 15px;"><?php echo $text_empty; ?></div>
+    <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-top: 3px; margin-bottom: 15px;"><?php echo $text_empty; ?></div>
     <?php }?>
   </div>
   <div class="bottom">
