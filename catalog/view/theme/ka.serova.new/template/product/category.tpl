@@ -90,9 +90,7 @@
 
 	  </div>
 
-      <div id="vk_groups" style="float: left; margin-top: 15px; margin-left: 5px;"></div>
-
-	  <script type="text/javascript">
+      <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		// We only want these styles applied when javascript is enabled
 		$('div.navigation').css({'width' : '300px', 'float' : 'left'});
@@ -201,7 +199,7 @@
 
 		/****************************************************************************************/
 
-        VK.Widgets.Group("vk_groups", {mode: 1, width: "280", height: "290"}, 943116);	});
+    });
 
 </script>
 

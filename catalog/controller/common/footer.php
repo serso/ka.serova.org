@@ -4,6 +4,14 @@ class ControllerCommonFooter extends Controller {
 		$this->language->load('common/footer');
 
 		$this->data['text_powered_by'] = sprintf($this->language->get('text_powered_by'), $this->config->get('config_name'), date('Y', time()));
+        $this->data['text_contact'] = $this->language->get('text_contact');
+        $this->data['text_about_us'] = $this->language->get('text_about_us');
+        $this->data['text_shipping'] = $this->language->get('text_shipping');
+        $this->data['text_footer'] = $this->language->get('text_footer');
+
+        $this->data['contact'] = HTTP_SERVER . 'contacts';
+        $this->data['about_us'] = HTTP_SERVER . 'about-us';
+        $this->data['shipping'] = HTTP_SERVER . 'about-us#how-to-buy';
 
 		$this->id = 'footer';
 

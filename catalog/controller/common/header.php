@@ -70,8 +70,6 @@ class ControllerCommonHeader extends Controller {
 		
 		$this->data['text_home'] = $this->language->get('text_home');
 		$this->data['text_special'] = $this->language->get('text_special');
-		$this->data['text_contact'] = $this->language->get('text_contact');
-		$this->data['text_about_us'] = $this->language->get('text_about_us');
 		$this->data['text_sitemap'] = $this->language->get('text_sitemap');
 		$this->data['text_bookmark'] = $this->language->get('text_bookmark');
     	$this->data['text_account'] = $this->language->get('text_account');
@@ -89,8 +87,6 @@ class ControllerCommonHeader extends Controller {
 
 		$this->data['home'] = HTTP_SERVER . 'index.php?route=common/home';
 		$this->data['special'] = HTTP_SERVER . 'index.php?route=product/special';
-		$this->data['contact'] = HTTP_SERVER . 'contacts';
-		$this->data['about_us'] = HTTP_SERVER . 'about-us';
     	$this->data['sitemap'] = HTTP_SERVER . 'index.php?route=information/sitemap';
     	$this->data['account'] = HTTPS_SERVER . 'index.php?route=account/account';
 		$this->data['logged'] = $this->customer->isLogged();
