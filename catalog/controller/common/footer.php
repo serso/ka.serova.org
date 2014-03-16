@@ -8,6 +8,7 @@ class ControllerCommonFooter extends Controller {
         $this->data['text_about_us'] = $this->language->get('text_about_us');
         $this->data['text_shipping'] = $this->language->get('text_shipping');
         $this->data['text_footer'] = $this->language->get('text_footer');
+        $this->data['text_connect'] = $this->language->get('text_connect');
 
         $this->data['contact'] = HTTP_SERVER . 'contacts';
         $this->data['about_us'] = HTTP_SERVER . 'about-us';
