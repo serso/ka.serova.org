@@ -64,17 +64,43 @@ div.download {
 	float: right;
 }
 div.caption-container {
-	position: relative;
-	clear: left;
-	height: 150px;
+    position: relative;
+    clear: left;
+    height: 150px;
+    margin-left: 70px;
 }
 span.image-caption {
-	display: block;
-	position: absolute;
-	width: 550px;
-	top: 0;
-	left: 0;
+    display: block;
+    position: absolute;
+    width: 350px;
+    top: 0;
+    left: 0;
+    border: 1px solid #77b095;
 }
+span.image-caption:before
+{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 100px;
+    top: -16px;
+    border: 8px solid;
+    border-color: transparent transparent #77b095 #77b095;
+}
+
+span.image-caption:after
+{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 101px;
+    top: -14px;
+    border: 8px solid;
+    border-color: transparent transparent #fff #fff;
+}
+
 div.caption {
 	padding: 12px;
 }
@@ -151,4 +177,8 @@ div.pagination span.current {
 div.pagination span.ellipsis {
 	border: none;
 	padding: 5px 0 3px 2px;
+}
+
+.menu ul li a:hover {
+    text-decoration: underline;
 }

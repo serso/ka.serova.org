@@ -732,3 +732,7 @@ div.caption .right {
 	border-radius:5px;
 	-webkit-border-radius:5px;
 }
+
+.image-desc p {
+    margin: 0px;
+}

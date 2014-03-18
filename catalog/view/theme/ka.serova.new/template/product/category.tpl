@@ -1,7 +1,7 @@
 <?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content">
   <div class="top">
-    <div class="left"></div>
+    <div class="left"> <script type="text/javascript" src="catalog/view/javascript/jquery/ajax_add.js"></script>
     <div class="right"></div>
     <div class="center"></div>
   </div>
@@ -50,48 +50,55 @@
 		  <ul class="thumbs noscript">
 			  <?php foreach( $products as $product ) { ?>
 
-			  <li>
+			  <li class="thumb-li">
 				  <a class="thumb" name="<?php echo $product['product_id']; ?>" href="<?php echo $product['image']; ?>" title="<?php echo $product['name']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"/></a>
 
 				  <div class="caption">
 
-					  <div class="image-title">
-						  <div class="left"><?php echo $product['name']; ?></div>
-						  <div class="right">
-							  <?php if ($display_price) { ?>
-								<?php if (!$product['special']) { ?>
-									<span class="price"><?php echo $product['price']; ?></span>
-								<?php } else { ?>
-									<span class="price" style="text-decoration: line-through; opacity:0.3;"><?php echo $product['price']; ?></span>
-									<span class="price"><?php echo $product['special']; ?></span>
-								<?php } ?>
-							  <?php } ?>
-						  </div>
+					  <div class="image-title" style="float: left;">
+                          <?php echo $product['name']; ?>
 					  	</div>
 
+                      <div class="image-title" style="float: right;">
+                          <?php if ($display_price) { ?>
+                              <?php if (!$product['special']) { ?>
+                                  <span class="price"><?php echo $product['price']; ?></span>
+                              <?php } else { ?>
+                                  <span class="price" style="text-decoration: line-through; opacity:0.3;"><?php echo $product['price']; ?></span>
+                                  <span class="price"><?php echo $product['special']; ?></span>
+                              <?php } ?>
+                          <?php } ?>
+                      </div>
+
 					  <?php if ($product['description']) { ?>
-						  <div class="image-desc"><?php echo $product['description']; ?></div>
+						  <div class="image-desc" style="width: 300px; float: left; clear: both; padding: 0px; margin-top: 10px;"><?php echo $product['description']; ?></div>
 					  <?php } ?>
 
-					  <div style="float:right; width:350px;text-align:right; padding-right: 7px;padding-top: 10px;">
-						  <?php if ($display_price) { ?>
-                              <div style="margin-bottom:3px;float:right;">
-                                  <a class="button" title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>">
-                                      <span style="font-weight:bold;"><?php echo $text_buy;?></span>
+					  <div class="menu" style="width:350px;margin-top: 10px; margin-bottom: 10px;float: left; clear: both;">
+
+                          <ul style="margin-left: 0px;">
+                              <li style="margin-left: 0px;">
+                                  <a title="<?php echo $text_go_to_description; ?>" href="<?php echo $product['href']; ?>">
+                                      <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/about_product.png"></div><?php echo $text_go_to_description;?>
                                   </a>
-                              </div>
+                              </li>
 
-                              <div style="margin-bottom:3px;float:right;"><a class="button" id="my_add_to_cart"
-                                                                             title="<?php echo $button_add_to_cart; ?>"
-                                                                             onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a
-                                          href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')"><span><?php echo $text_add_to_cart;?></span></a>
-                              </div>
-                          <?php } ?>
+                              <?php if ($display_price) { ?>
+                                  <li>
+                                      <a id="my_add_to_cart"
+                                         title="<?php echo $button_add_to_cart; ?>"
+                                         onclick="addToCart('<?php echo $product['product_id']; ?>', 'my_add_to_cart', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')">
+                                        <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/add_to_cart.png"></div><?php echo $text_add_to_cart;?>
+                                      </a>
+                                  </li>
 
-                          <div style="margin-bottom:3px;float:right;"><a class="button"
-                                                                         title="<?php echo $text_go_to_description; ?>"
-                                                                         href="<?php echo $product['href']; ?>"><span><?php echo $text_go_to_description;?></span></a>
-                          </div>
+                                  <li>
+                                      <a title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>" style="font-weight:bold;">
+                                          <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/buy.png"></div><?php echo $text_buy;?>
+                                      </a>
+                                  </li>
+                              <?php } ?>
+                          </ul>
 					  </div>
 
 
@@ -112,7 +119,7 @@
 		// Initially set opacity on thumbs and add
 		// additional styling for hover effect on thumbs
 		var onMouseOutOpacity = 0.67;
-		$('#thumbs ul.thumbs li').opacityrollover({
+		$('#thumbs ul.thumbs li.thumb-li').opacityrollover({
 			mouseOutOpacity:   onMouseOutOpacity,
 			mouseOverOpacity:  1.0,
 			fadeSpeed:		 'fast',
