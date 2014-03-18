@@ -75,10 +75,23 @@
 
 					  <div style="float:right; width:350px;text-align:right; padding-right: 7px;padding-top: 10px;">
 						  <?php if ($display_price) { ?>
-							  <div style="margin-bottom:3px;float:right;"><a class="button" title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>"><span style="font-weight:bold;"><?php echo $text_buy;?></span></a></div>
-							  <div style="margin-bottom:3px;float:right;"><a class="button" id="my_add_to_cart" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')"><span><?php echo $text_add_to_cart;?></span></a></div>
-							  <?php } ?>
-						  <div style="margin-bottom:3px;float:right;"><a class="button" title="<?php echo $text_go_to_description; ?>" href="<?php echo $product['href']; ?>"><span><?php echo $text_go_to_description;?></span></a></div>
+                              <div style="margin-bottom:3px;float:right;">
+                                  <a class="button" title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>">
+                                      <span style="font-weight:bold;"><?php echo $text_buy;?></span>
+                                  </a>
+                              </div>
+
+                              <div style="margin-bottom:3px;float:right;"><a class="button" id="my_add_to_cart"
+                                                                             title="<?php echo $button_add_to_cart; ?>"
+                                                                             onclick="addToCart(<?php echo $product['product_id']; ?>, 'my_add_to_cart', '<?php echo "<a
+                                          href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')"><span><?php echo $text_add_to_cart;?></span></a>
+                              </div>
+                          <?php } ?>
+
+                          <div style="margin-bottom:3px;float:right;"><a class="button"
+                                                                         title="<?php echo $text_go_to_description; ?>"
+                                                                         href="<?php echo $product['href']; ?>"><span><?php echo $text_go_to_description;?></span></a>
+                          </div>
 					  </div>
 
 
