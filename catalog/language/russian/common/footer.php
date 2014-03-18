@@ -5,5 +5,5 @@ $_['text_contact']  = 'Контакты';
 $_['text_about_us'] = 'Обо мне, Как купить';
 $_['text_shipping'] = 'Доставка';
 $_['text_connect'] = 'Connect';
-$_['text_footer'] = 'Hello everyone! My name is Ekaterina Serova. Here you can find and buy hand crafted bijoutery designed and made by me. Hope you enjoy it!';
+$_['text_footer'] = 'Hello everyone!<br />My name is Ekaterina Serova. Here you can find and buy hand crafted bijoutery designed and made by me.<br />Hope you enjoy it!';
 ?>
