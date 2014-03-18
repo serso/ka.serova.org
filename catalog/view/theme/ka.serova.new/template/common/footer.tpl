@@ -2,7 +2,7 @@
     <img src="catalog/view/theme/ka.serova.new/image/footer.png"/>
     
     <div class="menu" style="float:left;">
-        <ul>
+        <ul style="margin-top: 0px;">
             <li style="margin-left: 0px;">
                 <a href="<?php echo str_replace('&', '&amp;', $about_us); ?>"">
                     <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/about.png"></div><?php echo $text_about_us; ?>
