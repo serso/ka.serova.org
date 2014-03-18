@@ -51,7 +51,7 @@
 			  <?php foreach( $products as $product ) { ?>
 
 			  <li>
-				  <a class="thumb" name="<?php echo $product['product_id']; ?>" href="<?php echo $product['image']; ?>" title="<?php echo $product['name']; ?>" id="<?php echo $product['product_id']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"/></a>
+				  <a class="thumb" name="<?php echo $product['product_id']; ?>" href="<?php echo $product['image']; ?>" title="<?php echo $product['name']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"/></a>
 
 				  <div class="caption">
 
