@@ -25,8 +25,8 @@
     <?php foreach ($links as $link) { ?>
     <link href="<?php echo str_replace('&', '&amp;', $link['href']); ?>" rel="<?php echo $link['rel']; ?>"/>
     <?php } ?>
-    <link rel="stylesheet" type="text/css"
-          href="catalog/view/theme/<?php echo $template; ?>/stylesheet/<?php echo $category_css; ?>"/>
+    <!-- <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/<?php echo $category_css; ?>"/> -->
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $template; ?>/stylesheet/category_default.css"/>
     <link rel="stylesheet" type="text/css"
           href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css"/>
     <link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
