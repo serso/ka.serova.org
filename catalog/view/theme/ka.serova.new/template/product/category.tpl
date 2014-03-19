@@ -55,7 +55,7 @@
 
 				  <div class="caption">
 
-					  <div class="image-title" style="float: left;">
+					  <div class="image-title" style="float: left; text-align: left;">
                           <?php echo $product['name']; ?>
 					  	</div>
 
@@ -74,7 +74,7 @@
 						  <div class="image-desc" style="width: 300px; float: left; clear: both; padding: 0px; margin-top: 10px;"><?php echo $product['description']; ?></div>
 					  <?php } ?>
 
-					  <div class="menu" style="width:350px;margin-top: 10px; margin-bottom: 10px;float: left; clear: both;">
+					  <div class="menu" style="width:360px;margin-top: 10px; margin-bottom: 10px;float: left; clear: both;">
 
                           <ul style="margin-left: 0px;">
                               <li style="margin-left: 0px;">
@@ -92,8 +92,8 @@
                                       </a>
                                   </li>
 
-                                  <li>
-                                      <a title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>" style="font-weight:bold;">
+                                  <li style="margin-right: 10px;">
+                                      <a title="<?php echo $text_buy; ?>" href="<?php echo $product['add']; ?>">
                                           <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/buy.png"></div><?php echo $text_buy;?>
                                       </a>
                                   </li>

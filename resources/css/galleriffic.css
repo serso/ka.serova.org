@@ -72,7 +72,7 @@ div.caption-container {
 span.image-caption {
     display: block;
     position: absolute;
-    width: 350px;
+    width: 360px;
     top: 0;
     left: 0;
     border: 1px solid #77b095;
@@ -181,4 +181,8 @@ div.pagination span.ellipsis {
 
 .menu ul li a:hover {
     text-decoration: underline;
+}
+
+.menu ul li a {
+    color: #444444;
 }
