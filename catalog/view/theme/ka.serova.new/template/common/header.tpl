@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css"
           href="catalog/view/theme/<?php echo $template; ?>/stylesheet/stylesheet.css"/>
     <link rel="stylesheet" href="resources/css/galleriffic.css" type="text/css"/>
-    <link rel="shortcut icon" href="catalog/view/theme/<?php echo $template; ?>/image/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="catalog/view/theme/<?php echo $template; ?>/image/favicon.ico"/>
 
     <!--[if lt IE 7]>
     <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css"/>
