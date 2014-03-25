@@ -51,7 +51,7 @@ function addToCart(productId, elementId, text) {
 				autoHide : true, // added in v2.0
 				clickOverlay : false, // added in v2.0
 				MinWidth : 200,
-				TimeShown : 1000,
+				TimeShown : 3000,
 				ShowTimeEffect : 400,
 				HideTimeEffect : 200,
 				LongTrip :20,

@@ -9,117 +9,102 @@
 			<h1><?php echo $heading_title; ?></h1>
 		</div>
 	</div>
-  <div class="middle">
-    <div style="width: 100%; margin-bottom: 30px;">
-      <table style="width: 100%; border-collapse: collapse;">
-        <tr>
-          <td style="text-align: center; width: 250px; vertical-align: top;"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="thickbox" rel="gallery"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" style="margin-bottom: 3px;" /></a><br />
-            <span style="font-size: 11px;"><?php echo $text_enlarge; ?></span></td>
-          <td style="padding-left: 15px; width: 296px; vertical-align: top;"><table width="100%">
-              <?php if ($display_price) { ?>
-              <tr>
-                <td><b><?php echo $text_price; ?></b></td>
-                <td><?php if (!$special) { ?>
-                  <?php echo $price; ?>
-                  <?php } else { ?>
-                  <span style="text-decoration: line-through;"><?php echo $price; ?></span> <span style="color: #F00;"><?php echo $special; ?></span>
-                  <?php } ?></td>
-              </tr>
-              <?php } ?>
-              <tr>
-                <td><b><?php echo $text_availability; ?></b></td>
-                <td><?php echo $stock; ?></td>
-              </tr>
-              <tr>
-                <td><b><?php echo $text_model; ?></b></td>
-                <td><?php echo $model; ?></td>
-              </tr>
+    <div class="middle">
+        <div style="width: 100%; margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="text-align: center; width: 250px; vertical-align: top;"><a href="<?php echo $popup; ?>"
+                                                                                          title="<?php echo $heading_title; ?>"
+                                                                                          class="thickbox"
+                                                                                          rel="gallery"><img
+                                    src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>"
+                                    alt="<?php echo $heading_title; ?>" id="image"
+                                    style="margin-bottom: 3px;"/></a><br/>
+                        <span style="font-size: 11px;"><?php echo $text_enlarge; ?></span></td>
+                    <td style="padding-left: 15px; width: 296px; vertical-align: top;">
 
-              <?php if ($review_status) { ?>
-			  <tr>
-                <td><b><?php echo $text_average; ?></b></td>
-                <td><?php if ($average) { ?>
-                  <img src="catalog/view/theme/default/image/stars_<?php echo $average . '.png'; ?>" alt="<?php echo $text_stars; ?>" style="margin-top: 2px;" />
-                  <?php } else { ?>
-                  <?php echo $text_no_rating; ?>
-                  <?php } ?></td>
-              </tr>
-			  <?php } ?>
+              <span style="position: relative; float: left; width: 100%; margin-top: 50px;">
+              <table class="product-description">
+                  <tr>
+                      <td colspan="2" class="heading">
+                          <?php echo $heading_title; ?>
+                      </td>
+                  </tr>
+                  <?php if ($description) { ?>
+                      <tr>
+                          <td colspan="2">
+                              <?php echo $description; ?>
+                          </td>
+                      </tr>
+                  <?php } ?>
+                  <?php if ($display_price) { ?>
+                  <tr>
+                      <td><?php echo $text_price; ?></td>
+                      <td><?php if (!$special) { ?>
+                          <?php echo $price; ?>
+                          <?php } else { ?>
+                          <span style="text-decoration: line-through;"><?php echo $price; ?></span> <span
+                                  style="color: #F00;"><?php echo $special; ?></span>
+                          <?php } ?></td>
+                  </tr>
+                  <?php } ?>
+                  <tr>
+                      <td><?php echo $text_availability; ?></td>
+                      <td><?php echo $stock; ?></td>
+                  </tr>
+                  <tr>
+                      <td><?php echo $text_model; ?></td>
+                      <td><?php echo $model; ?></td>
+                  </tr>
+
+                  <?php if ($review_status) { ?>
+                  <tr>
+                      <td><?php echo $text_average; ?></td>
+                      <td><?php if ($average) { ?>
+                          <img src="catalog/view/theme/default/image/stars_<?php echo $average . '.png'; ?>"
+                               alt="<?php echo $text_stars; ?>" style="margin-top: 2px;"/>
+                          <?php } else { ?>
+                          <?php echo $text_no_rating; ?>
+                          <?php } ?></td>
+                  </tr>
+                  <?php } ?>
+                  <?php if ($display_price) { ?>
+                  <tr style="margin-top: 10px;">
+                      <td>
+                          <div class="menu">
+                              <ul style="margin: 0px">
+                                  <li style="margin: 0px">
+                                      <a onclick="history.back();">
+                                          <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/back.png"></div><?php echo $button_back; ?>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </td>
+                      <td>
+                          <div class="menu">
+                              <ul style="margin: 0px">
+                                  <li style="margin: 0px">
+                                      <a title="<?php echo $button_add_to_cart; ?>"
+                                         onclick="addToCart(<?php echo $product_id; ?>, null, '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart ."</a>";?>')">
+                                      <div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/cart.png"></div><?php echo $button_add_to_cart; ?>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </td>
+                  </tr>
+                  <?php } ?>
+              </table>
+              </span></td>
+                </tr>
             </table>
-            <br />
-            <?php if ($display_price) { ?>
-<!--            <form action="<?php /*echo str_replace('&', '&amp;', $action); */?>" method="post" enctype="multipart/form-data" id="product">
-              <?php /*if ($options) { */?>
-              <b><?php /*echo $text_options; */?></b><br />
-              <div style="background: #FFFFCC; border: 1px solid #FFCC33; padding: 10px; margin-top: 2px; margin-bottom: 15px;">
-                <table style="width: 100%;">
-                  <?php /*foreach ($options as $option) { */?>
-                  <tr>
-                    <td><?php /*echo $option['name']; */?>:<br />
-                      <select name="option[<?php /*echo $option['option_id']; */?>]">
-                        <?php /*foreach ($option['option_value'] as $option_value) { */?>
-                        <option value="<?php /*echo $option_value['option_value_id']; */?>"><?php /*echo $option_value['name']; */?>
-                        <?php /*if ($option_value['price']) { */?>
-                        <?php /*echo $option_value['prefix']; */?><?php /*echo $option_value['price']; */?>
-                        <?php /*} */?>
-                        </option>
-                        <?php /*} */?>
-                      </select></td>
-                  </tr>
-                  <?php /*} */?>
-                </table>
-              </div>
-              <?php /*} */?>
-              <?php /*if ($display_price) { */?>
-              <?php /*if ($discounts) { */?>
-              <b><?php /*echo $text_discount; */?></b><br />
-              <div style="background: #fdfdfd; border: 1px solid #e3e3e3; padding: 10px; margin-top: 2px; margin-bottom: 15px;">
-                <table style="width: 100%;">
-                  <tr>
-                    <td style="text-align: right;"><b><?php /*echo $text_order_quantity; */?></b></td>
-                    <td style="text-align: right;"><b><?php /*echo $text_price_per_item; */?></b></td>
-                  </tr>
-                  <?php /*foreach ($discounts as $discount) { */?>
-                  <tr>
-                    <td style="text-align: right;"><?php /*echo $discount['quantity']; */?></td>
-                    <td style="text-align: right;"><?php /*echo $discount['price']; */?></td>
-                  </tr>
-                  <?php /*} */?>
-                </table>
-              </div>
-              <?php /*} */?>
-              <?php /*} */?>
-              <div class="content" id="add_to_cart_div">
-				  <?php /*$text_added_to_cart = 'test'*/?>
-				  <?php /*$goToCartUrl = "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";*/?>
-				  <?php /*echo $goToCartUrl;*/?>
-
-                <a id="add_to_cart" onclick="addToCart(<?php /*echo $product_id; */?>, 'add_to_cart_div', 'button', '<?php /*echo $goToCartUrl;*/?>')" class="button"><span><?php /*echo $button_add_to_cart; */?></span></a>
-
-                <?php /*if ($minimum > 1) { */?><br/><small><?php /*echo $text_minimum; */?></small><?php /*} */?>
-              </div>
-              <div>
-                <input type="hidden" name="product_id" value="<?php /*echo $product_id; */?>" />
-                <input type="hidden" name="redirect" value="<?php echo str_replace('&', '&amp;', $redirect); ?>" />                
-              </div>
-            </form>-->
-				  <div class="content">
-					  <a class="button" onclick="history.back();">
-						  <span><?php echo $button_back; ?></span>
-					  </a>
-					  <a class="button" title="<?php echo $button_add_to_cart; ?>" onclick="addToCart(<?php echo $product_id; ?>, null, '<?php echo "<a href=" . str_replace('&', '&amp;', $cart) . ">" . $text_added_to_cart . "</a>";?>')"><span><?php echo $button_add_to_cart; ?></span></a>
-				  </div>
-            <?php } ?></td>
-        </tr>
-      </table>
-    </div>
+        </div>
     <div class="tabs">
-      <a tab="#tab_related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
-      <a tab="#tab_description"><?php echo $tab_description; ?></a>
-      <a tab="#tab_image"><?php echo $tab_image; ?>  (<?php echo count($images); ?>)</a>
+      <a tab="#tab_related"><div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/recommended.png"></div><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
+      <a tab="#tab_image"><div class="menu-icon"><img src="catalog/view/theme/ka.serova.new/image/images.png"></div><?php echo $tab_image; ?>  (<?php echo count($images); ?>)</a>
       <?php if ($review_status) { ?><a tab="#tab_review"><?php echo $tab_review; ?></a><?php } ?>
     </div>
-    <div id="tab_description" class="tab_page"><?php echo $description; ?></div>
     <?php if ($review_status) { ?>
     <div id="tab_review" class="tab_page">
       <div id="review"></div>

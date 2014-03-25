@@ -1,7 +1,7 @@
 <?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content">
   <div class="top">
-    <div class="left"> <script type="text/javascript" src="catalog/view/javascript/jquery/ajax_add.js"></script>
+    <div class="left"></script>
     <div class="right"></div>
     <div class="center"></div>
   </div>

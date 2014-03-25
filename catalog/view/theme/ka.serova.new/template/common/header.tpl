@@ -107,7 +107,7 @@
         }
                     }
         //--></script>
-
+    <script type="text/javascript" src="catalog/view/javascript/jquery/ajax_add.js">
 </head>
 <body class="category_background">
 

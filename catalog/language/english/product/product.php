@@ -1,6 +1,6 @@
 <?php
 // Text
-$_['text_enlarge']        = 'Click to enlarge';
+$_['text_enlarge']        = 'Click on image to enlarge';
 $_['text_discount']       = 'Quantity Discount:';
 $_['text_options']        = 'Available Options:';
 $_['text_error']          = 'Product not found!';

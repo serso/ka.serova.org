@@ -468,7 +468,6 @@ div#page {
 	border-left: 1px solid #DDDDDD;
 	border-right: 1px solid #DDDDDD;
 	color: #000000;
-	font-weight: bold;
 	font-size: 13px;
 	text-decoration: none;
 	z-index: 1;
@@ -735,4 +734,62 @@ div.caption .right {
 
 .image-desc p {
     margin: 0px;
+}
+
+.product-description {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: 1px solid #77b095;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.product-description .heading {
+    font-weight: normal;
+    text-transform: none;
+    padding: 0;
+}
+
+.product-description tbody {
+    width: 100%;
+    display: table;
+}
+
+.product-description tr {
+    width: 100%;
+    display: table;
+    margin-top: 5px;
+}
+.product-description tr td {
+    width: 50%;
+    text-align: left;
+}
+
+.product-description:before
+{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -16px;
+    top: 40px;
+    border: 8px solid;
+    border-color: #77b095 #77b095 transparent transparent;
+}
+
+.product-description:after
+{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -13px;
+    top: 41px;
+    border: 8px solid;
+    border-color: #fff  #fff transparent transparent;
 }
